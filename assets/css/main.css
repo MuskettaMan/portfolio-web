@@ -1651,7 +1651,7 @@
 
 	#footer {
 		padding: 4em 0 2em 0;
-		background: #f2f2f2;
+		background: #e6e6e6;
 	}
 
 		#footer .copyright {
@@ -1669,11 +1669,5 @@
 			}
 
 		}
-
-/* Web-GL */
-
-	/* @media screen and (max-width: 736px){
-		
-	} */
 	
 	

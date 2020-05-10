@@ -35,7 +35,7 @@
 						<section>
 							<div class="inner">
 								<header>
-									<h1> Maze Generator <a href="https://github.com/MuskettaMan/PerfectMazeGenerator"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
+									<h1> Maze Generator <a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
 								</header>
 
 								<div class="webgl-content">
@@ -47,7 +47,7 @@
     							</div>
 
 								<br>
-								<section class="columns double">
+								<section class="columns double" style="width: 75%">
 									<div class="column">
 										<h2>Instructions</h2>
 										<ul>
@@ -61,30 +61,34 @@
 									<div class="column">
 										<h2>Project information</h2>
 										<ul>
-											<li><b>Project duration: </b>3 weeks</li>
-											<li><b>Framework / engine: </b>Unity Engine</li>
-											<li><b>Programming language: </b>C#</li>
-											<li><b>Group: </b>Solo</li>
-											<li><b>Art assets: </b>from <a href="https://0x72.itch.io/dungeontileset-ii">itch.io</a></li>
+											<li><b><i class="fas fa-clock"></i> Project duration: </b>3 weeks</li>
+											<li><b><i class="fab fa-unity"></i> Framework / engine: </b>Unity Engine</li>
+											<li><b><i class="fas fa-code"></i> Programming language: </b>C#</li>
+											<li><b><i class="fas fa-users"></i> Group: </b>Solo</li>
+											<li><b><i class="fab fa-itch-io"></i> Art assets: </b>from <a href="https://0x72.itch.io/dungeontileset-ii"> itch.io</a></li>
+											<li><b><i class="fab fa-github"></i> Github: </b><a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts"> here</a></li>
 										</ul>
 									</div>
 								</section>
 
-								
 								<h2>About the project</h2>
-								<p>When I started working on this I had little to no knowledge about maze generation, so I started reading up on them.<br/>I did some prototyping at the start using the easy algorithms (depth first search). After the first algorithm was finished I felt quite confident and immediately started on the next one: Prim's algorithm. This one was completely different from the previous one, way more complicated and my code base was starting to work against me.<br/>So I abstracted all the code and put the generation algorithms in their own delegates so I can load in how many I want. After that it was actually plain sailing, all the other algorithms were hard ofcourse. But the way I managed my project/code base made it easier to maintain.</p>
-								
+								<section class="columns double" style="width: 75%">
+									<div class="column">
+										<h3>Generation algorithms</h3>
+										<ul>
+											<li>Depth First Search</li>
+											<li>Prim's Algorithm</li>
+											<li>Sidewinder Algorithm</li>
+											<li>Binary Tree Algorithm</li>
+											<li>Kruskal's Algorithm</li>
+										</ul>
+									</div>
+									<div class="column">
+										<h3>Personal experience</h3>
+										<p>This project includes 5 different maze generation algorithms, listed above. My vision for this project originally was to implement a maze generation algorithm.</br>I started out with the depth first search algorithm since it's arguably has the best entry level for them. After the first one I did feel confident to continue and implement more, although that proved easier said than done. The one I struggled most with was Kruskal's algorithm, since I had to implement the idea of shared walls between the cells.</br>After the second algorithm I did start to abstract most concepts in my project to keep it maintainable. I made a delegate for the generation algorithms, so I could easily swap between the diffrent ones.</p>
+								</div>
+								</section>
 							</div>
-						</section>
-
-					<!-- Contact -->
-						<section id="contact">
-							<!-- Social -->
-								<?php include_once 'html/general/about_me.php'; ?>
-
-							<!-- Form -->
-								<?php include_once 'html/general/contact.php'; ?>
-
 						</section>
 
 					<!-- Footer -->
