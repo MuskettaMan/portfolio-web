@@ -9,6 +9,7 @@
 		<title>Ferri de Lange</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
@@ -45,25 +46,10 @@
 											<a href="mazeGenerator.php"><img src="images/thumbs/mazeGameThumb.png" alt="" /></a>
 										</div>
 										<div class="media">
-											<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
+											<a href="MaRequest2019.php"><img src="images/thumbs/maRequestThumb.jpg" alt="" /></a>
 										</div>
 										<div class="media">
-											<a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
+											<a href="policePursuit.php"><img src="images/thumbs/policePursuitThumb.jpg" alt="" /></a>
 										</div>
 									</div>
 									<footer>
@@ -83,11 +69,7 @@
 						</section>
 
 					<!-- Footer -->
-						<footer id="footer">
-							<div class="copyright">
-								&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-							</div>
-						</footer>
+						<?php include_once 'html/general/footer.php'; ?>
 				</section>
 		</div>
 

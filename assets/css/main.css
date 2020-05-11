@@ -1210,6 +1210,12 @@
 		padding-right: 3.5em;
 	}
 
+	section .inner img, iframe {
+		-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  		-moz-box-shadow:    3px 3px 5px 6px #ccc;
+  		box-shadow:         3px 3px 5px 6px #ccc;
+	}
+
 		@media screen and (max-width: 980px) {
 
 			section .inner, article .inner {
@@ -1622,7 +1628,7 @@
 
 		#main #header {
 			background: #e6e6e6;
-			padding: 1.15em 3.5em;
+			padding: 0.5em 2em;
 			text-align: right;
 		}
 
@@ -1650,12 +1656,12 @@
 /* Footer */
 
 	#footer {
-		padding: 4em 0 2em 0;
+		padding: 1em 0 1em 0;
 		background: #e6e6e6;
 	}
 
 		#footer .copyright {
-			color: #bfbfbf;
+			color: #646464;
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
 			padding: 0 1em;

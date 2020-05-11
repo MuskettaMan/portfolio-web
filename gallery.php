@@ -6,9 +6,10 @@
 -->
 <html>
 	<head>
-		<title>Gallery - Snapshot by TEMPLATED</title>
+		<title>Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
@@ -22,7 +23,7 @@
 
 					<!-- Header -->
 						<header id="header">
-							<div>Snapshot <span>by TEMPLATED</span></div>
+							<span>Ferri de Lange | Gameplay developer</span>
 						</header>
 
 					<!-- Gallery -->
@@ -33,51 +34,24 @@
 
 									<!-- Filters -->
 										<header>
-											<h1>Gallery</h1>
+											<h1>Portfolio</h1>
 											<ul class="tabs">
-												<li><a href="#" data-tag="all" class="button active">All</a></li>
-												<li><a href="#" data-tag="people" class="button">People</a></li>
-												<li><a href="#" data-tag="place" class="button">Places</a></li>
-												<li><a href="#" data-tag="thing" class="button">Things</a></li>
+												<li><a href="#" data-tag="All" class="button active">All</a></li>
+												<li><a href="#" data-tag="Unity" class="button">Unity</a></li>
+												<li><a href="#" data-tag="2D" class="button">2D</a></li>
+												<li><a href="#" data-tag="VR" class="button">VR</a></li>
 											</ul>
 										</header>
 
 										<div class="content">
-											<div class="media all people">
-												<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
+											<div class="media All Unity 2D">
+												<a href="mazeGenerator.php"><img src="images/thumbs/mazeGameThumb.png" alt="" /></a>
 											</div>
-											<div class="media all place">
-												<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
+											<div class="media All Unity VR">
+												<a href="MaRequest2019.php"><img src="images/thumbs/maRequestThumb.jpg" alt="" /></a>
 											</div>
-											<div class="media all thing">
-												<a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all people">
-												<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all place">
-												<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all thing">
-												<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all people">
-												<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all place">
-												<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all thing">
-												<a href="images/fulls/11.jpg"><img src="images/thumbs/11.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all people">
-												<a href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all place">
-												<a href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt="" title="This right here is a caption." /></a>
-											</div>
-											<div class="media all thing">
-												<a href="images/fulls/12.jpg"><img src="images/thumbs/12.jpg" alt="" title="This right here is a caption." /></a>
+											<div class="media All Unity 3D">
+												<a href="policePursuit.php"><img src="images/thumbs/policePursuitThumb.jpg" alt="" /></a>
 											</div>
 										</div>
 								</div>
@@ -94,11 +68,7 @@
 						</section>
 
 					<!-- Footer -->
-						<footer id="footer">
-							<div class="copyright">
-								&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-							</div>
-						</footer>
+						<?php include_once 'html/general/footer.php'; ?>
 				</section>
 		</div>
 

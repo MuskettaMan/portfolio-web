@@ -10,8 +10,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/games/mazeGenerator/TemplateData/style.css" />
-    	<script src="assets/games/mazeGenerator/TemplateData/UnityProgress.js"></script>
+		<link rel="stylesheet" href="assets/games/TemplateData/style.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    	<script src="assets/games/TemplateData/UnityProgress.js"></script>
 		<script src="assets/games/mazeGenerator/Build/UnityLoader.js"></script>
 		<script>
       		var unityInstance = UnityLoader.instantiate("unityContainer", "assets/games/mazeGenerator/Build/Web Build.json", {onProgress: UnityProgress});
@@ -35,7 +36,7 @@
 						<section>
 							<div class="inner">
 								<header>
-									<h1> Maze Generator <a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
+									<h1> Maze Generator <a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts" target="_blank"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
 								</header>
 
 								<div class="webgl-content">
@@ -62,11 +63,13 @@
 										<h2>Project information</h2>
 										<ul>
 											<li><b><i class="fas fa-clock"></i> Project duration: </b>3 weeks</li>
+											<li><b><i class="fas fa-calendar-day"></i> Date: </b>30 September 2019</li>
 											<li><b><i class="fab fa-unity"></i> Framework / engine: </b>Unity Engine</li>
+											<li><b><i class="fas fa-vector-square"></i></i> Type: </b>2D</li>
 											<li><b><i class="fas fa-code"></i> Programming language: </b>C#</li>
 											<li><b><i class="fas fa-users"></i> Group: </b>Solo</li>
-											<li><b><i class="fab fa-itch-io"></i> Art assets: </b>from <a href="https://0x72.itch.io/dungeontileset-ii"> itch.io</a></li>
-											<li><b><i class="fab fa-github"></i> Github: </b><a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts"> here</a></li>
+											<li><b><i class="fab fa-itch-io"></i> Art assets: </b>from <a href="https://0x72.itch.io/dungeontileset-ii" target="_blank"> itch.io</a></li>
+											<li><b><i class="fab fa-github"></i> Github: </b><a href="https://github.com/MuskettaMan/PerfectMazeGenerator/tree/master/Assets/Scripts" target="_blank"> here</a></li>
 										</ul>
 									</div>
 								</section>
@@ -92,11 +95,7 @@
 						</section>
 
 					<!-- Footer -->
-						<footer id="footer">
-							<div class="copyright">
-								&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-							</div>
-						</footer>
+						<?php include_once 'html/general/footer.php'; ?>
 				</section>
 		</div>
 
