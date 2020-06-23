@@ -30,17 +30,24 @@
 						<section>
 							<div class="inner">
 								<header>
-									<h1>Ma Request 2019 <a href="https://github.com/MartinBuilder/MaRequest/tree/master/Assets/Scripts" target="_blank"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
+									<h1>Ma Request 2019 | Ferri de Lange<a href="https://github.com/MartinBuilder/MaRequest/tree/master/Assets/Scripts" target="_blank"><i style="font-size:200%" class="fab fa-github"></i></a></h1>
 								</header>
 
-								<img src="images/MaRequest StartScreen.png" style="float: right; width: 25%; height: 25%" />
+								<section class="columns double maRequest">
+									<div class="column">
+										<iframe src="https://youtube.com/embed/BcaPDZ4gpIQ"></iframe>
+									</div>
+									<div class="column">
+										<img src="images/MaRequest StartScreen.jpg" />
+									</div>
+								</section>
 
-								<iframe src="https://youtube.com/embed/BcaPDZ4gpIQ" width="60%" height="320" style="margin-bottom: 1em"></iframe>
+								<br>
 
 								<section class="columns double" style="width: 75%">
 									<div class="column">
 										<h2>Gameplay</h2>
-										<p>You start out on a small island with a catapult placed in front of you. You can grab snowballs from the pile next to you and load them in to the catapult. Your goals is to shoot the snowballs in to the cans on the other island knock them all over. In total there are 5 levels each with different levle setup and amount of cans. On the side you also have a TV that's focused on the island from a different angle, that way you can enjoy viewing your destruction.</p>
+										<p>You start out on a small island with a catapult placed in front of you. You can grab snowballs from the pile next to you and load them in to the catapult. Your goals is to shoot the snowballs on to the cans on the other island knock them all over. In total there are 5 levels each with different levle setup and amount of cans. On the side you also have a TV that's focused on the island from a different angle, that way you can enjoy viewing your destruction.</p>
 									</div>
 									<div class="column">
 										<h2>Project information</h2>

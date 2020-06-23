@@ -316,7 +316,7 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background: #19B5FE;
+		background-image: linear-gradient(120deg, #19B5FE 0%, #B1E7FF 100%);
 		color: #FFF;
 		border-radius: 4px;
 		border: 0;
@@ -337,7 +337,7 @@
 		button.active,
 		.button.active {
 			color: #FFF;
-			background: #22313F;
+			background-image: linear-gradient(120deg, #22313F 0%, #19B5FE 100%);
 		}
 
 			input[type="submit"].active:hover,
@@ -346,7 +346,7 @@
 			button.active:hover,
 			.button.active:hover {
 				color: #FFF;
-				background: #22313F;
+				background-image: linear-gradient(120deg, #22313F 0%, #19B5FE 100%);
 			}
 
 		input[type="submit"]:hover,
@@ -355,7 +355,7 @@
 		button:hover,
 		.button:hover {
 			color: #FFF;
-			background: #019be3;
+			background-image: linear-gradient(120deg, #5F89B1 0%, #19B5FE 100%);
 		}
 
 		input[type="submit"].alt,
@@ -373,7 +373,7 @@
 			button.alt:hover,
 			.button.alt:hover {
 				background: rgba(144, 144, 144, 0.075);
-				box-shadow: 0 0 0 2px rgba(144, 144, 144, 0.25);
+				box-shadow: 0 0 0 2px rgba(144, 144, 144, 0.50);
 			}
 
 		input[type="submit"].icon,
@@ -1070,7 +1070,7 @@
 
 			ul.icons li {
 				display: inline-block;
-				padding: 0 1em 0 0;
+				padding: 0 0.5em 0 0;
 			}
 
 				ul.icons li:last-child {
@@ -1208,12 +1208,6 @@
 		padding: 3.5em 0 1.5em 0;
 		padding-left: 3.5em;
 		padding-right: 3.5em;
-	}
-
-	section .inner img, iframe {
-		-webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  		-moz-box-shadow:    3px 3px 5px 6px #ccc;
-  		box-shadow:         3px 3px 5px 6px #ccc;
 	}
 
 		@media screen and (max-width: 980px) {
@@ -1486,11 +1480,11 @@
 				}
 
 					#nav ul li a:hover {
-						color: white;
+						color: #FFFFCD;
 					}
 
 					#nav ul li a.active {
-						color: #19B5FE;
+						color: #FFFF1A;
 					}
 
 				@media screen and (max-width: 736px) {
@@ -1675,5 +1669,39 @@
 			}
 
 		}
-	
-	
+
+	section .maRequest .column {
+		height: 30em;
+	}
+
+	section .maRequest img {
+		display: block;
+		width: 100%; 
+		object-fit: contain;
+		height: inherit;
+	}
+
+	section .maRequest iframe {
+		display: block;
+		width: 100%; 
+		object-fit: contain;
+		height: inherit;
+	}
+/* 
+	@media screen and (max-width: 700px) {
+		section .maRequest img, iframe {
+			 width: inherit;
+			 height: auto;
+		}
+	} */
+
+	.slideshow img {
+		width: 100%;
+		height: 30em;
+		object-fit: cover;
+	}
+
+	.slideshow .button {
+		width: 49%;
+		margin: auto;
+	}

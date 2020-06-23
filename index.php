@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Ferri de Lange</title>
+		<title>Home | Ferri de Lange</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
@@ -26,7 +26,7 @@
 						<section id="banner">
 							<div class="inner">
 								<h1>Hey, I'm Ferri de Lange</h1>
-								<p>An up and coming gameplay developer</p>
+								<p style="font-size: 35px">Gameplay Developer</p>
 								<ul class="actions">
 									<li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
 								</ul>
