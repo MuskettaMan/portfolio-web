@@ -51,6 +51,12 @@
 										<div class="media">
 											<a href="policePursuit.php"><img src="images/thumbs/policePursuitThumb.jpg" alt="" /></a>
 										</div>
+										<div class="media">
+											<a href="flockingSimulation.php"><img src="images/thumbs/flockingSimulationThumb.jpg" alt="" /></a>
+										</div>
+										<div class="media">
+											<a href="polarPerlinNoiseLoop.php"><img src="images/thumbs/polarPerlinNoiseLoopThumb.jpg" alt="" /></a>
+										</div>
 									</div>
 									<footer>
 										<a href="gallery.php" class="button big">Full Gallery</a>

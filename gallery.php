@@ -40,6 +40,7 @@
 												<li><a href="#" data-tag="Unity" class="button">Unity</a></li>
 												<li><a href="#" data-tag="2D" class="button">2D</a></li>
 												<li><a href="#" data-tag="VR" class="button">VR</a></li>
+												<li><a href="#" data-tag="p5js" class="button">P5js</a></li>
 											</ul>
 										</header>
 
@@ -52,6 +53,12 @@
 											</div>
 											<div class="media All Unity 3D">
 												<a href="policePursuit.php"><img src="images/thumbs/policePursuitThumb.jpg" alt="" /></a>
+											</div>
+											<div class="media All Unity 3D">
+												<a href="flockingSimulation.php"><img src="images/thumbs/flockingSimulationThumb.jpg" alt="" /></a>
+											</div>
+											<div class="media All p5js 2D">
+												<a href="polarPerlinNoiseLoop.php"><img src="images/thumbs/polarPerlinNoiseLoopThumb.jpg" alt="" /></a>
 											</div>
 										</div>
 								</div>

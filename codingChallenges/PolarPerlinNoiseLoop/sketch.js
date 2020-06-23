@@ -4,7 +4,7 @@ let phase = 0;
 let zoff = 0;
 
 function setup() {
-    var canvas = createCanvas(400, 400);
+    var canvas = createCanvas(450, 450);
     slider = createSlider(0, 10, 0, 0.1);
 
     canvas.parent('sketch');

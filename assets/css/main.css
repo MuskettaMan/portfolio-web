@@ -337,7 +337,7 @@
 		button.active,
 		.button.active {
 			color: #FFF;
-			background-image: linear-gradient(120deg, #22313F 0%, #19B5FE 100%);
+			background-image: linear-gradient(120deg, #2f5980 0%, #19B5FE 100%);
 		}
 
 			input[type="submit"].active:hover,
@@ -355,7 +355,7 @@
 		button:hover,
 		.button:hover {
 			color: #FFF;
-			background-image: linear-gradient(120deg, #5F89B1 0%, #19B5FE 100%);
+			background-image: linear-gradient(120deg, #1b6bb6 0%, #19B5FE 100%);
 		}
 
 		input[type="submit"].alt,
@@ -1206,7 +1206,7 @@
 	
 	section .inner, article .inner {
 		padding: 3.5em 0 1.5em 0;
-		padding-left: 3.5em;
+		padding-left: 7.5em;
 		padding-right: 3.5em;
 	}
 
