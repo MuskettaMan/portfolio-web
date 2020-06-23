@@ -75,11 +75,20 @@
 								<section class="columns double" style="width: 75%">
 									<div class="column">
 										<h3>Flocking simulation</h3>
-										<p></p>
+										<p>
+											Boids is an artificial life program, developed by Craig Reynolds in 1986, which simulates the flocking behaviour of birds. His paper on this topic was published in 1987 in the proceedings of the ACM SIGGRAPH conference. The name "boid" corresponds to a shortened version of "bird-oid object", which refers to a bird-like object. Incidentally, "boid" is also a New York Metropolitan dialect pronunciation for "bird".
+											As with most artificial life simulations, Boids is an example of emergent behavior; that is, the complexity of Boids arises from the interaction of individual agents (the boids, in this case) adhering to a set of simple rules. The rules applied in the simplest Boids world are as follows:
+											<ul>
+												<li><b>alignment:</b> steer towards the average heading of local flockmates</li>
+												<li><b>cohesion:</b> steer to move towards the average position (center of mass) of local flockmates</li>
+												<li><b>separation:</b> steer to avoid crowding local flockmates</li>
+											</ul>
+											More complex rules can be added, such as obstacle avoidance and goal seeking.
+										</p>
 									</div>
 									<div class="column">
 										<h3>Viewing angles for the boids</h3>
-										<p></p>
+										<p>I added on a more realistic feature to the system; the boids can only 'see' other boids in a certain viewing angle. They don't change their behaviour based on the boids behind them.<br>This isn't that much black magic, just some boring trigonometry. <a target="_blank" href="https://github.com/MuskettaMan/Flocking-Simulation/blob/master/Assets/Scripts/Boid.cs#L133">Here's</a> a link if you want to see it. At the top of the script I have editor visible float parameter for the angle. The angle is based on how many degrees the boid can see from the center out, for example 180 degrees he would see everything and with 90 only his sides.<br>Now we only have to calculate our angle compared to the other boids, fortunately Unity can help us out with <a target="_blank" href="https://docs.unity3d.com/ScriptReference/Vector3.Angle.html">Vector3.Angle().</a>We can pass in our forward angle and the delta of our positions, this will return the angle. And finally we see if that angle is smaller than the angle defined in the editor and greater then it's negative. Really quite interesting -_-.</p>
 									</div>
 									<div class="column">
 										<h3>Bucket optimizations</h3>
