@@ -61,7 +61,7 @@
 					<!-- Contact -->
 					<section id="contact">
 							<!-- Social -->
-								<?php include_once 'html/general/about_me.php'; ?>
+								
 
 							<!-- Form -->
 								<?php include_once 'html/general/contact.php'; ?>
