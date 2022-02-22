@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - npm run build
+    - /bin/npm run build
