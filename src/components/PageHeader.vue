@@ -14,9 +14,15 @@ export default {
 
 <style scoped lang="scss">
 .page-header {
-  padding: 12rem 10rem;
+  margin: 12rem 10rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .page-header {
+    margin: 12rem 2rem;
+  }
 }
 </style>

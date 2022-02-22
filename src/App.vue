@@ -52,6 +52,20 @@ h2 {
   opacity: 0.9;
 }
 
+@media only screen and (max-width: 600px) {
+  p {
+    font-size: .9rem;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+
 #app {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

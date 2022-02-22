@@ -102,6 +102,8 @@ export default {
       img {
         object-fit: contain;
         height: 100%;
+        border-radius: 5px;
+        opacity: .95;
       }
     }
   }
@@ -125,6 +127,32 @@ export default {
 
   .custom-shape-divider-top-1645555047 .shape-fill {
     fill: var(--background-color);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .portfolio-mention {
+    .content {
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+      height: auto;
+      justify-content: center;
+
+      .text-wrapper {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .image-wrapper {
+        height: 80vw;
+      }
+    }
+
+    .custom-shape-divider-top-1645555047 svg {
+      width: calc(175% + 1.3px);
+      transform: translateX(-10%);
+    }
   }
 }
 </style>
