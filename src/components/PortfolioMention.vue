@@ -1,13 +1,15 @@
 <template>
-  <section :style="style" class="portfolio-mention">
-    <div class="content">
-      <div class="text-wrapper">
-        <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
-        <p class="read-more">Read more &#129042;</p>
-      </div>
-      <div class="image-wrapper">
-        <img src="@/assets/images/mazeGameThumb.png" alt="">
+  <section :id="stringToSlug(title)" :style="style" class="portfolio-mention">
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="text-wrapper">
+          <h2>{{ title }}</h2>
+          <p>{{ description }}</p>
+          <p class="read-more">Read more &#129042;</p>
+        </div>
+        <div class="image-wrapper">
+          <img :src="imageUrl" alt="">
+        </div>
       </div>
     </div>
     <div class="custom-shape-divider-top-1645555047">
@@ -21,6 +23,9 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { stringToSlug } from "@/assets/helpers/SlugUtility";
+
 export default {
   name: "PortfolioMention",
   props: {
@@ -29,6 +34,10 @@ export default {
       required: true
     },
     description: {
+      type: String,
+      required: true
+    },
+    imageUrl: {
       type: String,
       required: true
     },
@@ -41,12 +50,17 @@ export default {
       required: true
     }
   },
-  computed: {
-    style() {
+  setup(props) {
+    const style = computed(() => {
       return `
-        --color: ${this.color};
-        --background-color: ${this.backgroundColor};
+        --color: ${props.color};
+        --background-color: ${props.backgroundColor};
       `
+    })
+
+    return {
+      style,
+      stringToSlug
     }
   }
 }
@@ -56,57 +70,57 @@ export default {
 .portfolio-mention {
   position: relative;
   background-color: var(--color);
-  padding-top: 5%;
   display: flex;
-  align-items: center;
+  padding: 10rem 10rem 0;
 
-  .content {
-    margin: 0 10rem;
-
-    height: 50vh;
-    min-height: 450px;
-
+  .content-wrapper {
+    min-height: 75vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 
-    .text-wrapper {
-      max-width: 50%;
-      margin: 8rem 0;
+    .content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
 
-      h2 {
-        margin-bottom: 3rem;
+      .text-wrapper {
+        max-width: 50%;
+
+        h2 {
+          margin-bottom: 3rem;
+        }
+
+        p {
+          line-height: 1.5rem;
+        }
+
+        p, h2 {
+          color: white;
+        }
+
+        .read-more {
+          margin-top: .5rem;
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
       }
 
-      p {
-        line-height: 1.5rem;
-      }
-
-      p, h2 {
-        color: white;
-      }
-
-      .read-more {
-        margin-top: .5rem;
-
-        &:hover {
-          cursor: pointer;
-          text-decoration: underline;
+      .image-wrapper {
+        img {
+          object-fit: contain;
+          height: 100%;
+          border-radius: 5px;
+          opacity: .95;
+          filter: drop-shadow(4px 4px 8px rgba(black, 0.3));
         }
       }
     }
-
-    .image-wrapper {
-      height: 75%;
-      img {
-        object-fit: contain;
-        height: 100%;
-        border-radius: 5px;
-        opacity: .95;
-      }
-    }
   }
+
 
 
   .custom-shape-divider-top-1645555047 {
@@ -132,20 +146,28 @@ export default {
 
 @media only screen and (max-width: 1000px) {
   .portfolio-mention {
-    .content {
-      margin-right: 2rem;
-      margin-left: 2rem;
-      margin-bottom: 2rem;
-      height: auto;
-      justify-content: center;
+    padding: 8rem 2rem 0;
 
-      .text-wrapper {
-        max-width: 100%;
+    .content-wrapper {
+      .content {
+        height: auto;
+        justify-content: center;
         margin-bottom: 2rem;
-      }
 
-      .image-wrapper {
-        height: 80vw;
+        .text-wrapper {
+          max-width: 100%;
+
+          h2 {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .image-wrapper {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
       }
     }
 

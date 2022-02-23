@@ -1,24 +1,34 @@
 <template>
   <div class="wrapper">
     <PageHeader/>
-    <PortfolioMention color="#053c5e" background-color="#fffcf2" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
-    <PortfolioMention color="#1d3958" background-color="#053c5e" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
-    <PortfolioMention color="#353652" background-color="#1d3958" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
-    <PortfolioMention color="#4c334d" background-color="#353652" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
-    <PortfolioMention color="#643047" background-color="#4c334d" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
-    <PortfolioMention color="#7c2e41" background-color="#643047" title="Object pooling" description="This package is an implementation of the Object Pool design pattern made for Unity. It contains the traditional implementation of the design pattern, but also a more specialized implementation dealing with how GameObjects are instantiated, maintained and destroyed." />
+    <PortfolioMention
+        v-for="(item, index) in json"
+        :key="index"
+        :title="item.title"
+        :description="item.description"
+        :image-url="require(`@/assets/images/${item.imageUrl}`)"
+        :color="item.color"
+        :background-color="index - 1 >= 0 ? json[index - 1].color : '#fffcf2'"
+    />
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import PortfolioMention from '@/components/PortfolioMention.vue'
+import json from '@/assets/content/portfolio.json'
 
 export default {
   name: 'App',
   components: {
     PageHeader,
     PortfolioMention
+  },
+  setup() {
+
+    return {
+      json
+    }
   }
 }
 </script>
