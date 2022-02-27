@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-button" :class="{ 'reached-bottom': reachedBottom }">
+  <div class="scroll-button" :class="{ 'reached-bottom': reachedBottom, effect: effect}">
     <button @click="nextSectionButtonClicked">
       <fa-icon icon="circle-arrow-down"></fa-icon>
     </button>
@@ -7,7 +7,9 @@
 </template>
 
 <script>
-import {onMounted, onUnmounted, ref} from "vue";
+import {computed, onMounted, onUnmounted, ref} from "vue";
+import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
+import {useRoute} from "vue-router";
 
 export default {
   name: "ScrollDownButton",
@@ -18,16 +20,12 @@ export default {
     }
   },
   setup(props) {
-    const reachedBottom = ref(true)
+    const reachedBottom = ref(false)
+    const route = useRoute();
+    const effect = computed(() => IsFirstTimeEnter(route))
     const queryScrollButtonEnabled = () => {
-      if(props.targets.length === 0)
-        return false;
-
       const lastElement = props.targets[props.targets.length - 1].$el;
-
       const bottomScroll = window.scrollY + window.innerHeight - lastElement.offsetHeight + 50
-
-      console.log(bottomScroll > lastElement.offsetTop)
 
       reachedBottom.value = bottomScroll > lastElement.offsetTop;
     }
@@ -52,6 +50,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener('scroll', queryScrollButtonEnabled)
+      queryScrollButtonEnabled();
     })
 
     onUnmounted(() => {
@@ -60,7 +59,8 @@ export default {
 
     return {
       nextSectionButtonClicked,
-      reachedBottom
+      reachedBottom,
+      effect
     }
   }
 }
@@ -77,6 +77,15 @@ export default {
   transform: translateX(-50%);
   color: floralwhite;
   mix-blend-mode: difference;
+
+  &.effect {
+    opacity: 0;
+    animation-name: enter;
+    animation-duration: 1s;
+    animation-delay: 1.75s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
 
   &.reached-bottom button svg {
     transition: transform 250ms;
@@ -126,5 +135,10 @@ export default {
       opacity: 90%;
     }
   }
+}
+
+@keyframes enter {
+  from { opacity: 0; }
+  to { opacity: 100%; }
 }
 </style>

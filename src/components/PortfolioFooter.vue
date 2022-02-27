@@ -70,4 +70,30 @@ export default {
     }
   }
 }
+
+
+@media only screen and (max-width: 1000px) {
+  .portfolio-footer {
+    padding: 11rem 2rem 3rem;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+
+      .about-me {
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .get-in-contact {
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
 </style>

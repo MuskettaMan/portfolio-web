@@ -8,17 +8,14 @@
 
 <script>
 import {computed} from "vue";
+import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 import {useRoute} from "vue-router";
 
 export default {
   name: "PageHeader",
   setup() {
-    const route = useRoute();
-
-    const useEntryAnimation = computed(() => {
-      let hasHash = route.hash === "";
-      return hasHash && (document.cookie === 'visited=false' || document.cookie === '');
-    })
+    const route = useRoute()
+    const useEntryAnimation = computed(() => IsFirstTimeEnter(route))
 
     return {
       useEntryAnimation
