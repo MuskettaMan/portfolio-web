@@ -1,6 +1,6 @@
 <template>
   <section :id="stringToSlug(title)" :style="style" class="portfolio-mention">
-    <ShapeDivider :type="getRandomDivider()" :color="backgroundColor"/>
+    <ShapeDivider :type="getRandomDivider()" :color="transitionColor"/>
     <div class="content-wrapper">
       <div class="content">
         <div class="text-wrapper">
@@ -38,11 +38,11 @@ export default {
       type: String,
       required: true
     },
-    color: {
+    backgroundColor: {
       type: String,
       required: true
     },
-    backgroundColor: {
+    transitionColor: {
       type: String,
       required: true
     }
@@ -50,7 +50,6 @@ export default {
   setup(props) {
     const style = computed(() => {
       return `
-        --color: ${props.color};
         --background-color: ${props.backgroundColor};
       `
     })
@@ -71,7 +70,7 @@ export default {
 <style scoped lang="scss">
 .portfolio-mention {
   position: relative;
-  background-color: var(--color);
+  background-color: var(--background-color);
   display: flex;
   padding: 10rem 10rem 0;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-button" :class="{ disabled: !scrollButtonEnabled }">
+  <div class="scroll-button" :class="{ 'reached-bottom': reachedBottom }">
     <button @click="nextSectionButtonClicked">
       <fa-icon icon="circle-arrow-down"></fa-icon>
     </button>
@@ -18,23 +18,28 @@ export default {
     }
   },
   setup(props) {
-    const scrollButtonEnabled = ref(true)
+    const reachedBottom = ref(true)
     const queryScrollButtonEnabled = () => {
       if(props.targets.length === 0)
         return false;
 
       const lastElement = props.targets[props.targets.length - 1].$el;
-      const bottomHeight =  lastElement.offsetTop - 100;
 
-      scrollButtonEnabled.value = window.scrollY < bottomHeight;
+      const bottomScroll = window.scrollY + window.innerHeight - lastElement.offsetHeight + 50
+
+      console.log(bottomScroll > lastElement.offsetTop)
+
+      reachedBottom.value = bottomScroll > lastElement.offsetTop;
     }
 
     const nextSectionButtonClicked = () => {
-      let targetIndex = props.targets.length;
-      for (let i = 0; i < props.targets.length; i++) {
-        if(props.targets[i].$el.offsetTop > window.scrollY) {
-          targetIndex = i;
-          break;
+      let targetIndex = 0;
+      if(!reachedBottom.value) {
+        for (let i = 0; i < props.targets.length; i++) {
+          if(props.targets[i].$el.offsetTop > window.scrollY) {
+            targetIndex = i;
+            break;
+          }
         }
       }
 
@@ -55,7 +60,7 @@ export default {
 
     return {
       nextSectionButtonClicked,
-      scrollButtonEnabled
+      reachedBottom
     }
   }
 }
@@ -70,20 +75,25 @@ export default {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  color: floralwhite;
+  mix-blend-mode: difference;
 
-  &:not(.disabled) {
-    button {
-      transition: all 250ms;
-      transition-property: opacity, bottom;
-    }
+  &.reached-bottom button svg {
+    transition: transform 250ms;
+    transform: rotate(180deg);
+  }
 
-    &:hover button {
-      opacity: 95%;
-      bottom: -0.5rem;
-      transition: all 150ms;
-      transition-property: opacity, bottom;
-      cursor: pointer;
-    }
+  button {
+    transition: all 250ms;
+    transition-property: opacity, bottom;
+  }
+
+  &:hover button {
+    opacity: 95%;
+    bottom: -0.5rem;
+    transition: all 150ms;
+    transition-property: opacity, bottom;
+    cursor: pointer;
   }
 
   button {
@@ -103,21 +113,9 @@ export default {
     svg {
       width: 100%;
       height: 100%;
-      color: white;
-    }
-  }
-
-  &.disabled {
-    button {
-      bottom: 0;
-      opacity: 10%;
-      transition: all 150ms;
-      transition-property: opacity, bottom;
-    }
-    &:hover button {
-      bottom: 0;
-      transition: all 150ms;
-      transition-property: opacity, bottom;
+      color: floralwhite;
+      transform: rotate(0);
+      transition: transform 250ms;
     }
   }
 }

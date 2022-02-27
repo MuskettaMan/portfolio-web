@@ -10,10 +10,11 @@
           :title="item.title"
           :description="item.description"
           :image-url="require(`@/assets/images/${item.imageUrl}`)"
-          :color="getSectionBackgroundColor(index)"
-          :background-color="getSectionTransitionColor(index)"
+          :background-color="getSectionBackgroundColor(index)"
+          :transition-color="getSectionTransitionColor(index)"
       />
     </div>
+    <PortfolioFooter ref="footer" :transition-color="getSectionTransitionColor(sections.length - 1)" />
   </div>
 </template>
 
@@ -22,18 +23,21 @@ import PageHeader from "@/components/PageHeader";
 import PortfolioMention from "@/components/PortfolioMention";
 import json from "@/assets/content/portfolio.json";
 import {useRoute} from "vue-router";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
+import PortfolioFooter from "@/components/PortfolioFooter";
 
 export default {
   name: 'HomeView',
   components: {
+    PortfolioFooter,
     ScrollDownButton,
     PageHeader,
     PortfolioMention
   },
   setup() {
     const sections = ref([])
+    const footer = ref(null)
     const route = useRoute();
 
     let hasHash = route.hash === "";
@@ -53,12 +57,14 @@ export default {
       return index % 2 === 1 ? '#403d39' : '#252422'
     }
 
+    onMounted(() => sections.value.push(footer.value))
 
     return {
       json,
       sections,
       getSectionBackgroundColor,
-      getSectionTransitionColor
+      getSectionTransitionColor,
+      footer
     }
   }
 }

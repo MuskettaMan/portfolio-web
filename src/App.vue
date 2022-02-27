@@ -60,7 +60,6 @@ button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $floral-white;
-  height: 100vh;
   position: absolute;
   color: $eerie-black;
 }
