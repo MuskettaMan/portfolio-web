@@ -1,35 +1,10 @@
 <template>
-  <div class="wrapper">
-    <PageHeader/>
-    <PortfolioMention
-        v-for="(item, index) in json"
-        :key="index"
-        :title="item.title"
-        :description="item.description"
-        :image-url="require(`@/assets/images/${item.imageUrl}`)"
-        :color="item.color"
-        :background-color="index - 1 >= 0 ? json[index - 1].color : '#fffcf2'"
-    />
-  </div>
+  <router-view/>
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue'
-import PortfolioMention from '@/components/PortfolioMention.vue'
-import json from '@/assets/content/portfolio.json'
-
 export default {
-  name: 'App',
-  components: {
-    PageHeader,
-    PortfolioMention
-  },
-  setup() {
-
-    return {
-      json
-    }
-  }
+  name: 'App'
 }
 </script>
 
@@ -84,11 +59,5 @@ h2 {
   height: 100vh;
   position: absolute;
   color: $eerie-black;
-
-  .wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
 }
 </style>
