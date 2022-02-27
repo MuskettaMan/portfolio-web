@@ -37,6 +37,10 @@ h2 {
   opacity: 0.9;
 }
 
+button {
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+}
+
 @media only screen and (max-width: 600px) {
   p {
     font-size: .9rem;

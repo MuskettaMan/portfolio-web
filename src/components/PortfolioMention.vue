@@ -6,7 +6,7 @@
         <div class="text-wrapper">
           <h2>{{ title }}</h2>
           <p>{{ description }}</p>
-          <p class="read-more">Read more &#129042;</p>
+          <button class="read-more"><span class="effect">Read more</span></button>
         </div>
         <div class="image-wrapper">
           <img :src="imageUrl" alt="">
@@ -102,11 +102,30 @@ export default {
         }
 
         .read-more {
-          margin-top: .5rem;
+          display: block;
+          margin-top: 2rem;
+          border: none;
+          background: none;
+          padding: 0;
 
-          &:hover {
+          .effect {
+            will-change: transform;
+            transition: transform 450ms;
+
+            display: block;
+            background-color: #eb5e28;
+            border-radius: 5px;
+            color: white;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1rem;
+            filter: drop-shadow(4px 4px 8px rgba(black, 0.2));
+          }
+          &:hover .effect {
             cursor: pointer;
-            text-decoration: underline;
+            transition: transform 150ms;
+            transform: translateY(-10px);
           }
         }
       }
@@ -121,6 +140,12 @@ export default {
         }
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-mention .content-wrapper .content .text-wrapper .read-more .effect {
+    transition: none;
   }
 }
 

@@ -74,7 +74,7 @@ export default {
 @media only screen and (max-width: 1000px) {
   .shape-divider svg {
     width: calc(175% + 1.3px);
-    transform: translateX(-10%);
+    transform: translateX(-20%);
   }
 }
 </style>
