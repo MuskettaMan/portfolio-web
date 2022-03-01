@@ -48,7 +48,7 @@ export default {
 <style lang="scss" scoped>
 .portfolio-footer {
   position: relative;
-  padding: 11rem 10rem 3rem;
+  padding: 11rem 10rem 6rem;
   background-color: floralwhite;
 
   .wrapper {

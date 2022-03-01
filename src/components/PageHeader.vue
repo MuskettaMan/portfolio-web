@@ -43,11 +43,11 @@ export default {
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   h1 {
-    font-size: 4.5rem;
+    font-size: 6rem;
   }
 }
 

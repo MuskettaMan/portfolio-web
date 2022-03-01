@@ -105,6 +105,10 @@ export default {
     cursor: pointer;
   }
 
+  &:hover.reached-bottom button {
+    bottom: 0.5rem;
+  }
+
   button {
     display: block;
     position: absolute;
