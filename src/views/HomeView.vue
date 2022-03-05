@@ -15,6 +15,7 @@
       />
     </div>
     <PortfolioFooter ref="footer" :transition-color="getSectionTransitionColor(sections.length - 1)" />
+    <ProjectReadMore :images="json.map(item => item.imageUrl)"/>
   </div>
 </template>
 
@@ -26,10 +27,12 @@ import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
 import PortfolioFooter from "@/components/PortfolioFooter";
+import ProjectReadMore from "@/components/ProjectReadMore";
 
 export default {
   name: 'HomeView',
   components: {
+    ProjectReadMore,
     PortfolioFooter,
     ScrollDownButton,
     PageHeader,
