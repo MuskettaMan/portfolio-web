@@ -3,8 +3,17 @@
 </template>
 
 <script>
+import {useStore} from "vuex";
+import {watch} from "vue";
+
 export default {
-  name: 'App'
+  name: 'App',
+  setup() {
+    const store = useStore();
+    watch(() => store.getters.isReadMoreActive, (curr) => {
+      document.documentElement.style.overflow = curr ? 'hidden' : 'auto'
+    })
+  }
 }
 </script>
 
@@ -60,7 +69,6 @@ button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $floral-white;
-  position: absolute;
   color: $eerie-black;
 }
 </style>

@@ -26,16 +26,18 @@ export default {
   display: inline-block;
 
   &:hover .message {
-    transition-property: opacity;
-    transition: 100ms;
+    transition-property: visibility;
+    visibility: visible;
+    transition: visibility 0s linear, opacity 100ms;
     transform:translateX(calc(-100% - 1rem)) translateY(calc(-50% + 10px));
     opacity: 0.95;
   }
 
   .message {
     transform-origin: right;
-    transition-property: opacity;
-    transition: 100ms;
+    transition-property: visibility;
+    visibility: hidden;
+    transition: visibility 0s linear, opacity 100ms;
     transform: translateX(calc(-100% - 1rem)) translateY(calc(-50% + 10px));
     opacity: 0;
 

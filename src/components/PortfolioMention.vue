@@ -1,16 +1,16 @@
 <template>
-  <section :id="stringToSlug(title)" :style="style" class="portfolio-mention">
+  <section :id="stringToSlug(data.title)" :style="style" class="portfolio-mention">
     <ShapeDivider :type="getRandomDivider()" :color="transitionColor"/>
     <div class="content-wrapper">
       <div class="content">
         <div class="text-wrapper">
-          <h2>{{ title }}</h2>
-          <p>{{ description }}</p>
+          <h2>{{ data.title }}</h2>
+          <p>{{ data.intro }}</p>
         </div>
         <div class="image-wrapper">
-          <img :src="imageUrl" alt="">
+          <img :src="require(`@/assets/images/${data.images[0]}`)" alt="">
         </div>
-        <button class="read-more"><span class="effect">Read more</span></button>
+        <button @click="onReadMoreClicked" class="read-more"><span class="effect">Read more</span></button>
       </div>
     </div>
   </section>
@@ -21,21 +21,14 @@ import { computed } from "vue";
 import { stringToSlug } from "@/assets/helpers/SlugUtility";
 import ShapeDivider from "@/components/ShapeDivider";
 import {dividers} from "@/components/ShapeDivider";
+import {useStore} from "vuex";
 
 export default {
   name: "PortfolioMention",
   components: {ShapeDivider},
   props: {
-    title: {
-      type: String,
-      required: true
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    imageUrl: {
-      type: String,
+    data: {
+      type: Object,
       required: true
     },
     backgroundColor: {
@@ -58,10 +51,18 @@ export default {
       return dividers[Math.floor(Math.random() * dividers.length)];
     }
 
+    const store = useStore()
+
+    const onReadMoreClicked = () => {
+      console.log(props.data)
+      store.dispatch('setActive', props.data)
+    }
+
     return {
       style,
       stringToSlug,
-      getRandomDivider
+      getRandomDivider,
+      onReadMoreClicked
     }
   }
 }

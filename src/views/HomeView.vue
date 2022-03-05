@@ -1,5 +1,11 @@
 <template>
-  <div class="home">
+  <div class="home" :class="{'read-more-active': store.getters.isReadMoreActive}">
+    <teleport to="head">
+      <link rel="apple-touch-icon" sizes="180x180" :href="'apple-touch-icon.png'">
+      <link rel="icon" type="image/png" sizes="32x32" :href="'favicon-32x32.png'">
+      <link rel="icon" type="image/png" sizes="16x16" :href="'favicon-16x16.png'">
+      <link rel="manifest" :href="'site.webmanifest'">
+    </teleport>
     <div class="wrapper">
       <PageHeader/>
       <ScrollDownButton :targets="sections" />
@@ -7,15 +13,13 @@
           v-for="(item, index) in json"
           :key="index"
           :ref="el => { sections[index] = el }"
-          :title="item.title"
-          :description="item.description"
-          :image-url="require(`@/assets/images/${item.imageUrl}`)"
+          :data="item"
           :background-color="getSectionBackgroundColor(index)"
           :transition-color="getSectionTransitionColor(index)"
       />
     </div>
     <PortfolioFooter ref="footer" :transition-color="getSectionTransitionColor(sections.length - 1)" />
-    <ProjectReadMore :images="json.map(item => item.imageUrl)"/>
+    <ProjectReadMore v-if="store.getters.isReadMoreActive" :data="store.getters.readMoreData"/>
   </div>
 </template>
 
@@ -28,9 +32,11 @@ import {onMounted, ref} from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
 import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
+import {useStore} from "vuex";
 
 export default {
   name: 'HomeView',
+  title: "Ferri's Portfolio",
   components: {
     ProjectReadMore,
     PortfolioFooter,
@@ -42,6 +48,7 @@ export default {
     const sections = ref([])
     const footer = ref(null)
     const route = useRoute();
+    const store = useStore();
 
     let hasHash = route.hash === "";
     if(hasHash && (document.cookie === 'visited=false' || document.cookie === '')) {
@@ -67,7 +74,8 @@ export default {
       sections,
       getSectionBackgroundColor,
       getSectionTransitionColor,
-      footer
+      footer,
+      store
     }
   }
 }
@@ -77,6 +85,10 @@ export default {
 
 .home {
   scroll-behavior: smooth;
+
+  &.read-more-active {
+    overflow-y: hidden;
+  }
   .wrapper {
     position: relative;
     display: flex;

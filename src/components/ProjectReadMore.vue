@@ -1,6 +1,9 @@
 <template>
-  <section class="project-read-more">
+  <section @click.self="clickedOutsideOfModal" class="project-read-more">
     <div class="wrapper">
+      <div class="close-button">
+        <button @click="clickedCloseButton"><fa-icon icon="xmark"/></button>
+      </div>
       <div class="gallery">
         <div class="empty"></div>
         <div class="selected">
@@ -9,53 +12,57 @@
         <div class="previews-wrapper">
           <div class="fade fade-left"></div>
           <div class="previews">
-            <img v-for="(image, index) in images" :key="index" :src="require(`@/assets/images/${image}`)" @click="() => onPreviewImageClick(image)" alt="" class="preview">
-            <img v-for="(image, index) in images" :key="index" :src="require(`@/assets/images/${image}`)" @click="() => onPreviewImageClick(image)" alt="" class="preview">
+            <div class="preview" v-for="(image, index) in data.images" :key="index" :class="{'selected-preview': selectedImage === image}">
+              <img :src="require(`@/assets/images/${image}`)" @click="() => onPreviewImageClick(image)" alt="">
+              <div class="underline"></div>
+            </div>
           </div>
           <div class="fade fade-right"></div>
         </div>
       </div>
       <div class="details">
         <div class="text">
-          <h2>Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias commodi dicta dolor doloremque expedita facere hic, ipsam laborum nemo nesciunt officiis qui quisquam, ratione repellat repudiandae saepe, voluptatum! Adipisci excepturi explicabo facilis harum obcaecati qui quidem, saepe vel. Amet deserunt earum eos et ipsum laboriosam obcaecati quia sequi unde?</p>
+          <h2>{{ data.title }}</h2>
+          <p>{{ data.intro }}</p>
+          <br/>
+          <p>{{ data.description }}</p>
         </div>
         <div class="others">
           <ul>
-            <li>
-              <Tooltip message="Duration">
+            <li v-if="data.startDate">
+              <Tooltip message="Start date">
                 <fa-icon icon="calendar"/>
-                <p>3 Months</p>
+                <p class="date">{{ data.startDate }}</p>
               </Tooltip>
             </li>
-            <li>
-              <Tooltip message="End date">
+            <li v-if="data.duration">
+              <Tooltip message="Duration">
                 <fa-icon icon="timeline"/>
-                <p class="date">2022/10/2</p>
+                <p>{{ data.duration }}</p>
               </Tooltip>
             </li>
-            <li>
+            <li v-if="data.engine">
               <Tooltip message="Engine/Framework">
                 <fa-icon icon="bolt"/>
-                <p>Unity</p>
+                <p>{{ data.engine }}</p>
               </Tooltip>
             </li>
-            <li>
+            <li v-if="data.language">
               <Tooltip message="Language">
                 <fa-icon icon="code"/>
-                <p>C#</p>
+                <p>{{ data.language }}</p>
               </Tooltip>
             </li>
-            <li>
+            <li v-if="data.role">
               <Tooltip message="Role">
                 <fa-icon icon="user"/>
-                <p>Project lead</p>
+                <p>{{ data.role }}</p>
               </Tooltip>
             </li>
-            <li>
+            <li v-if="data.repositoryUrl">
               <Tooltip message="Repository URL">
                 <fa-icon :icon="['fa-brands', 'github']"/>
-                <p>Github</p>
+                <p><a :href="data.repositoryUrl" target="_blank">{{ data.repositoryUrl }}</a></p>
               </Tooltip>
             </li>
           </ul>
@@ -68,26 +75,43 @@
 <script>
 import Tooltip from "@/components/Tooltip";
 import {ref} from "vue";
+import {useStore} from "vuex";
 export default {
   name: "ProjectReadMore",
   components: {Tooltip},
   props: {
-    images: {
-      type: Array,
-      required: true
+    data: {
+      type: Object,
+      required: true,
+      default: null
     }
   },
   setup(props) {
-    const selectedImage = ref(props.images[0])
+    if(props.data === null)
+      return {}
+
+    console.log(props.data)
+
+    const selectedImage = ref(props.data.images[0])
+    const store = useStore()
 
     const onPreviewImageClick = (image) =>
     {
       selectedImage.value = image;
     };
 
+    const clickedOutsideOfModal = () => {
+      store.dispatch('setInactive')
+    }
+    const clickedCloseButton = () => {
+      store.dispatch('setInactive')
+    }
+
     return {
       selectedImage,
-      onPreviewImageClick
+      onPreviewImageClick,
+      clickedOutsideOfModal,
+      clickedCloseButton
     }
   }
 }
@@ -96,6 +120,15 @@ export default {
 <style lang="scss" scoped>
 $modal-margin-ver: 5rem;
 $modal-margin-hor: 15rem;
+
+@keyframes modal-enter {
+  0% {
+    top: 200%;
+  }
+  100% {
+    top: 50%;
+  }
+}
 
 .project-read-more {
   position: fixed;
@@ -107,23 +140,80 @@ $modal-margin-hor: 15rem;
   top: 0;
 
   .wrapper {
+    position: absolute;
     background-color: floralwhite;
     border-radius: 5px;
     filter: drop-shadow(4px 4px 8px rgba(black, 0.3));
-    width: calc(100% - #{$modal-margin-hor} * 2);
-    height: calc(100% - #{$modal-margin-ver} * 2);
-    margin: $modal-margin-ver $modal-margin-hor;
+    width: calc(100% - 15rem * 2);
+    height: calc(100% - 5rem * 2);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 200%;
     padding: 4rem;
     box-sizing: border-box;
+
+    animation-name: modal-enter;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 
     display: flex;
     align-items: stretch;
     gap: 4rem;
 
+    .close-button {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.75rem;
+
+      width: 2rem;
+      height: 2rem;
+
+      button {
+        margin: 0;
+        border: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: rgba($eerie-black, 0.1) none;
+        border-radius: 50vh;
+        padding: 0.25rem;
+        cursor: pointer;
+
+        transition-property: background-color;
+        transition: 250ms;
+
+        &:hover {
+          background: rgba($eerie-black, 0.2) none;
+          transition-property: background-color;
+          transition: 250ms;
+        }
+
+        &:active {
+          background: rgba($eerie-black, 0.3) none;
+          transition-property: background-color;
+          transition: 250ms;
+        }
+
+        svg {
+          fill: $eerie-black;
+          opacity: 0.75;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
     .details {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      .text {
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
 
       .others {
         ul {
@@ -161,6 +251,7 @@ $modal-margin-hor: 15rem;
       align-items: center;
       justify-content: space-between;
       min-width: 30vw;
+      gap: 2rem;
 
       .selected {
         width: 100%;
@@ -182,21 +273,54 @@ $modal-margin-hor: 15rem;
       .previews-wrapper {
         position: relative;
         width: 100%;
+        align-self: flex-end;
 
         .previews {
           overflow-x: auto;
           display: flex;
-          justify-content: center;
           gap: 1rem;
-          padding-bottom: 0.5rem;
-          width: 100%;
-          align-self: flex-end;
+          padding-bottom: 0.7rem;
+          justify-content: safe center;
+          .selected-preview {
+            .underline {
+              background-color: $eerie-black;
+              height: 5px;
+              border-radius: 50vh;
+              margin-top: 2.5px;
+              opacity: 80%;
+            }
+          }
 
           .preview {
+            flex-shrink: 0;
             width: 100px;
             height: 100px;
             filter: none;
             cursor: pointer;
+
+            transition-property: filter;
+            transition: 250ms;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+
+              animation-play-state: paused;
+            }
+
+            &:hover {
+              filter: brightness(0.9);
+              transition-property: filter;
+              transition: 250ms;
+            }
+
+            &:active {
+              filter: brightness(0.8);
+              transition-property: filter;
+              transition: 250ms;
+            }
           }
 
           .preview:last-child {
@@ -230,6 +354,46 @@ $modal-margin-hor: 15rem;
         border-radius: 5px;
         filter: drop-shadow(4px 4px 8px rgba(black, 0.3));
         opacity: 0.95;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  $modal-margin-ver: 5rem;
+  $modal-margin-hor: 5rem;
+
+  .project-read-more {
+
+    .wrapper {
+      width: calc(100% - 1rem * 2);
+      height: calc(100% - 2rem * 2);
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 3rem 2rem 2rem;
+      gap: 2rem;
+
+      .close-button {
+        position: absolute;
+      }
+
+      .details {
+        gap: 1rem;
+      }
+
+      .gallery {
+        gap: 1rem;
+        .selected {
+          height: 30vh;
+          img {
+            object-position: top;
+          }
+        }
+        .previews-wrapper {
+          .previews {
+            padding-bottom: 1rem;
+          }
+        }
       }
     }
   }
