@@ -32,7 +32,13 @@
     "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour. It also has been optimized by subdividing the space into buckets.",
     "description": "empty description",
     "images": [
-      "flocking_simulation_thumb.jpg"
+      "flocking_sim_thumb.jpg",
+      "flocking_sim_001.gif",
+      "flocking_sim_002.gif",
+      "flocking_sim_003.gif",
+      "flocking_sim_004.gif",
+      "flocking_sim_005.gif",
+      "flocking_sim_006.gif"
     ],
     "engine": "Unity",
     "startDate": "2020/05/17",
