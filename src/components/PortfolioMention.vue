@@ -1,14 +1,17 @@
 <template>
-  <section :id="stringToSlug(data.title)" :style="style" class="portfolio-mention">
-    <ShapeDivider :type="getRandomDivider()" :color="transitionColor"/>
+  <section :id="stringToSlug(data.title)" :style="style" :class="{'read-more-active': modalActive}" class="portfolio-mention">
+    <ShapeDivider :type="divider" :color="transitionColor"/>
     <div class="content-wrapper">
       <div class="content">
         <div class="text-wrapper">
-          <h2>{{ data.title }}</h2>
+          <div class="header">
+            <project-tag v-for="(tag, index) in data.tags" :key="index" :message="tag"/>
+            <h2>{{ data.title }}</h2>
+          </div>
           <p>{{ data.intro }}</p>
         </div>
         <div class="image-wrapper">
-          <img :src="require(`@/assets/images/${data.images[0]}`)" alt="">
+          <img :src="require(`@/assets/images/${getImage()}`)" alt="">
         </div>
         <button @click="onReadMoreClicked" class="read-more"><span class="effect">Read more</span></button>
       </div>
@@ -17,15 +20,17 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import {computed, ref} from "vue";
 import { stringToSlug } from "@/assets/helpers/SlugUtility";
 import ShapeDivider from "@/components/ShapeDivider";
 import {dividers} from "@/components/ShapeDivider";
 import {useStore} from "vuex";
+import {useRoute, useRouter} from "vue-router";
+import ProjectTag from "@/components/ProjectTag";
 
 export default {
   name: "PortfolioMention",
-  components: {ShapeDivider},
+  components: {ProjectTag, ShapeDivider},
   props: {
     data: {
       type: Object,
@@ -40,29 +45,41 @@ export default {
       required: true
     }
   },
-  setup(props) {
+  setup(props, context) {
+    const router = useRouter()
+    const route = useRoute()
     const style = computed(() => {
       return `
         --background-color: ${props.backgroundColor};
       `
     })
 
+    const modalActive = computed( () => route.params.project !== "")
+
     const getRandomDivider = () => {
       return dividers[Math.floor(Math.random() * dividers.length)];
     }
 
-    const store = useStore()
+    const divider = ref(getRandomDivider())
 
     const onReadMoreClicked = () => {
-      console.log(props.data)
-      store.dispatch('setActive', props.data)
+      router.push({name: 'home', params: { project: stringToSlug(props.data.title) }})
+    }
+
+    const getImage = () => {
+      if(props.data.images === undefined || props.data.images === null || props.data.images.length === 0)
+        return 'image-not-found.jpg'
+
+      return props.data.images[0]
     }
 
     return {
       style,
       stringToSlug,
-      getRandomDivider,
-      onReadMoreClicked
+      divider,
+      onReadMoreClicked,
+      modalActive,
+      getImage
     }
   }
 }
@@ -75,17 +92,23 @@ export default {
   display: flex;
   padding: 10rem 10rem 0;
 
+  &.read-more-active {
+    padding-right: calc(10rem + 17px);
+  }
+
   .content-wrapper {
     min-height: 75vh;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
 
     .content {
       display: grid;
       grid-template-rows: auto auto auto;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      width: 100%;
 
       .read-more {
         display: block;
@@ -119,8 +142,14 @@ export default {
       .text-wrapper {
         height: fit-content;
 
-        h2 {
-          margin-bottom: 3rem;
+        .header {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          h2 {
+            margin-bottom: 3rem;
+          }
+
         }
 
         p {
@@ -169,6 +198,11 @@ export default {
   .portfolio-mention {
     padding: 8rem 2rem 0;
 
+
+    &.read-more-active {
+      padding-right: 2rem;
+    }
+
     .content-wrapper {
       .content {
         margin-bottom: 2rem;
@@ -178,9 +212,12 @@ export default {
         .text-wrapper {
           max-width: 100%;
 
-          h2 {
-            margin-bottom: 1rem;
+          .header {
+            h2 {
+              margin-bottom: 1rem;
+            }
           }
+
         }
 
         .read-more {

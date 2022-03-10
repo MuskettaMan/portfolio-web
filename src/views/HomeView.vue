@@ -1,5 +1,5 @@
 <template>
-  <div class="home" :class="{'read-more-active': store.getters.isReadMoreActive}">
+  <div class="home">
     <teleport to="head">
       <link rel="apple-touch-icon" sizes="180x180" :href="'apple-touch-icon.png'">
       <link rel="icon" type="image/png" sizes="32x32" :href="'favicon-32x32.png'">
@@ -8,6 +8,7 @@
     </teleport>
     <div class="wrapper">
       <PageHeader/>
+      <PortfolioFooter ref="footer" :transition-color="'#fffcf2ff'/*getSectionTransitionColor(sections.length - 1)*/" />
       <ScrollDownButton :targets="sections" />
       <PortfolioMention
           v-for="(item, index) in json"
@@ -18,8 +19,9 @@
           :transition-color="getSectionTransitionColor(index)"
       />
     </div>
-    <PortfolioFooter ref="footer" :transition-color="getSectionTransitionColor(sections.length - 1)" />
-    <ProjectReadMore v-if="store.getters.isReadMoreActive" :data="store.getters.readMoreData"/>
+    <transition name="read-more-transition">
+      <ProjectReadMore v-if="readMoreData" :data="readMoreData"/>
+    </transition>
   </div>
 </template>
 
@@ -28,11 +30,13 @@ import PageHeader from "@/components/PageHeader";
 import PortfolioMention from "@/components/PortfolioMention";
 import json from "@/assets/content/portfolio.json";
 import {useRoute} from "vue-router";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
 import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
 import {useStore} from "vuex";
+import {stringToSlug} from "@/assets/helpers/SlugUtility";
+import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 
 export default {
   name: 'HomeView',
@@ -50,11 +54,28 @@ export default {
     const route = useRoute();
     const store = useStore();
 
-    let hasHash = route.hash === "";
-    if(hasHash && (document.cookie === 'visited=false' || document.cookie === '')) {
+    const readMoreData = ref(null)
+
+    if(IsFirstTimeEnter(route)) {
       window.scrollTo(0, 0);
-      setTimeout(() => document.cookie = "visited=true", 1)
     }
+
+    const findAndSetReadMore = () => {
+      if(route.params.project === "")
+      {
+        readMoreData.value = null
+        return
+      }
+
+      for (let i = 0; i < json.length; i++) {
+        if(stringToSlug(json[i].title) === route.params.project) {
+          readMoreData.value = json[i]
+          break;
+        }
+      }
+    }
+
+    findAndSetReadMore()
 
     const getSectionBackgroundColor = (index) => {
       return index % 2 === 0 ? '#403d39' : '#252422'
@@ -62,12 +83,16 @@ export default {
 
     const getSectionTransitionColor = (index) => {
       if(index === 0)
-        return '#fffcf2'
+        return '#F3EFE4'
 
       return index % 2 === 1 ? '#403d39' : '#252422'
     }
 
-    onMounted(() => sections.value.push(footer.value))
+    onMounted(() => sections.value.splice(0, 0, footer.value))
+
+    watch(() => route.params.project, (curr) => {
+      findAndSetReadMore()
+    })
 
     return {
       json,
@@ -75,20 +100,20 @@ export default {
       getSectionBackgroundColor,
       getSectionTransitionColor,
       footer,
-      store
+      readMoreData
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.read-more-transition-leave-active {
+  transition: opacity 250ms;
+  opacity: 0;
+}
 
 .home {
   scroll-behavior: smooth;
-
-  &.read-more-active {
-    overflow-y: hidden;
-  }
   .wrapper {
     position: relative;
     display: flex;

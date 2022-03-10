@@ -75,7 +75,7 @@ export default {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  color: floralwhite;
+  color: $floral-white;
   mix-blend-mode: difference;
 
   &.effect {
@@ -126,7 +126,7 @@ export default {
     svg {
       width: 100%;
       height: 100%;
-      color: floralwhite;
+      color: $floral-white;
       transform: rotate(0);
       transition: transform 250ms;
     }

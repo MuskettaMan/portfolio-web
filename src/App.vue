@@ -5,14 +5,25 @@
 <script>
 import {useStore} from "vuex";
 import {watch} from "vue";
+import {useRoute} from "vue-router";
+import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 
 export default {
   name: 'App',
   setup() {
+    setTimeout(() => document.cookie = "visited=true; SameSite=None; Secure", 1)
     const store = useStore();
-    watch(() => store.getters.isReadMoreActive, (curr) => {
-      document.documentElement.style.overflow = curr ? 'hidden' : 'auto'
+    const route = useRoute();
+    watch(() => route.params.project, (curr) => {
+      document.documentElement.style.overflow = curr !== "" ? 'hidden' : 'auto'
     })
+
+    if(IsFirstTimeEnter(route)) {
+      document.documentElement.style.overflow ='hidden'
+      setTimeout(() => {
+        document.documentElement.style.overflow ='auto'
+      }, 2750)
+    }
   }
 }
 </script>
@@ -21,7 +32,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
-body, p, h1, h2 {
+body, p, h1, h2, h3 {
   margin: 0;
   padding: 0;
 }
@@ -44,6 +55,20 @@ h2 {
   font-weight: 600;
   font-size: 3rem;
   opacity: 0.9;
+}
+h3 {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  opacity: 0.9;
+}
+
+a {
+  color: $flame;
+}
+
+a:visited {
+  color: #9f380f;
 }
 
 button {

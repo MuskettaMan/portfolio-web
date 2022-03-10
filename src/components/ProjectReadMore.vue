@@ -76,6 +76,7 @@
 import Tooltip from "@/components/Tooltip";
 import {ref} from "vue";
 import {useStore} from "vuex";
+import {useRoute, useRouter} from "vue-router";
 export default {
   name: "ProjectReadMore",
   components: {Tooltip},
@@ -90,10 +91,10 @@ export default {
     if(props.data === null)
       return {}
 
-    console.log(props.data)
-
     const selectedImage = ref(props.data.images[0])
     const store = useStore()
+    const route = useRoute()
+    const router = useRouter()
 
     const onPreviewImageClick = (image) =>
     {
@@ -101,10 +102,10 @@ export default {
     };
 
     const clickedOutsideOfModal = () => {
-      store.dispatch('setInactive')
+      router.push({ name: 'home', params: { project: '' }})
     }
     const clickedCloseButton = () => {
-      store.dispatch('setInactive')
+      router.push({ name: 'home', params: { project: '' }})
     }
 
     return {
@@ -141,7 +142,7 @@ $modal-margin-hor: 15rem;
 
   .wrapper {
     position: absolute;
-    background-color: floralwhite;
+    background-color: $floral-white;
     border-radius: 5px;
     filter: drop-shadow(4px 4px 8px rgba(black, 0.3));
     width: calc(100% - 15rem * 2);

@@ -1,6 +1,7 @@
 [
   {
     "title": "Object Pooling",
+    "tags": [ "PERSONAL" ],
     "intro": "This is a Unity package that can be imported into your project to make use of a highly customizable object pooling system. Made with modularity in mind, it allows you to hook into several different stages of the pooling system to customize your own behaviour. This combined with several entry points of expertise makes it a must-have for a beginner or a pro.",
     "description": "empty description",
     "images": [
@@ -14,7 +15,21 @@
     "repositoryUrl": "https://github.com/MuskettaMan/PoolManagement"
   },
   {
+    "title": "Portfolio Website",
+    "tags": [ "PERSONAL" ],
+    "intro": "",
+    "description": "",
+    "images": [
+    ],
+    "engine": "Unity",
+    "startDate": "2021/07/13",
+    "duration": "1 Month",
+    "language": "C#",
+    "role": ""
+  },
+  {
     "title": "Present Hunter",
+    "tags": [ "PERSONAL" ],
     "intro": "The goal of the character you’re playing is to collect all the presents on the board and not get defeated by the imps patrolling the field. Fortunately for you, your character is able to throw snowballs to protect himself.\nThis game is the product of my cultivation in the C++ language and was all my beginner skills combined.",
     "description": "empty description",
     "images": [
@@ -28,17 +43,64 @@
     "repositoryUrl": "https://github.com/MuskettaMan/snow-game"
   },
   {
+    "title": "Unity Core Packages / Assets",
+    "tags": [ "COMPANY" ],
+    "intro": "",
+    "description": "",
+    "images": [
+    ],
+    "engine": "Unity",
+    "startDate": "2021/07/13",
+    "duration": "1 Month",
+    "language": "C#",
+    "role": ""
+  },
+  {
+    "title": "Operatie Z.U.I.V.E.R",
+    "tags": [ "COMPANY" ],
+    "intro": "",
+    "description": "",
+    "images": [
+    ],
+    "engine": "Unity",
+    "startDate": "2021/07/13",
+    "duration": "1 Month",
+    "language": "C#",
+    "role": ""
+  },
+  {
+    "title": "Edu Playbook",
+    "tags": [ "COMPANY" ],
+    "intro": "",
+    "description": "",
+    "images": [
+    ],
+    "engine": "Unity",
+    "startDate": "2021/07/13",
+    "duration": "1 Month",
+    "language": "C#",
+    "role": ""
+  },
+  {
+    "title": "Media Masters",
+    "tags": [ "COMPANY" ],
+    "intro": "",
+    "description": "",
+    "images": [
+    ],
+    "engine": "Unity",
+    "startDate": "2021/07/13",
+    "duration": "1 Month",
+    "language": "C#",
+    "role": ""
+  },
+  {
     "title": "Flocking Simulator",
+    "tags": [ "PERSONAL" ],
     "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour. It also has been optimized by subdividing the space into buckets.",
     "description": "empty description",
     "images": [
-      "flocking_sim_thumb.jpg",
-      "flocking_sim_001.gif",
-      "flocking_sim_002.gif",
-      "flocking_sim_003.gif",
-      "flocking_sim_004.gif",
-      "flocking_sim_005.gif",
-      "flocking_sim_006.gif"
+      "flocking_sim_thumb.jpg"
     ],
     "engine": "Unity",
     "startDate": "2020/05/17",
@@ -49,15 +111,11 @@
   },
   {
     "title": "Maze Dungeon",
+    "tags": [ "PERSONAL" ],
     "intro": "A game/sandbox project that allows the user to generate mazes using different kinds of algorithms. The game part of it enables the user to walk around using a character that has to pick up several pieces of a key before a door is opened, allowing them to progress to the next stage.\nThe sandbox part of it gives the user the option to choose from several different algorithms to generate the maze with.",
     "description": "",
     "images": [
-      "maze_thumb.jpg",
-      "maze_001.gif",
-      "maze_002.gif",
-      "maze_003.gif",
-      "maze_004.gif",
-      "maze_005.gif"
+      "maze_thumb.jpg"
     ],
     "engine": "Unity",
     "startDate": "2019/09/30",

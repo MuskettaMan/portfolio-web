@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {computed} from "vue";
+import {ref} from "vue";
 import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 import {useRoute} from "vue-router";
 
@@ -15,7 +15,7 @@ export default {
   name: "PageHeader",
   setup() {
     const route = useRoute()
-    const useEntryAnimation = computed(() => IsFirstTimeEnter(route))
+    const useEntryAnimation = ref(IsFirstTimeEnter(route))
 
     return {
       useEntryAnimation
@@ -26,12 +26,13 @@ export default {
 
 <style scoped lang="scss">
 .page-header {
-  margin: 0 12rem;
+  margin: 0 10rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 70vh;
+  height: 60vh;
   justify-content: center;
+  position: relative;
 
   &.entry-animation {
     height: 100vh;
@@ -67,6 +68,6 @@ export default {
 
 @keyframes enter {
   from { height: 100vh; }
-  to { height: 75vh; }
+  to { height: 60vh; }
 }
 </style>

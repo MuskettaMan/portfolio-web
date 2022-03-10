@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="get-in-contact">
-        <h2>Get in Contact</h2>
+        <h2>Contact me</h2>
         <p>
           <fa-icon icon="envelope"></fa-icon>
           Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a></p>
@@ -48,8 +48,8 @@ export default {
 <style lang="scss" scoped>
 .portfolio-footer {
   position: relative;
-  padding: 11rem 10rem 6rem;
-  background-color: floralwhite;
+  padding: 12rem 10rem 6rem;
+  background-color: #F3EFE4;
 
   .wrapper {
     position: relative;
@@ -66,6 +66,13 @@ export default {
     .get-in-contact {
       h2 {
         margin-bottom: 3rem;
+      }
+      p {
+        margin-bottom: 0.3rem;
+
+        svg {
+          margin-right: 0.5rem;
+        }
       }
     }
   }
