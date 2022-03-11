@@ -294,7 +294,7 @@ $modal-margin-hor: 15rem;
 
           .preview {
             flex-shrink: 0;
-            width: 100px;
+            width: 133px;
             height: 100px;
             filter: none;
             cursor: pointer;

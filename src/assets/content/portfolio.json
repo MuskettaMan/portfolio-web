@@ -2,41 +2,41 @@
   {
     "title": "Object Pooling",
     "tags": [ "PERSONAL" ],
-    "intro": "This is a Unity package that can be imported into your project to make use of a highly customizable object pooling system. Made with modularity in mind, it allows you to hook into several different stages of the pooling system to customize your own behaviour. This combined with several entry points of expertise makes it a must-have for a beginner or a pro.",
-    "description": "empty description",
+    "description": "",
+    "intro": "This is a Unity package that can be imported into your project to make use of a highly customizable object pooling system. Made with modularity in mind, it allows you to hook into several stages of the pooling system to customize your own behaviour.",
     "images": [
-      "pool_management_thumb.png"
+      "pool_management_thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2021/07/13",
+    "startDate": "2021/07",
     "duration": "1 Month",
     "language": "C#",
-    "role": "",
     "repositoryUrl": "https://github.com/MuskettaMan/PoolManagement"
   },
   {
     "title": "Portfolio Website",
     "tags": [ "PERSONAL" ],
-    "intro": "",
+    "intro": "You’re looking at it now. Made with the VueJS framework I put this together in about two weeks to display all my experience as a game developer. Being able to put my front-end skill set to use was a nice change of pace, and it gave me a lot to learn as well.",
     "description": "",
     "images": [
+      "portfolio_thumb.jpg"
     ],
-    "engine": "Unity",
-    "startDate": "2021/07/13",
+    "engine": "Vue JS",
+    "startDate": "2022/02",
     "duration": "1 Month",
-    "language": "C#",
-    "role": ""
+    "language": "Javascript",
+    "repositoryUrl": "https://github.com/MuskettaMan/Portfolio"
   },
   {
     "title": "Present Hunter",
     "tags": [ "PERSONAL" ],
-    "intro": "The goal of the character you’re playing is to collect all the presents on the board and not get defeated by the imps patrolling the field. Fortunately for you, your character is able to throw snowballs to protect himself.\nThis game is the product of my cultivation in the C++ language and was all my beginner skills combined.",
-    "description": "empty description",
+    "intro": "This is the result of my entry-level C++ skills, and were used to demo my current knowledge of the programming language. This 2D, top-down, shooter game allows the player to control the character on screen to evade and defeat the enemies and collect the presents.",
+    "description": "",
     "images": [
-      "present_hunter_thumb.png"
+      "present_hunter_thumb.jpg"
     ],
     "engine": "Unofficial C++ framework",
-    "startDate": "2021/12/19",
+    "startDate": "2021/12",
     "duration": "3 Months",
     "language": "C++",
     "role": "",
@@ -45,68 +45,71 @@
   {
     "title": "Unity Core Packages / Assets",
     "tags": [ "COMPANY" ],
-    "intro": "",
+    "intro": "This is an initiative takes to centralize DTT’s codebase for the purpose of modularizing, reusability and scalability. With some of these ‘packages’ reaching the Unity Asset Store, so they’re available for the community.",
     "description": "",
     "images": [
+      "ucp-thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2021/07/13",
-    "duration": "1 Month",
+    "startDate": "2021/08",
+    "duration": "1 Year",
     "language": "C#",
-    "role": ""
+    "role": "Project Manager / Unity Developer"
   },
   {
     "title": "Operatie Z.U.I.V.E.R",
     "tags": [ "COMPANY" ],
-    "intro": "",
+    "intro": "A serious game on request of the municipality of Hollands Kroon. By gamifying the process of collecting and disposing of rubbish, they aim for even cleaner cities and towns. The game makes use of your current GPS location to guide you through the process of removing rubbish and awards you for it.",
     "description": "",
     "images": [
+      "zuiver-thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2021/07/13",
-    "duration": "1 Month",
+    "startDate": "2020/07",
+    "duration": "6 Months",
     "language": "C#",
-    "role": ""
+    "role": "Technical Lead / Unity Developer"
   },
   {
     "title": "Edu Playbook",
     "tags": [ "COMPANY" ],
-    "intro": "",
+    "intro": "In this child-friendly learning environment, children are encouraged to learn about maths, language, and music. In this 2D game, I’ve helped with optimizing the performance of builds on lower-end devices and have contributed to vast library of games.",
     "description": "",
     "images": [
+      "epb_thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2021/07/13",
-    "duration": "1 Month",
+    "startDate": "2021/02",
+    "duration": "5 Months",
     "language": "C#",
-    "role": ""
+    "role": "Unity Developer"
   },
   {
     "title": "Media Masters",
     "tags": [ "COMPANY" ],
-    "intro": "",
+    "intro": "Media Masters is an annual event organized by Netwerk Mediawijsheid. It incentivizes students to learn more about the opportunities and dangers of social media, cybercrime, cyberbullying and gaming.",
     "description": "",
     "images": [
+      "mediamasters-thumb.jpg"
     ],
-    "engine": "Unity",
-    "startDate": "2021/07/13",
-    "duration": "1 Month",
-    "language": "C#",
-    "role": ""
+    "engine": "Vue JS",
+    "startDate": "2021/07",
+    "duration": "3 Months",
+    "language": "Javascript",
+    "role": "Front-end Developer"
   },
   {
     "title": "Flocking Simulator",
     "tags": [ "PERSONAL" ],
     "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour. It also has been optimized by subdividing the space into buckets.",
-    "description": "empty description",
+    "description": "",
     "images": [
       "flocking_sim_thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2020/05/17",
-    "duration": "1 Month",
+    "startDate": "2020/05",
+    "duration": "2 Weeks",
     "language": "C#",
-    "role": "",
     "repositoryUrl": "https://github.com/MuskettaMan/Flocking-Simulation"
   },
   {
@@ -118,10 +121,9 @@
       "maze_thumb.jpg"
     ],
     "engine": "Unity",
-    "startDate": "2019/09/30",
-    "duration": "14 Days",
+    "startDate": "2019/09",
+    "duration": "2 Weeks",
     "language": "C#",
-    "role": "",
     "repositoryUrl": "https://github.com/MuskettaMan/PerfectMazeGenerator"
   }
 ]
