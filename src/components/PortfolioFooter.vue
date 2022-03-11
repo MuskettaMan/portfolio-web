@@ -32,9 +32,7 @@
           Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank">LinkedIn</a></p>
       </div>
     </div>
-    <img class="portrait" src="@/assets/images/photo.png" alt="">
-    <ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true">
-    </ShapeDivider>
+    <ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true"/>
   </footer>
 </template>
 
@@ -57,35 +55,6 @@ export default {
   position: relative;
   padding: 12rem 10rem 12rem;
   background-color: #F3EFE4;
-
-  .portrait {
-    bottom: -10px;
-    right: -0rem;
-    transform: scaleX(-1);
-    animation-name: portraitSwap;
-    animation-play-state: running;
-    animation-fill-mode: forwards;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    position: absolute;
-    width: 500px;
-    height: 500px;
-
-    object-fit: contain;
-    object-position: top;
-
-
-
-    @keyframes portraitSwap {
-      from {
-        transform: translateY(0%) scaleX(-1);
-      }
-      to {
-        transform: translateY(80%) scaleX(-1);
-      }
-    }
-  }
 
   .shape-divider.top {
     top: 0;

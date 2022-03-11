@@ -194,13 +194,13 @@ export default {
 
 @media only screen and (max-width: 1410px) {
   .portfolio-mention {
-    padding: 10rem 4rem 0;
+    padding: 2rem 4rem 8rem;
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .portfolio-mention {
-    padding: 8rem 2rem 0;
+    padding: 1rem 2rem 7rem;
 
 
     &.read-more-active {
