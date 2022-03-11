@@ -16,6 +16,7 @@
           :ref="el => { sections[index] = el }"
           :data="item"
           :background-color="getSectionBackgroundColor(index)"
+          :next-background-color="getSectionBackgroundColor(index + 1)"
           :transition-color="getSectionTransitionColor(index)"
       />
     </div>
@@ -82,10 +83,7 @@ export default {
     }
 
     const getSectionTransitionColor = (index) => {
-      if(index === 0)
-        return '#F3EFE4'
-
-      return index % 2 === 1 ? '#403d39' : '#252422'
+      return index % 2 === 0 ? '#403d39' : '#252422'
     }
 
     onMounted(() => sections.value.splice(0, 0, footer.value))

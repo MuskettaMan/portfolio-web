@@ -2,10 +2,12 @@
   {
     "title": "Object Pooling",
     "tags": [ "PERSONAL" ],
-    "description": [
-
-    ],
     "intro": "This is a Unity package that can be imported into your project to make use of a highly customizable object pooling system. Made with modularity in mind, it allows you to hook into several stages of the pooling system to customize your own behaviour.",
+    "description": [
+      "I created this personal project, so I could learn more about the object pooling design pattern and get a better understanding of unit testing, NSubstitute and Unity Package Manager (UPM).",
+      "I was already familiar with unit testing from my endeavours in the Unity Core Package project. That’s how I got to know about NSubstitute. The library allows you to create mocks that you can use in your unit tests. This is very powerful if you’ve set up your architecture in such a way that supports dependency injection. Because then you can more effectively test a unit, since you can now send a controlled object and make sure the unit handles that as expected.",
+      "This also made it a requirement for me to work with the dependency injection design pattern. I applied this in such way, so you can provide behaviours for the different stages of object pooling. You can pass an object that knows how to create the pooled object, how to destroy them and how to pool them. This makes it very modular, easy to change, and it abides by the open-closed principle."
+    ],
     "images": [
       "pool_management_thumb.jpg"
     ],
@@ -18,9 +20,10 @@
   {
     "title": "Portfolio Website",
     "tags": [ "PERSONAL" ],
-    "intro": "You’re looking at it now. Made with the VueJS framework I put this together in about two weeks to display all my experience as a game developer. Being able to put my front-end skill set to use was a nice change of pace, and it gave me a lot to learn as well.",
+    "intro": "You’re looking at it now. Made with the VueJS framework, I put this together in about two weeks to display all my experience as a game developer. Being able to put my front-end skill set to use was a nice change of pace, and it gave me a lot to learn as well.",
     "description":  [
-
+      "This was a happy trip down memory lane, since I could revisit all my old projects again and write out texts and take screenshots for each of them. It reminded me of my current progression and experience of game developer, and realized for the first time that I’ve made definitive progress and this is not just a starting endeavour any more.",
+      "Made with the VueJS framework was able to put my front-end development skills to work to create a portfolio I could be proud of. I put a lot of attention in creating quality screenshots and images for other people to view."
     ],
     "images": [
       "portfolio_thumb.jpg"
@@ -36,7 +39,9 @@
     "tags": [ "PERSONAL" ],
     "intro": "This is the result of my entry-level C++ skills, and were used to demo my current knowledge of the programming language. This 2D, top-down, shooter game allows the player to control the character on screen to evade and defeat the enemies and collect the presents.",
     "description":  [
-
+      "With the use of a template project from www.3dgep.com, I was able to start development on a C++ game that only contains the bare essentials (e.g., update loop and image loading). This game was focussed on creating a theme around the word “snow”. That’s why I choose a winter/Christmas style with Santa, imps, presents and, of course, snow. ",
+      "The game's background is created with the use of a tile map that allows to easily place tiles in a grid based location system. This makes it easier to create map content and variation without having to change integral code.",
+      "With my own basic collision system, all the active entities can interact with each other and respond to collisions. This makes it possible so that enemies are defeated, the user can collect presents for points and the user can game over."
     ],
     "images": [
       "present_hunter_thumb.jpg"
@@ -53,7 +58,11 @@
     "tags": [ "COMPANY" ],
     "intro": "This is an initiative takes to centralize DTT’s codebase for the purpose of modularizing, reusability and scalability. With some of these ‘packages’ reaching the Unity Asset Store, so they’re available for the community.",
     "description":  [
-
+      "The Unity Core Package (UCP) project was an initiative by DTT to increase the amount of reusable code that can be used in future projects. This meant retroactively creating packages from code in past projects that we determined would prove useful in the future. But also create packages that we predict will be useful based on previous experiences where we missed out.",
+      "These packages were set up with the Unity Package Manager (UPM), this allows for easy installation from a node server and immutable files. This makes it easy to apply to new (and old) projects and no issue with interference. Although, this does come at the cost of more required communication for reporting bugs and fixing those.",
+      "Every package requires adhering to strict conventions and rules, so everything stays consistent and quality is assured. This also meant the use of unit testing, using the Unity Test Runner. Unit testing assured us of when packages were in working order and changes did not break existing features.",
+      "Packages I worked on are (but not limited to): Keyboard Raiser, TXT Size Matters, and Procedural UI. These packages can now also be found on the Unity Asset Store. Uploading our packages to the store was part of our initiative to profit on our new-found codebase and have others make use of our code as well.",
+      "As project manager, I was also responsible for the management of a team of around ~6 people. I was in charge of the distribution of tasks, quality control and maintaining progress."
     ],
     "images": [
       "ucp-thumb.jpg"
@@ -69,7 +78,10 @@
     "tags": [ "COMPANY" ],
     "intro": "A serious game on request of the municipality of Hollands Kroon. By gamifying the process of collecting and disposing of rubbish, they aim for even cleaner cities and towns. The game makes use of your current GPS location to guide you through the process of removing rubbish and awards you for it.",
     "description":  [
-
+      "As technical lead for this project, I was responsible for creating the main supporting architecture of the game. This included a generic system to travel easily between all UI screens. Also, a scalable system that could handle API calls to deliver content from the server to the client.",
+      "When cleaning up a piece of rubbish on the street, the team of the user who did so is rewarded with a territory on the map that slowly decreases in radius over time. I was responsible for the generation of these territories and displaying them to the user.",
+      "I was also responsible for the creation of a camera system that dynamically could switch between different behaviours within the game. This includes: a third person camera above the player that could be panned, heightened and lowered, a camera that focusses on different clothing articles within the shop and a camera that seamlessly integrated into the scrollable map.",
+      "When the user is cleaning up a piece of rubbish from the street, they are guided by an on-screen process to take a picture of the rubbish and the area after it’s been cleaned up. They also get the chance to add additional information (e.g., the rubbish type, to report it, some written information). Finally, they can also share a before/after photo collage on their social media. It was my responsibility to create this section within the project."
     ],
     "images": [
       "zuiver-thumb.jpg"
@@ -83,9 +95,11 @@
   {
     "title": "Edu Playbook",
     "tags": [ "COMPANY" ],
-    "intro": "In this child-friendly learning environment, children are encouraged to learn about maths, language, and music. In this 2D game, I’ve helped with optimizing the performance of builds on lower-end devices and have contributed to vast library of games.",
+    "intro": "In this child-friendly learning environment, children are encouraged to learn about maths, language, and music. In this 2D game, I’ve helped with optimizing the performance of builds on lower-end devices and have contributed to a vast library of games.",
     "description":  [
-
+      "Edu Playbook (EPB) was my first project working at a company. My first tasks included the creation of mini-games for reading the clock and balancing maths equations. The “clock games” required researching the .NET DateTime and TimeSpan API and using this for generation of questions that can scale in difficulty. The maths balancing game required the same type of question generation, but instead of time it was generating equations that are solvable, scaling in difficulty and work with several maths operators.",
+      "My second task was to optimize the game for lower-end devices, since currently we were experiencing a bottleneck with our sprite loading performance. By investigating the problem, I concluded that the issue was due to the amount of sprites that were loaded when the game booted up, basically all the sprites in the project. But this didn’t have to happen on the first load, a lot of this could be loaded in when it was required. By creating a system that loads in sprite atlases based on the scene of the game, a lot of this overhead was resolved and allowing us to publish to lower-end devices again.",
+      "My last task in the EPB project was to update our architecture to make use of our packages from the Unity Core Package initiative. This meant removing legacy code and replacing that with tested and supported systems that work in the same manner."
     ],
     "images": [
       "epb_thumb.jpg"
@@ -101,7 +115,8 @@
     "tags": [ "COMPANY" ],
     "intro": "Media Masters is an annual event organized by Netwerk Mediawijsheid. It incentivizes students to learn more about the opportunities and dangers of social media, cybercrime, cyberbullying and gaming.",
     "description":  [
-
+      "Since this was a large scale project, it proved quite a challenge to organize everything efficiently. This was mostly due to how recursive the questions were for the quiz games. Every quiz was made up of rounds, every round had several questions, every question contained several answers and choices, etc. But by setting up components in a reusable manner, this proved eventually much more modular and scalable.",
+      "I was in charge of creating the front-end for the promotional website. This meant implementing the designs and hooking up API calls for displaying the articles and prizes. Also, I optimized the website for mobile devices and different resolution screens."
     ],
     "images": [
       "mediamasters-thumb.jpg"
@@ -115,9 +130,11 @@
   {
     "title": "Flocking Simulator",
     "tags": [ "PERSONAL" ],
-    "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour. It also has been optimized by subdividing the space into buckets.",
+    "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour (i.e., cohesion, alignment, separation). By subdividing the space into buckets, the performance of the simulation was optimized.",
     "description":  [
-
+      "The simulation generates an X amount of bees in the environment that fly around in a box (so they don’t fly off into the horizon). These bees are all aware of their peers flying around them and adjust their behaviour based on them.",
+      "They try to align their direction with that of their peers, so they all head in the same direction. They try to move to the average centre of all their flock mates, but they also steer away from crowding local flock mates. These relatively simple rules allow for a fairly complex simulation.",
+      "However, this does have serious consequences for performance. If every bee is checking on its peers, that means you have a O(n^2) situation, which isn’t the greatest. By making use of spacial partitioning, we can subdivide the simulation area in buckets. These buckets are just rooms inside the simulation area that are aware of all the boids it contains. When a boid wants to check with all its peers, it only has to request all of them that are in close buckets. This generally optimizes to O(log(n)), but it depends on the spacing of all the boids."
     ],
     "images": [
       "flocking_sim_thumb.jpg"
@@ -131,9 +148,11 @@
   {
     "title": "Maze Dungeon",
     "tags": [ "PERSONAL" ],
-    "intro": "A game/sandbox project that allows the user to generate mazes using different kinds of algorithms. The game part of it enables the user to walk around using a character that has to pick up several pieces of a key before a door is opened, allowing them to progress to the next stage.\nThe sandbox part of it gives the user the option to choose from several different algorithms to generate the maze with.",
+    "intro": "A game/sandbox project that allows the user to generate mazes using different kinds of algorithms. The game part of it enables the user to walk around using a character that has to pick up several pieces of a key before a door is opened, allowing them to progress to the next stage.\nThe sandbox part of it gives the user the option to choose from numerous algorithms to generate the maze with. \n",
     "description":  [
-
+      "The main challenge for this project was to make it generic, so it could be compatible with various maze generation algorithms. The way this was done was by defining a delegate that took the signature of how every maze generation should look: pass it a grid and get a modified grid back again.",
+      "In total, I added 5 generation algorithms: Depth-first Search, Prim, Binary Tree, Side Winder, and Kruskal. Especially the last algorithm was the hardest to implement due to the requirements it had on the grid. Before implementing that algorithm, every cell had its own 4 walls, meaning that between every cell were technically 2 walls. Kruskal expects there to only be one wall between every two cells. While this does make more sense, and ultimately resulted in a more optimized and clean grid, it did require quite a big refactor to support.",
+      "Finally, I added a controllable character that could navigate through the different mazes. This character was also able to collect keys in randomized places within the maze, so it could open a door to progress. The keys had the added benefit that the player had to navigate with different paths through the maze instead of just going from A to B."
     ],
     "images": [
       "maze_thumb.jpg"

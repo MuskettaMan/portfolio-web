@@ -15,7 +15,7 @@
         <button @click="onReadMoreClicked" class="read-more"><span class="effect">Read more</span></button>
       </div>
     </div>
-    <ShapeDivider :type="divider" :color="transitionColor"/>
+    <ShapeDivider :type="divider" :color="transitionColor" :background-color="nextBackgroundColor"/>
   </section>
 </template>
 
@@ -37,6 +37,10 @@ export default {
       required: true
     },
     backgroundColor: {
+      type: String,
+      required: true
+    },
+    nextBackgroundColor: {
       type: String,
       required: true
     },
@@ -90,7 +94,7 @@ export default {
   position: relative;
   background-color: var(--background-color);
   display: flex;
-  padding: 10rem 10rem 0;
+  padding: 2rem 10rem 8rem;
 
   &.read-more-active {
     padding-right: calc(10rem + 17px);

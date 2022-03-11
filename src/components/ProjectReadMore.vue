@@ -23,12 +23,14 @@
       <div class="details">
         <div class="text">
           <h2>{{ data.title }}</h2>
-          <p>{{ data.intro }}</p>
-          <br/>
-          <span v-for="(description, index) in data.description" :key="index">
-            <p>{{ description }}</p>
-            <br v-if="index !== data.description.length - 1">
-          </span>
+          <div class="description">
+            <p>{{ data.intro }}</p>
+            <br/>
+            <span v-for="(description, index) in data.description" :key="index">
+              <p>{{ description }}</p>
+              <br v-if="index !== data.description.length - 1">
+            </span>
+          </div>
         </div>
         <div class="others">
           <ul>
@@ -212,10 +214,19 @@ $modal-margin-hor: 15rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      gap: 1rem;
       .text {
+        flex-shrink: 3;
+        min-height: 5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        flex-direction: column;
         h2 {
-          margin-bottom: 1rem;
+        }
+        .description {
+          overflow-y: auto;
+          height: auto;
         }
       }
 
