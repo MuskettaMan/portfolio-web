@@ -1,6 +1,5 @@
 <template>
   <section :id="stringToSlug(data.title)" :style="style" :class="{'read-more-active': modalActive}" class="portfolio-mention">
-    <ShapeDivider :type="divider" :color="transitionColor"/>
     <div class="content-wrapper">
       <div class="content">
         <div class="text-wrapper">
@@ -16,6 +15,7 @@
         <button @click="onReadMoreClicked" class="read-more"><span class="effect">Read more</span></button>
       </div>
     </div>
+    <ShapeDivider :type="divider" :color="transitionColor"/>
   </section>
 </template>
 

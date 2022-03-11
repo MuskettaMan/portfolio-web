@@ -25,7 +25,10 @@
           <h2>{{ data.title }}</h2>
           <p>{{ data.intro }}</p>
           <br/>
-          <p>{{ data.description }}</p>
+          <span v-for="(description, index) in data.description" :key="index">
+            <p>{{ description }}</p>
+            <br v-if="index !== data.description.length - 1">
+          </span>
         </div>
         <div class="others">
           <ul>

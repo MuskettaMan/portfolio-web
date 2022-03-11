@@ -14,6 +14,10 @@
           My dream is to one day become a game engine programmer and contribute to a project that I can be proud of.
           Although I still have a lot to learn, I’m enjoying the journey and taking it step-by-step.
         </p>
+        <br>
+<!--        <p>-->
+<!--          <fa-icon icon="file-pdf"/> <a href="@/assets/resume.pdf">Curriculum vitae</a>-->
+<!--        </p>-->
       </div>
       <div class="get-in-contact">
         <h2>Contact me</h2>

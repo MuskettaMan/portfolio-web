@@ -2,7 +2,9 @@
   {
     "title": "Object Pooling",
     "tags": [ "PERSONAL" ],
-    "description": "",
+    "description": [
+
+    ],
     "intro": "This is a Unity package that can be imported into your project to make use of a highly customizable object pooling system. Made with modularity in mind, it allows you to hook into several stages of the pooling system to customize your own behaviour.",
     "images": [
       "pool_management_thumb.jpg"
@@ -17,7 +19,9 @@
     "title": "Portfolio Website",
     "tags": [ "PERSONAL" ],
     "intro": "You’re looking at it now. Made with the VueJS framework I put this together in about two weeks to display all my experience as a game developer. Being able to put my front-end skill set to use was a nice change of pace, and it gave me a lot to learn as well.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "portfolio_thumb.jpg"
     ],
@@ -31,7 +35,9 @@
     "title": "Present Hunter",
     "tags": [ "PERSONAL" ],
     "intro": "This is the result of my entry-level C++ skills, and were used to demo my current knowledge of the programming language. This 2D, top-down, shooter game allows the player to control the character on screen to evade and defeat the enemies and collect the presents.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "present_hunter_thumb.jpg"
     ],
@@ -46,7 +52,9 @@
     "title": "Unity Core Packages / Assets",
     "tags": [ "COMPANY" ],
     "intro": "This is an initiative takes to centralize DTT’s codebase for the purpose of modularizing, reusability and scalability. With some of these ‘packages’ reaching the Unity Asset Store, so they’re available for the community.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "ucp-thumb.jpg"
     ],
@@ -60,7 +68,9 @@
     "title": "Operatie Z.U.I.V.E.R",
     "tags": [ "COMPANY" ],
     "intro": "A serious game on request of the municipality of Hollands Kroon. By gamifying the process of collecting and disposing of rubbish, they aim for even cleaner cities and towns. The game makes use of your current GPS location to guide you through the process of removing rubbish and awards you for it.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "zuiver-thumb.jpg"
     ],
@@ -74,7 +84,9 @@
     "title": "Edu Playbook",
     "tags": [ "COMPANY" ],
     "intro": "In this child-friendly learning environment, children are encouraged to learn about maths, language, and music. In this 2D game, I’ve helped with optimizing the performance of builds on lower-end devices and have contributed to vast library of games.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "epb_thumb.jpg"
     ],
@@ -88,7 +100,9 @@
     "title": "Media Masters",
     "tags": [ "COMPANY" ],
     "intro": "Media Masters is an annual event organized by Netwerk Mediawijsheid. It incentivizes students to learn more about the opportunities and dangers of social media, cybercrime, cyberbullying and gaming.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "mediamasters-thumb.jpg"
     ],
@@ -102,7 +116,9 @@
     "title": "Flocking Simulator",
     "tags": [ "PERSONAL" ],
     "intro": "A sample project I made for experimenting with an artificial life program that simulates the behaviour of birds using very simple rules. Instead of birds, my implementation used bees, but it all boils down to the same concept. The UI allows the user to modify different intensities for the different parts of behaviour. It also has been optimized by subdividing the space into buckets.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "flocking_sim_thumb.jpg"
     ],
@@ -116,7 +132,9 @@
     "title": "Maze Dungeon",
     "tags": [ "PERSONAL" ],
     "intro": "A game/sandbox project that allows the user to generate mazes using different kinds of algorithms. The game part of it enables the user to walk around using a character that has to pick up several pieces of a key before a door is opened, allowing them to progress to the next stage.\nThe sandbox part of it gives the user the option to choose from several different algorithms to generate the maze with.",
-    "description": "",
+    "description":  [
+
+    ],
     "images": [
       "maze_thumb.jpg"
     ],
