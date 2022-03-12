@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from "@/router";
+import { createMetaManager } from "vue-meta";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -21,5 +22,6 @@ library.add(faEnvelope, faCircleArrowDown, faGithub, faLinkedin, faCalendar, faT
 
 const app = createApp(App).use(store)
 app.use(router);
+app.use(createMetaManager())
 app.component('fa-icon', FontAwesomeIcon);
 app.mount('#app');

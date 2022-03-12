@@ -82,6 +82,7 @@ import Tooltip from "@/components/Tooltip";
 import {ref} from "vue";
 import {useStore} from "vuex";
 import {useRoute, useRouter} from "vue-router";
+import {useMeta} from "vue-meta";
 export default {
   name: "ProjectReadMore",
   components: {Tooltip},
@@ -112,6 +113,8 @@ export default {
     const clickedCloseButton = () => {
       router.push({ name: 'home', params: { project: '' }})
     }
+
+    useMeta({ title: props.data.title })
 
     return {
       selectedImage,
