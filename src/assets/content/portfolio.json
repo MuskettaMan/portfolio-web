@@ -9,7 +9,11 @@
       "This also made it a requirement for me to work with the dependency injection design pattern. I applied this in such way, so you can provide behaviours for the different stages of object pooling. You can pass an object that knows how to create the pooled object, how to destroy them and how to pool them. This makes it very modular, easy to change, and it abides by the open-closed principle."
     ],
     "images": [
-      "pool_management_thumb.jpg"
+      "pool_management_thumb.jpg",
+      "pool_management_01.jpg",
+      "pool_management_02.jpg",
+      "pool_management_03.jpg",
+      "pool_management_04.jpg"
     ],
     "engine": "Unity",
     "startDate": "2021/07",
@@ -23,7 +27,7 @@
     "intro": "You’re looking at it now. Made with the VueJS framework, I put this together in about two weeks to display all my experience as a game developer. Being able to put my front-end skill set to use was a nice change of pace, and it gave me a lot to learn as well.",
     "description":  [
       "This was a happy trip down memory lane, since I could revisit all my old projects again and write out texts and take screenshots for each of them. It reminded me of my current progression and experience of game developer, and realized for the first time that I’ve made definitive progress and this is not just a starting endeavour any more.",
-      "Made with the VueJS framework was able to put my front-end development skills to work to create a portfolio I could be proud of. I put a lot of attention in creating quality screenshots and images for other people to view."
+      "Made with the VueJS framework I was able to put my front-end development skills to work to create a portfolio I could be proud of. I put a lot of attention in creating quality screenshots and images for other people to view."
     ],
     "images": [
       "portfolio_thumb.jpg"
@@ -102,7 +106,13 @@
       "My last task in the EPB project was to update our architecture to make use of our packages from the Unity Core Package initiative. This meant removing legacy code and replacing that with tested and supported systems that work in the same manner."
     ],
     "images": [
-      "epb_thumb.jpg"
+      "epb_thumb.jpg",
+      "epb_01.jpg",
+      "epb_02.jpg",
+      "epb_03.jpg",
+      "epb_04.jpg",
+      "epb_05.jpg",
+      "epb_06.jpg"
     ],
     "engine": "Unity",
     "startDate": "2021/02",
@@ -137,7 +147,11 @@
       "However, this does have serious consequences for performance. If every bee is checking on its peers, that means you have a O(n^2) situation, which isn’t the greatest. By making use of spacial partitioning, we can subdivide the simulation area in buckets. These buckets are just rooms inside the simulation area that are aware of all the boids it contains. When a boid wants to check with all its peers, it only has to request all of them that are in close buckets. This generally optimizes to O(log(n)), but it depends on the spacing of all the boids."
     ],
     "images": [
-      "flocking_sim_thumb.jpg"
+      "flocking_sim_thumb.jpg",
+      "flocking_sim_01.jpg",
+      "flocking_sim_02.jpg",
+      "flocking_sim_03.jpg",
+      "flocking_sim_04.jpg"
     ],
     "engine": "Unity",
     "startDate": "2020/05",
@@ -155,7 +169,14 @@
       "Finally, I added a controllable character that could navigate through the different mazes. This character was also able to collect keys in randomized places within the maze, so it could open a door to progress. The keys had the added benefit that the player had to navigate with different paths through the maze instead of just going from A to B."
     ],
     "images": [
-      "maze_thumb.jpg"
+      "maze_thumb.jpg",
+      "maze_01.jpg",
+      "maze_02.jpg",
+      "maze_03.jpg",
+      "maze_04.jpg",
+      "maze_05.jpg",
+      "maze_06.jpg",
+      "maze_07.jpg"
     ],
     "engine": "Unity",
     "startDate": "2019/09",
