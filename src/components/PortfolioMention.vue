@@ -5,7 +5,7 @@
         <div class="text-wrapper">
           <div class="header">
             <project-tag v-for="(tag, index) in data.tags" :key="index" :message="tag"/>
-            <h2>{{ data.title }}</h2>
+            <a :href="'#' + stringToSlug(data.title)" style="text-decoration: none" @click="() => onClickTitle(stringToSlug(data.title))"><LinkHeader><h2>{{ data.title }}</h2></LinkHeader></a>
           </div>
           <p>{{ data.intro }}</p>
         </div>
@@ -27,10 +27,11 @@ import {dividers} from "@/components/ShapeDivider";
 import {useStore} from "vuex";
 import {useRoute, useRouter} from "vue-router";
 import ProjectTag from "@/components/ProjectTag";
+import LinkHeader from "@/components/LinkHeader";
 
 export default {
   name: "PortfolioMention",
-  components: {ProjectTag, ShapeDivider},
+  components: {LinkHeader, ProjectTag, ShapeDivider},
   props: {
     data: {
       type: Object,
@@ -77,13 +78,18 @@ export default {
       return props.data.images[0]
     }
 
+    const onClickTitle = (text) => {
+      navigator.clipboard.writeText('https://ferri.dev/#' + text)
+    }
+
     return {
       style,
       stringToSlug,
       divider,
       onReadMoreClicked,
       modalActive,
-      getImage
+      getImage,
+      onClickTitle
     }
   }
 }
@@ -150,7 +156,7 @@ export default {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          h2 {
+          .link-header {
             margin-bottom: 3rem;
           }
 

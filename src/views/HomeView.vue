@@ -74,6 +74,14 @@ export default {
           break;
         }
       }
+
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.getElementById(route.params.project).offsetTop,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }, 0)
     }
 
     findAndSetReadMore()

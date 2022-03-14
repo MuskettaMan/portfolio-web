@@ -5,10 +5,7 @@ const routes = [
   {
     path: '/:project?',
     name: 'home',
-    component: HomeView,
-    meta: {
-      name: "Ferri de Lange Game Developer"
-    }
+    component: HomeView
   }
 ]
 

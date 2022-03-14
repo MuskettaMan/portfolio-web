@@ -32,12 +32,14 @@
           Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank">LinkedIn</a></p>
       </div>
     </div>
+    <img v-for="(item, index) in images" @click="changeImage" :src="require('@/assets/images/' + item)" alt="" :class="{active: current === item}" class="portrait">
     <ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true"/>
   </footer>
 </template>
 
 <script>
 import ShapeDivider from "@/components/ShapeDivider";
+import {computed, onMounted, onUnmounted, ref} from "vue";
 export default {
   name: "PortfolioFooter",
   components: {ShapeDivider},
@@ -45,6 +47,44 @@ export default {
     transitionColor: {
       type: String,
       required: true
+    }
+  },
+  setup() {
+
+    const images = ref([
+        "portrait_01.jpg",
+        "portrait_02.jpg",
+        "portrait_03.jpg"
+    ])
+
+    let intervalID;
+
+    let counter = Math.floor(Math.random() * images.value.length);
+    const current = ref(images.value[counter])
+
+    const changeImage = () => {
+      clearInterval(intervalID)
+      intervalID = setInterval(changeImage, 10000)
+
+      counter++;
+      if(counter > images.value.length - 1)
+        counter = 0;
+
+      current.value = images.value[counter]
+    }
+
+    onMounted(() => {
+      intervalID = setInterval(changeImage, 500)
+    })
+
+    onUnmounted(() => {
+      clearInterval(intervalID)
+    })
+
+    return {
+      images,
+      current,
+      changeImage
     }
   }
 }
@@ -55,6 +95,29 @@ export default {
   position: relative;
   padding: 12rem 10rem 12rem;
   background-color: #F3EFE4;
+
+  overflow: hidden;
+
+  .portrait {
+    position: absolute;
+    transform: scaleX(-1);
+    right: 4rem;
+    bottom: -2rem;
+    mix-blend-mode: multiply;
+
+    transition-property: right, opacity;
+    transition: 500ms;
+    cursor: pointer;
+    opacity: 1;
+
+    &:not(.active) {
+      transition-property: right, opacity;
+      transition: 500ms;
+
+      opacity: 0;
+      right: -411px;
+    }
+  }
 
   .shape-divider.top {
     top: 0;
@@ -90,7 +153,14 @@ export default {
 
 @media only screen and (max-width: 1000px) {
   .portfolio-footer {
-    padding: 11rem 2rem 3rem;
+    padding: 11rem 2rem 22rem;
+
+    .portrait {
+      height: 400px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(-1);
+      bottom: 1rem;
+    }
 
     .wrapper {
       display: flex;

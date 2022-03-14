@@ -98,8 +98,6 @@ export default {
       return {}
 
     const selectedImage = ref(props.data.images[0])
-    const store = useStore()
-    const route = useRoute()
     const router = useRouter()
 
     const onPreviewImageClick = (image) =>
