@@ -66,7 +66,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
 body,
-p,
 h1,
 h2,
 h3 {
@@ -74,10 +73,14 @@ h3 {
   padding: 0;
 }
 
-p {
+p, li, ul, ol {
   font-size: 1.1rem;
   color: $black-olive;
   opacity: 0.9;
+}
+
+ol, ul {
+  opacity: 1;
 }
 
 h1 {

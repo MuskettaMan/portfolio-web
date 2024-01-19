@@ -17,12 +17,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import Markdown from 'vue3-markdown-it'
 import store from './store'
 
 library.add(faEnvelope, faCircleArrowDown, faGithub, faLinkedin, faCalendar, faTimeline, faCode, faBolt, faUser, faXmark, faFilePdf, faLink)
 
 const app = createApp(App).use(store)
 app.use(router);
+app.use(Markdown);
 app.use(createMetaManager())
 app.component('fa-icon', FontAwesomeIcon);
 app.mount('#app');

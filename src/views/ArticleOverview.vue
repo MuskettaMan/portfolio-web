@@ -1,19 +1,19 @@
 <template>
-    <div class="blog">
+    <div class="article-overview">
         <Navbar></Navbar>
         <div class="wrapper">
 
-            <h2>Blog</h2>
-            <div class="description">Hey, welcome to my blog! Here I sometimes post about interesting topics that I wanted
+            <h2>Articles</h2>
+            <div class="description">Hey, welcome to my articles! Every so often I write about something that interests me and I wanted
                 to share with others. I hope you encounter something you might want to read more about. Happy programming!
             </div>
 
             <div class="articles">
-                <div v-if="articles" v-for="(item, index) in articles" :key="index" class="article-box">
+                <div v-if="articles" v-for="(item, index) in articles" :key="index" @click="() => routeToArticle(item.id)" class="article-box">
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.description }}</p>
                     <div class="footer">
-                        <router-link to="/" class="read-more">read more</router-link>
+                        <router-link :to="`/articles/${item.id}`" class="read-more">read more</router-link>
                         <p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
                     </div>
                 </div>
@@ -26,19 +26,20 @@
 import Navbar from "@/components/Navbar";
 import axios from 'axios'
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
-    name: 'BlogView',
+    name: 'Article overview',
     title: "Ferri's Portfolio",
     components: {
-        Navbar
+Navbar
     },
     setup() {
         let articles = ref([]);
+        const router = useRouter();
 
         axios.get('http://localhost:500/api/articles').then((result) => {
             articles.value = result.data.data;
-            console.log(articles);
         }).catch((error) => {
             console.error("Failed making GET call to get articles!", error);
         });
@@ -54,9 +55,14 @@ export default {
             return formattedDate;
         }
 
+        const routeToArticle = (id) => {
+            router.push(`/articles/${id}`);
+        };
+
         return {
             articles,
-            getFormattedDate
+            getFormattedDate,
+            routeToArticle
         }
     }
 }
@@ -68,7 +74,7 @@ export default {
     opacity: 0;
 }
 
-.blog {
+.article-overview {
     scroll-behavior: smooth;
 
     .wrapper {
@@ -97,7 +103,7 @@ export default {
 }
 
 @media (max-width: 400px) {
-    .blog {
+    .article-overview {
         .wrapper {
             margin: 1rem 3rem 0 3rem;
         }
@@ -113,6 +119,8 @@ export default {
     width: fit-content;
     max-width: 30rem;
     text-align: center;
+
+    cursor: pointer;
 
     padding: 20px;
     margin: 20px 0;
@@ -136,13 +144,14 @@ export default {
     .footer {
         display: flex;
         justify-content: space-between;
-        margin-top: 2rem;
+        margin-top: auto;
         align-self: flex-start;
         
         width: 100%;
 
         .date {
             font-style: italic;
+            margin: 0;
         }
     }
 }

@@ -3,8 +3,8 @@
         <nav id="nav">
             <ul>
                 <li><router-link to="/"><span class="route-name">Home</span></router-link></li>
-                <li><router-link to="/blog"><span class="route-name">Blog</span></router-link></li>
-                <li><router-link to="/"><img src="favicon.ico" /><span class="route-name"><b
+                <li><router-link to="/articles"><span class="route-name">Articles</span></router-link></li>
+                <li><router-link to="/"><img :src="icon" /><span class="route-name"><b
                                 class="name">Ferri</b></span></router-link></li>
             </ul>
         </nav>
@@ -16,8 +16,10 @@ export default {
     name: "Navbar",
     setup() {
         
+        const icon = require('@/assets/images/favicon-32x32.png');
 
         return {
+            icon
         }
     }
 }
