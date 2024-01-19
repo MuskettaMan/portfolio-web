@@ -33,7 +33,6 @@ import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
 import { useStore } from "vuex";
 import { stringToSlug } from "@/assets/helpers/SlugUtility";
-import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 
 export default {
   name: 'HomeView',
@@ -53,10 +52,6 @@ export default {
     const store = useStore();
 
     const readMoreData = ref(null)
-
-    if (IsFirstTimeEnter(route)) {
-      window.scrollTo(0, 0);
-    }
 
     const findAndSetReadMore = () => {
       if (!route.params.project) {

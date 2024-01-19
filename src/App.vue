@@ -11,7 +11,6 @@
 import { useStore } from "vuex";
 import { watch } from "vue";
 import { useRoute } from "vue-router";
-import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 import { useMeta } from "vue-meta";
 
 export default {
@@ -50,13 +49,6 @@ export default {
       ],
       htmlAttrs: { lang: 'en', amp: true }
     })
-
-    if (IsFirstTimeEnter(route)) {
-      document.documentElement.style.overflow = 'hidden'
-      setTimeout(() => {
-        document.documentElement.style.overflow = 'auto'
-      }, 2750)
-    }
   }
 }
 </script>

@@ -35,7 +35,7 @@ export default {
 @import '../assets/variables';
 
 .nav-wrapper {
-    height: 6rem;
+    height: 6.1rem;
     position: relative;
 
 }
@@ -47,20 +47,25 @@ nav {
     height: 100%;
 
     .shape-divider {
-        top: 3rem;
+        top: 3.5rem;
         z-index: 10;
         transform-origin: top;
         transform: scaleY(50%);
     }
 }
 
+.bar {
+    background-color: #333;
+    height: 3.5rem;
+}
+
 ul {
     display: flex;
+    gap: 0.5rem;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0 1rem;
     overflow: hidden;
-    background-color: #333;
 }
 
 li {
@@ -76,6 +81,8 @@ li a {
     height: 100%;
     display: flex;
     gap: 1rem;
+    border-radius: 0px  0px 8px 8px;
+    transition: background-color 0.2s ease-in-out;
 
     .route-name,
     img {
@@ -90,13 +97,12 @@ li a {
 li a.router-link-active {
     background-color: $flame;
     font-weight: bold;
-    border-radius: 0px  0px 8px 8px;
 }
 
 li:last-child {
     margin-left: auto;
 
-    a.router-link-active {
+    a {
         background-color: inherit;
 
     }

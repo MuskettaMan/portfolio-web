@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-button" :class="{ 'reached-bottom': reachedBottom, effect: effect}">
+  <div class="scroll-button" :class="{ 'reached-bottom': reachedBottom }">
     <button @click="nextSectionButtonClicked">
       <fa-icon icon="circle-arrow-down"></fa-icon>
     </button>
@@ -8,7 +8,6 @@
 
 <script>
 import {computed, onMounted, onUnmounted, ref} from "vue";
-import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 import {useRoute} from "vue-router";
 
 export default {
@@ -22,7 +21,6 @@ export default {
   setup(props) {
     const reachedBottom = ref(false)
     const route = useRoute();
-    const effect = computed(() => IsFirstTimeEnter(route))
     const queryScrollButtonEnabled = () => {
       const lastElement = props.targets[props.targets.length - 1].$el;
       const bottomScroll = window.scrollY + window.innerHeight - lastElement.offsetHeight + 50
@@ -59,8 +57,7 @@ export default {
 
     return {
       nextSectionButtonClicked,
-      reachedBottom,
-      effect
+      reachedBottom
     }
   }
 }
@@ -77,16 +74,6 @@ export default {
   transform: translateX(-50%);
   color: $floral-white;
   mix-blend-mode: difference;
-
-  &.effect {
-    opacity: 0;
-    animation-name: enter;
-    animation-duration: 1s;
-    animation-delay: 1.75s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
   &.reached-bottom button svg {
     transition: transform 250ms;
     transform: rotate(180deg);
