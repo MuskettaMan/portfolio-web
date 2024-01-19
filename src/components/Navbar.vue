@@ -1,21 +1,27 @@
 <template>
     <div class="nav-wrapper">
         <nav id="nav">
-            <ul>
-                <li><router-link to="/"><span class="route-name">Home</span></router-link></li>
-                <li><router-link to="/articles"><span class="route-name">Articles</span></router-link></li>
-                <li><router-link to="/"><img :src="icon" /><span class="route-name"><b
-                                class="name">Ferri</b></span></router-link></li>
-            </ul>
+            <div class="bar">
+                <ul>
+                    <li><router-link to="/"><span class="route-name">Home</span></router-link></li>
+                    <li><router-link to="/articles"><span class="route-name">Articles</span></router-link></li>
+                    <li><router-link to="/"><img :src="icon" /><span class="route-name"><b
+                                    class="name">Ferri</b></span></router-link></li>
+                </ul>
+            </div>
+            <ShapeDivider :type="'waves-opacity'" :color="'#333'" :background-color="'clear'" />
         </nav>
     </div>
 </template>
   
 <script>
+import ShapeDivider from "@/components/ShapeDivider";
+
 export default {
     name: "Navbar",
+    components: { ShapeDivider },
     setup() {
-        
+
         const icon = require('@/assets/images/favicon-32x32.png');
 
         return {
@@ -29,13 +35,23 @@ export default {
 @import '../assets/variables';
 
 .nav-wrapper {
-    height: 3rem;
+    height: 6rem;
+    position: relative;
+
 }
 
 nav {
     width: 100%;
     z-index: 1;
     position: fixed;
+    height: 100%;
+
+    .shape-divider {
+        top: 3rem;
+        z-index: 10;
+        transform-origin: top;
+        transform: scaleY(50%);
+    }
 }
 
 ul {
@@ -74,6 +90,7 @@ li a {
 li a.router-link-active {
     background-color: $flame;
     font-weight: bold;
+    border-radius: 0px  0px 8px 8px;
 }
 
 li:last-child {
