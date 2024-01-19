@@ -1,0 +1,95 @@
+<template>
+    <div class="nav-wrapper">
+        <nav id="nav">
+            <ul>
+                <li><router-link to="/"><span class="route-name">Home</span></router-link></li>
+                <li><router-link to="/blog"><span class="route-name">Blog</span></router-link></li>
+                <li><router-link to="/"><img src="favicon.ico" /><span class="route-name"><b
+                                class="name">Ferri</b></span></router-link></li>
+            </ul>
+        </nav>
+    </div>
+</template>
+  
+<script>
+export default {
+    name: "Navbar",
+    setup() {
+        
+
+        return {
+        }
+    }
+}
+</script>
+  
+<style scoped lang="scss">
+@import '../assets/variables';
+
+.nav-wrapper {
+    height: 3rem;
+}
+
+nav {
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    height: 3rem;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+
+    .route-name,
+    img {
+        margin: auto;
+
+        .name {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+li a.router-link-active {
+    background-color: $flame;
+    font-weight: bold;
+}
+
+li:last-child {
+    margin-left: auto;
+
+    a.router-link-active {
+        background-color: inherit;
+
+    }
+
+    img {
+        height: 50%;
+    }
+}
+
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+  

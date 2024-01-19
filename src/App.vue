@@ -2,17 +2,17 @@
   <metainfo>
     <template v-slot:title="{ content }">{{ content ? `Ferri de Lange | ${content}` : `Ferri de Lange` }}</template>
   </metainfo>
-  <header/>
-  <router-view/>
-  <footer/>
+  <header />
+  <router-view />
+  <footer />
 </template>
 
 <script>
-import {useStore} from "vuex";
-import {watch} from "vue";
-import {useRoute} from "vue-router";
+import { useStore } from "vuex";
+import { watch } from "vue";
+import { useRoute } from "vue-router";
 import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
-import {useMeta} from "vue-meta";
+import { useMeta } from "vue-meta";
 
 export default {
   name: 'App',
@@ -51,10 +51,10 @@ export default {
       htmlAttrs: { lang: 'en', amp: true }
     })
 
-    if(IsFirstTimeEnter(route)) {
-      document.documentElement.style.overflow ='hidden'
+    if (IsFirstTimeEnter(route)) {
+      document.documentElement.style.overflow = 'hidden'
       setTimeout(() => {
-        document.documentElement.style.overflow ='auto'
+        document.documentElement.style.overflow = 'auto'
       }, 2750)
     }
   }
@@ -65,7 +65,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
-body, p, h1, h2, h3 {
+body,
+p,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -89,6 +93,7 @@ h2 {
   font-size: 3rem;
   opacity: 0.9;
 }
+
 h3 {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-weight: 600;
@@ -128,5 +133,4 @@ button {
   -moz-osx-font-smoothing: grayscale;
   background-color: $floral-white;
   color: $eerie-black;
-}
-</style>
+}</style>

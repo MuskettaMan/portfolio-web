@@ -7,36 +7,32 @@
       <link rel="manifest" :href="'site.webmanifest'">
     </teleport>
     <div class="wrapper">
-      <PageHeader/>
+      <Navbar></Navbar>
+      <PageHeader />
       <PortfolioFooter ref="footer" :transition-color="'#fffcf2ff'/*getSectionTransitionColor(sections.length - 1)*/" />
       <ScrollDownButton :targets="sections" />
-      <PortfolioMention
-          v-for="(item, index) in json"
-          :key="index"
-          :ref="el => { sections[index] = el }"
-          :data="item"
-          :background-color="getSectionBackgroundColor(index)"
-          :next-background-color="getSectionBackgroundColor(index + 1)"
-          :transition-color="getSectionTransitionColor(index)"
-      />
+      <PortfolioMention v-for="(item, index) in json" :key="index" :ref="el => { sections[index] = el }" :data="item"
+        :background-color="getSectionBackgroundColor(index)" :next-background-color="getSectionBackgroundColor(index + 1)"
+        :transition-color="getSectionTransitionColor(index)" />
     </div>
     <transition name="read-more-transition">
-      <ProjectReadMore v-if="readMoreData" :data="readMoreData"/>
+      <ProjectReadMore v-if="readMoreData" :data="readMoreData" />
     </transition>
   </div>
 </template>
 
 <script>
+import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import PortfolioMention from "@/components/PortfolioMention";
 import json from "@/assets/content/portfolio.json";
-import {useRoute} from "vue-router";
-import {onMounted, ref, watch} from "vue";
+import { useRoute } from "vue-router";
+import { onMounted, ref, watch } from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
 import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
-import {useStore} from "vuex";
-import {stringToSlug} from "@/assets/helpers/SlugUtility";
+import { useStore } from "vuex";
+import { stringToSlug } from "@/assets/helpers/SlugUtility";
 import IsFirstTimeEnter from "@/assets/helpers/FirstTimeEnter";
 
 export default {
@@ -47,7 +43,8 @@ export default {
     PortfolioFooter,
     ScrollDownButton,
     PageHeader,
-    PortfolioMention
+    PortfolioMention,
+    Navbar
   },
   setup() {
     const sections = ref([])
@@ -57,19 +54,18 @@ export default {
 
     const readMoreData = ref(null)
 
-    if(IsFirstTimeEnter(route)) {
+    if (IsFirstTimeEnter(route)) {
       window.scrollTo(0, 0);
     }
 
     const findAndSetReadMore = () => {
-      if(route.params.project === "")
-      {
+      if (!route.params.project) {
         readMoreData.value = null
         return
       }
 
       for (let i = 0; i < json.length; i++) {
-        if(stringToSlug(json[i].title) === route.params.project) {
+        if (stringToSlug(json[i].title) === route.params.project) {
           readMoreData.value = json[i]
           break;
         }
@@ -120,6 +116,7 @@ export default {
 
 .home {
   scroll-behavior: smooth;
+
   .wrapper {
     position: relative;
     display: flex;
