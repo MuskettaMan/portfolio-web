@@ -35,7 +35,7 @@ export default {
 @import '../assets/variables';
 
 .nav-wrapper {
-    height: 6.1rem;
+    height: 3rem;
     position: relative;
 
 }
@@ -44,13 +44,13 @@ nav {
     width: 100%;
     z-index: 1;
     position: fixed;
-    height: 100%;
+    height: 10rem;
 
     .shape-divider {
         top: 3.5rem;
         z-index: 10;
         transform-origin: top;
-        transform: scaleY(50%);
+        transform: scaleY(30%);
     }
 }
 

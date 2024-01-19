@@ -5,15 +5,10 @@
       <div class="about-me">
         <h2>About me</h2>
         <p>
-          My name is Ferri de Lange and I’m from The Netherlands. I’ve worked at DTT for 2 and a half years, and
-          accumulated tons of experience as a game developer, project lead and scrum master. In my free time, I try to
-          improve my development skills and learn more about the discipline.
+          Hey, I'm Ferri, currently studying programming at BUas. At the moment I'm head-deep in C++, engine development, and trying to get into GPU programming. 
+          I've spent a solid 3 years crafting games in Unity, C# at multimedia company DTT. I'm driven to realize games and the tools for them.
         </p>
-        <br>
-        <p>
-          My dream is to one day become a game engine programmer and contribute to a project that I can be proud of.
-          Although I still have a lot to learn, I’m enjoying the journey and taking it step-by-step.
-        </p>
+        <p>Curious to know more? Have a look at my projects or take a gander at my articles!</p>
         <br>
 <!--        <p>-->
 <!--          <fa-icon icon="file-pdf"/> <a href="@/assets/resume.pdf">Curriculum vitae</a>-->

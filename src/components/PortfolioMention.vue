@@ -107,7 +107,7 @@ export default {
   }
 
   .content-wrapper {
-    min-height: 75vh;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -178,7 +178,7 @@ export default {
         grid-row-start: 1;
         grid-row-end: 4;
         img {
-          width: 35vw;
+          width: 33vw;
           object-fit: contain;
           display: block;
           float: right;
