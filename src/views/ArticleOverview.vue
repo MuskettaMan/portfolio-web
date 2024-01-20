@@ -27,12 +27,13 @@ import Navbar from "@/components/Navbar";
 import axios from 'axios'
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { getFormattedDate } from "@/assets/helpers/dates"
 
 export default {
     name: 'Article overview',
     title: "Ferri's Portfolio",
     components: {
-Navbar
+        Navbar
     },
     setup() {
         let articles = ref([]);
@@ -43,17 +44,6 @@ Navbar
         }).catch((error) => {
             console.error("Failed making GET call to get articles!", error);
         });
-
-        const getFormattedDate = (date) => {
-            const day = date.getDate().toString().padStart(2, '0');
-            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-
-            // Format the date as 'dd-mm-yyyy'
-            const formattedDate = `${day}-${month}-${year}`;
-
-            return formattedDate;
-        }
 
         const routeToArticle = (id) => {
             router.push(`/articles/${id}`);

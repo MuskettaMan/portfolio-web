@@ -7,10 +7,10 @@
             <project-tag v-for="(tag, index) in data.tags" :key="index" :message="tag"/>
             <a :href="'#' + stringToSlug(data.title)" style="text-decoration: none" @click="() => onClickTitle(stringToSlug(data.title))"><LinkHeader><h2>{{ data.title }}</h2></LinkHeader></a>
           </div>
-          <p>{{ data.intro }}</p>
+          <p>{{ data.description }}</p>
         </div>
         <div class="image-wrapper">
-          <img :src="require(`@/assets/images/${getImage()}`)" alt="">
+          <img :src="`/${data.images[0]}`" alt="">
         </div>
         <button @click="onReadMoreClicked" class="read-more"><span class="effect">Read more</span></button>
       </div>
@@ -75,7 +75,7 @@ export default {
       if(props.data.images === undefined || props.data.images === null || props.data.images.length === 0)
         return 'image-not-found.jpg'
 
-      return props.data.images[0]
+      return require(`@/assets/images/${props.data.images[0]}`);
     }
 
     const onClickTitle = (text) => {

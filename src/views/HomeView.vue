@@ -10,8 +10,8 @@
       <Navbar></Navbar>
       <PageHeader />
       <PortfolioFooter ref="footer" :transition-color="'#fffcf2ff'/*getSectionTransitionColor(sections.length - 1)*/" />
-      <ScrollDownButton :targets="sections" />
-      <PortfolioMention v-for="(item, index) in json" :key="index" :ref="el => { sections[index] = el }" :data="item"
+      <ScrollDownButton v-if="projects" :targets="sections" />
+      <PortfolioMention v-if="projects" v-for="(item, index) in projects" :key="index" :ref="el => { sections[index] = el }" :data="item"
         :background-color="getSectionBackgroundColor(index)" :next-background-color="getSectionBackgroundColor(index + 1)"
         :transition-color="getSectionTransitionColor(index)" />
     </div>
@@ -25,7 +25,6 @@
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import PortfolioMention from "@/components/PortfolioMention";
-import json from "@/assets/content/portfolio.json";
 import { useRoute } from "vue-router";
 import { onMounted, ref, watch } from "vue";
 import ScrollDownButton from "@/components/ScrollDownButton";
@@ -33,6 +32,7 @@ import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
 import { useStore } from "vuex";
 import { stringToSlug } from "@/assets/helpers/SlugUtility";
+import axios from 'axios'
 
 export default {
   name: 'HomeView',
@@ -46,12 +46,13 @@ export default {
     Navbar
   },
   setup() {
-    const sections = ref([])
-    const footer = ref(null)
+    const sections = ref([]);
+    const footer = ref(null);
     const route = useRoute();
     const store = useStore();
 
-    const readMoreData = ref(null)
+    const readMoreData = ref(null);
+    const projects = ref([]);
 
     const findAndSetReadMore = () => {
       if (!route.params.project) {
@@ -59,11 +60,16 @@ export default {
         return
       }
 
-      for (let i = 0; i < json.length; i++) {
-        if (stringToSlug(json[i].title) === route.params.project) {
-          readMoreData.value = json[i]
+      for (let i = 0; i < projects.value.length; i++) {
+        if (stringToSlug(projects.value[i].title) === route.params.project) {
+          readMoreData.value = projects.value[i]
           break;
         }
+      }
+
+      if(!readMoreData.value)
+      {
+        return;
       }
 
       setTimeout(() => {
@@ -75,7 +81,12 @@ export default {
       }, 0)
     }
 
-    findAndSetReadMore()
+    axios.get('http://localhost:500/api/projects').then((result) => {
+        projects.value = result.data.data;
+        findAndSetReadMore()
+    }).catch((error) => {
+        console.error("Failed making GET call to get articles!", error);
+    });
 
     const getSectionBackgroundColor = (index) => {
       return index % 2 === 0 ? '#403d39' : '#252422'
@@ -92,8 +103,8 @@ export default {
     })
 
     return {
-      json,
       sections,
+      projects,
       getSectionBackgroundColor,
       getSectionTransitionColor,
       footer,

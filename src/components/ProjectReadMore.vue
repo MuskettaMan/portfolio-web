@@ -7,13 +7,13 @@
       <div class="gallery">
         <div class="empty"></div>
         <div class="selected">
-          <img :src="require(`@/assets/images/${selectedImage}`)" alt="">
+          <img :src="`/${selectedImage}`" alt="">
         </div>
         <div class="previews-wrapper">
           <div class="fade fade-left"></div>
           <div class="previews">
             <div class="preview" v-for="(image, index) in data.images" :key="index" :class="{'selected-preview': selectedImage === image}">
-              <img :src="require(`@/assets/images/${image}`)" @click="() => onPreviewImageClick(image)" alt="">
+              <img :src="`/${image}`" @click="() => onPreviewImageClick(image)" alt="">
               <div class="underline"></div>
             </div>
           </div>
@@ -24,12 +24,7 @@
         <div class="text">
           <h2>{{ data.title }}</h2>
           <div class="description">
-            <p>{{ data.intro }}</p>
-            <br/>
-            <span v-for="(description, index) in data.description" :key="index">
-              <p>{{ description }}</p>
-              <br v-if="index !== data.description.length - 1">
-            </span>
+            <Markdown :source="data.markdown" />
           </div>
         </div>
         <div class="others">
@@ -37,7 +32,7 @@
             <li v-if="data.startDate">
               <Tooltip message="Start date">
                 <fa-icon icon="calendar"/>
-                <p class="date">{{ data.startDate }}</p>
+                <p class="date">{{ getFormattedDate(new Date(data.startDate)) }}</p>
               </Tooltip>
             </li>
             <li v-if="data.duration">
@@ -83,9 +78,12 @@ import {ref} from "vue";
 import {useStore} from "vuex";
 import {useRoute, useRouter} from "vue-router";
 import {useMeta} from "vue-meta";
+import Markdown from 'vue3-markdown-it';
+import { getFormattedDate } from '@/assets/helpers/dates'
+
 export default {
   name: "ProjectReadMore",
-  components: {Tooltip},
+  components: {Tooltip, Markdown},
   props: {
     data: {
       type: Object,
@@ -118,7 +116,8 @@ export default {
       selectedImage,
       onPreviewImageClick,
       clickedOutsideOfModal,
-      clickedCloseButton
+      clickedCloseButton,
+      getFormattedDate
     }
   }
 }

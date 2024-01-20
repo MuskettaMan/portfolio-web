@@ -22,6 +22,9 @@ export default {
     const reachedBottom = ref(false)
     const route = useRoute();
     const queryScrollButtonEnabled = () => {
+      if(props.targets.length === 0)
+        return;
+
       const lastElement = props.targets[props.targets.length - 1].$el;
       const bottomScroll = window.scrollY + window.innerHeight - lastElement.offsetHeight + 50
 
