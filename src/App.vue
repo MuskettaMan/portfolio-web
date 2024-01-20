@@ -16,11 +16,10 @@ import { useMeta } from "vue-meta";
 export default {
   name: 'App',
   setup() {
-    setTimeout(() => document.cookie = "visited=true; SameSite=None; Secure", 1)
     const store = useStore();
     const route = useRoute();
     watch(() => route.params.project, (curr) => {
-      document.documentElement.style.overflow = curr !== "" ? 'hidden' : 'auto'
+      document.documentElement.style.overflow = curr && curr.length !== 0 ? 'hidden' : 'auto'
     })
 
     useMeta({
@@ -128,4 +127,5 @@ button {
   -moz-osx-font-smoothing: grayscale;
   background-color: $floral-white;
   color: $eerie-black;
+  min-height: 100vh;
 }</style>

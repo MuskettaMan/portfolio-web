@@ -110,11 +110,16 @@ li:last-child {
     img {
         height: 50%;
     }
+    
 }
 
 
 li a:hover {
-    background-color: #111;
+    background-color: #141414;
+}
+
+li:not(:last-child) a.router-link-active:hover {
+    background-color: rgb(187, 72, 27);
 }
 </style>
   

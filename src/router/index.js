@@ -10,14 +10,14 @@ const routes = [
     component: ArticleView
   },
   {
-    path: '/:project?',
-    name: 'home',
-    component: HomeView
-  },
-  {
     path: '/articles',
     name: 'articles',
     component: ArticleOverview
+  },
+  {
+    path: '/:project?',
+    name: 'home',
+    component: HomeView
   },
 ]
 
