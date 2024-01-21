@@ -81,7 +81,7 @@ export default {
       }, 0)
     }
 
-    axios.get('http://localhost:500/api/projects').then((result) => {
+    axios.get('https://ferri.dev/api/projects').then((result) => {
         projects.value = result.data.data;
         findAndSetReadMore()
     }).catch((error) => {

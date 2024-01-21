@@ -26,7 +26,7 @@ export default {
         const route = useRoute();
 
 
-        axios.get(`http://localhost:500/api/articles?id=${route.params.article}`).then((result) => {
+        axios.get(`https://ferri.dev/api/articles?id=${route.params.article}`).then((result) => {
             article.value = result.data.data;
         }).catch((error) => {
             console.error("Failed making GET call to get articles!", error);

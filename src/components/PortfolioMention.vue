@@ -71,13 +71,6 @@ export default {
       router.push({name: 'home', params: { project: stringToSlug(props.data.title) }})
     }
 
-    const getImage = () => {
-      if(props.data.images === undefined || props.data.images === null || props.data.images.length === 0)
-        return 'image-not-found.jpg'
-
-      return require(`@/assets/images/${props.data.images[0]}`);
-    }
-
     const onClickTitle = (text) => {
       navigator.clipboard.writeText('https://ferri.dev/#' + text)
     }
@@ -88,7 +81,6 @@ export default {
       divider,
       onReadMoreClicked,
       modalActive,
-      getImage,
       onClickTitle
     }
   }

@@ -35,7 +35,7 @@ export default {
 @import '../assets/variables';
 
 .nav-wrapper {
-    height: 3rem;
+    height: 5.5rem;
     position: relative;
 
 }
@@ -45,6 +45,7 @@ nav {
     z-index: 1;
     position: fixed;
     height: 10rem;
+    pointer-events: none;
 
     .shape-divider {
         top: 3.5rem;
@@ -57,6 +58,7 @@ nav {
 .bar {
     background-color: #333;
     height: 3.5rem;
+    pointer-events: auto;
 }
 
 ul {

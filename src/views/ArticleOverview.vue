@@ -39,7 +39,7 @@ export default {
         let articles = ref([]);
         const router = useRouter();
 
-        axios.get('http://localhost:500/api/articles').then((result) => {
+        axios.get('https://ferri.dev/api/articles').then((result) => {
             articles.value = result.data.data;
         }).catch((error) => {
             console.error("Failed making GET call to get articles!", error);
