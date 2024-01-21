@@ -21,7 +21,6 @@ export default {
     name: "Navbar",
     components: { ShapeDivider },
     setup() {
-
         const icon = require('@/assets/images/favicon-32x32.png');
 
         return {
