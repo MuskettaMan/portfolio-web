@@ -11,10 +11,11 @@ export default createStore({
     token: (state) => state.token
   },
   mutations: {
-    setToken(state, token) {
+    setToken(state, { token, expiresIn }) {
       state.token = token;
 
-      cookies.set('token', token, { expires: 1 });
+      console.log(expiresIn)
+      cookies.set('token', token, { expires: new Date(Date.now() + expiresIn * 1000) });
     },
     setUser(state, user) {
       state.user = user;
@@ -30,8 +31,8 @@ export default createStore({
     }
   },
   actions: {
-    login({ commit }, { token, user }) {
-      commit('setToken', token);
+    login({ commit }, { token, user, expiresIn }) {
+      commit('setToken', { token, expiresIn });
       commit('setUser', user);
     },
     logout({ commit }) {

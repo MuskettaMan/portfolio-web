@@ -43,7 +43,7 @@ export default {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then((result) => {
-                store.dispatch('login', { token: result.data.token, user: result.data.name });
+                store.dispatch('login', { token: result.data.token, user: result.data.name, expiresIn: result.data.expiresIn });
                 router.push({ name: 'cms-home' });
             }).catch((err) => {
             })
