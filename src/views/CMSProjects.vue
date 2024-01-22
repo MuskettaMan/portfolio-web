@@ -38,7 +38,7 @@ export default {
 			{ label: 'ID', key: 'id' },
 			{ label: 'Title', key: 'title' },
 			{ label: 'Description', key: 'description' },
-			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; } }
+			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; }, keyIsClass: true }
 		]
 
         return {

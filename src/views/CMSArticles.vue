@@ -32,7 +32,7 @@ export default {
 			{ label: 'Title', key: 'title' },
 			{ label: 'Description', key: 'description' },
 			{ label: 'Date', key: 'date', func: (item) => { return new Date(item).toLocaleDateString(); } },
-			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; } }
+			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; }, keyIsClass: true }
 		]
         const editArticle = (article) => {
             router.push(`/cms/articles/${article.id}`)
@@ -48,6 +48,5 @@ export default {
 </script>
   
 <style lang="scss" scoped>
-
 </style>
   

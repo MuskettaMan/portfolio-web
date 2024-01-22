@@ -2,13 +2,13 @@
 <div v-if="data && data.length > 0" class="cms-table">
 	<table>
 		<thead>
-		<tr>
+		<tr class="header-row">
 			<th v-for="(column, index) in columns" :key="index">{{ column.label }}</th>
 			<th>Action</th>
 		</tr>
 		</thead>
 		<tbody>
-		<tr v-for="(item, index) in data" :key="index">
+		<tr v-for="(item, index) in data" :key="index" :class="getClass(item)">
 			<td v-for="(column, colIndex) in columns" :key="colIndex">
 				{{ getValue(column, item) }}
 			</td>
@@ -50,9 +50,19 @@ export default {
 			return item[column.key];
 		}
 
+		const getClass = (item) => {
+			return props.columns.reduce((acc, column) => {
+				if (column.keyIsClass && item[column.key]) {
+					acc.push(column.key);
+				}
+				return acc;
+			}, []);
+		}
+
 		return {
 			editItem,
-			getValue
+			getValue,
+			getClass
 		}
 	}
 }
@@ -79,6 +89,13 @@ th, td {
 
 th {
 	background-color: #f2f2f2;
+}
+
+tr:not(.is_published):not(.header-row) {
+	td {
+		background-color: lightgrey;
+		border-color: white;
+	}
 }
 
 button {
