@@ -139,6 +139,7 @@ button {
 
 .form-group {
 	margin-bottom: 15px;
+	width: 100%;
 }
 
 label {

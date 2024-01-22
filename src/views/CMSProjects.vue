@@ -11,6 +11,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import store from '@/store'
 import CMSTable from "@/components/CMSTable.vue";
+import apiManager from "@/scripts/apiManager";
 
 export default {
     name: 'CMSProjectsView',
@@ -22,10 +23,8 @@ export default {
         const projects = ref([]);
         const router = useRouter();
 
-        axios.get('https://ferri.dev/api/projects').then((result) => {
-            projects.value = result.data.data;
-        }).catch((error) => {
-            console.error("Failed making GET call to get projects!", error);
+        apiManager.getProjects().then((result) => {
+            projects.value = result.data;
         });
 
         const formatDate = (date) => {
@@ -38,7 +37,8 @@ export default {
 		const columns = [
 			{ label: 'ID', key: 'id' },
 			{ label: 'Title', key: 'title' },
-			{ label: 'Description', key: 'description' }
+			{ label: 'Description', key: 'description' },
+			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; } }
 		]
 
         return {

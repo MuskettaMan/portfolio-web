@@ -24,10 +24,10 @@
   
 <script>
 import Navbar from "@/components/Navbar";
-import axios from 'axios'
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { getFormattedDate } from "@/assets/helpers/dates"
+import apiManager from "@/scripts/apiManager";
 
 export default {
     name: 'Article overview',
@@ -39,10 +39,8 @@ export default {
         let articles = ref([]);
         const router = useRouter();
 
-        axios.get('https://ferri.dev/api/articles').then((result) => {
-            articles.value = result.data.data;
-        }).catch((error) => {
-            console.error("Failed making GET call to get articles!", error);
+        apiManager.getArticles().then((result) => {
+            articles.value = result.data;
         });
 
         const routeToArticle = (id) => {

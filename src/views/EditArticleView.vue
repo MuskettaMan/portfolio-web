@@ -22,17 +22,22 @@
                 <textarea v-model="article.markdown" id="markdown" required></textarea>
             </div>
 
+			<div class="form-group">
+				<label for="is_published">Is Published:</label>
+				<input type="checkbox" v-model="article.is_published" id="is_published"/>
+			</div>
+
             <button type="submit">Save Changes</button>
         </form>
     </div>
 </template>
   
 <script>
-import axios from 'axios'
 import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import store from '@/store'
 import Markdown from 'vue3-markdown-it';
+import apiManager from "@/scripts/apiManager";
 
 export default {
     name: 'Edit Article',
@@ -42,36 +47,30 @@ export default {
     },
     setup() {
         const article = ref(null);
-        const route = useRoute();
+		const route = useRoute();
+		const router = useRouter();
 
-        axios.get(`https://ferri.dev/api/articles?id=${route.params.id}`).then((result) => {
-            article.value = result.data.data;
-        }).catch((error) => {
-            console.error("Failed making GET call to get articles!", error);
-        });
+        apiManager.getArticle(route.params.id).then((result) => {
+            article.value = result.data;
 
-        const formatDate = (date) => {
-            return new Date(date).toLocaleDateString();
-        };
+			article.value.date = new Date(article.value.date).toLocaleDateString('en-CA');
+			article.value.is_published = !!article.value.is_published;
+		}).catch((error) => {
+			console.error("Failed making GET call to get articles!", error);
+		});
+
         const editArticle = (articleId) => {
-            axios.put(`http://localhost:500/api/articles/edit`, {
-                id: articleId,
-                ...article.value
-            }, {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'authorization': `${store.getters.token}`
-                }
-            }).then((result) => {
-                article.value = result.data.data;
-            }).catch((error) => {
-                console.error("Failed making GET call to get articles!", error.message);
+			article.value.is_published = article.value.is_published ? 1 : 0;
+            apiManager.editArticle({
+				id: articleId,
+				...article.value
+			}).then((result) => {
+                router.push(`/cms/articles`);
             });
         };
 
         return {
             article,
-            formatDate,
             editArticle
         }
     }

@@ -11,6 +11,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import store from '@/store'
 import CMSTable from "@/components/CMSTable.vue";
+import apiManager from "@/scripts/apiManager";
 
 export default {
     name: 'CMSArticlesView',
@@ -22,29 +23,23 @@ export default {
         const articles = ref([]);
         const router = useRouter();
 
-        axios.get('https://ferri.dev/api/articles').then((result) => {
-            articles.value = result.data.data;
-        }).catch((error) => {
-            console.error("Failed making GET call to get articles!", error);
+		apiManager.getArticles().then((result) => {
+            articles.value = result.data;
         });
 
 		const columns = [
 			{ label: 'ID', key: 'id' },
 			{ label: 'Title', key: 'title' },
 			{ label: 'Description', key: 'description' },
-			{ label: 'Date', key: 'date' },
+			{ label: 'Date', key: 'date', func: (item) => { return new Date(item).toLocaleDateString(); } },
+			{ label: 'Published', key: 'is_published', func: (item) => { return item ? 'Yes' : 'No'; } }
 		]
-
-        const formatDate = (date) => {
-            return new Date(date).toLocaleDateString();
-        };
         const editArticle = (article) => {
             router.push(`/cms/articles/${article.id}`)
         };
 
         return {
             articles,
-            formatDate,
             editArticle,
 			columns
         }

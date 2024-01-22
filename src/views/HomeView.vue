@@ -32,7 +32,7 @@ import PortfolioFooter from "@/components/PortfolioFooter";
 import ProjectReadMore from "@/components/ProjectReadMore";
 import { useStore } from "vuex";
 import { stringToSlug } from "@/assets/helpers/SlugUtility";
-import axios from 'axios'
+import apiManager from "@/scripts/apiManager";
 
 export default {
   name: 'HomeView',
@@ -81,11 +81,9 @@ export default {
       }, 0)
     }
 
-    axios.get('https://ferri.dev/api/projects').then((result) => {
-        projects.value = result.data.data;
+    apiManager.getProjects().then((result) => {
+        projects.value = result.data;
         findAndSetReadMore()
-    }).catch((error) => {
-        console.error("Failed making GET call to get articles!", error);
     });
 
     const getSectionBackgroundColor = (index) => {

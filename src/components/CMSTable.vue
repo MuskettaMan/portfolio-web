@@ -1,4 +1,5 @@
-<template><div class="cms-table">
+<template>
+<div v-if="data && data.length > 0" class="cms-table">
 	<table>
 		<thead>
 		<tr>
@@ -9,7 +10,7 @@
 		<tbody>
 		<tr v-for="(item, index) in data" :key="index">
 			<td v-for="(column, colIndex) in columns" :key="colIndex">
-				{{ item[column.key] }}
+				{{ getValue(column, item) }}
 			</td>
 			<td>
 				<button @click="editItem(item)">Edit</button>
@@ -42,8 +43,16 @@ export default {
 			props.editCallback(item);
 		};
 
+		const getValue = (column, item) => {
+			if (column.func) {
+				return column.func(item[column.key]);
+			}
+			return item[column.key];
+		}
+
 		return {
-			editItem
+			editItem,
+			getValue
 		}
 	}
 }

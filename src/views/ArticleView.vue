@@ -9,10 +9,10 @@
   
 <script>
 import Navbar from "@/components/Navbar";
-import axios from 'axios'
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import Markdown from 'vue3-markdown-it';
+import apiManager from "@/scripts/apiManager";
 
 export default {
     name: 'ArticleView',
@@ -26,8 +26,8 @@ export default {
         const route = useRoute();
 
 
-        axios.get(`https://ferri.dev/api/articles?id=${route.params.article}`).then((result) => {
-            article.value = result.data.data;
+        apiManager.getArticle(route.params.article).then((result) => {
+            article.value = result.data;
         }).catch((error) => {
             console.error("Failed making GET call to get articles!", error);
         });
