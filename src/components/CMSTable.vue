@@ -1,24 +1,27 @@
 <template>
-<div v-if="data && data.length > 0" class="cms-table">
-	<table>
-		<thead>
-		<tr class="header-row">
-			<th v-for="(column, index) in columns" :key="index">{{ column.label }}</th>
-			<th>Action</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr v-for="(item, index) in data" :key="index" :class="getClass(item)">
-			<td v-for="(column, colIndex) in columns" :key="colIndex">
-				{{ getValue(column, item) }}
-			</td>
-			<td>
-				<button @click="editItem(item)">Edit</button>
-			</td>
-		</tr>
-		</tbody>
-	</table>
-</div>
+	<div v-if="data && data.length > 0" class="cms-table">
+		<table>
+			<thead>
+			<tr class="header-row">
+				<th v-for="(column, index) in columns" :key="index">{{ column.label }}</th>
+				<th>Action</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr v-for="(item, index) in data" :key="index" :class="getClass(item)">
+				<td v-for="(column, colIndex) in columns" :key="colIndex">
+					{{ getValue(column, item) }}
+				</td>
+				<td>
+					<div class="actions">
+						<button @click="editItem(item)">Edit</button>
+						<button v-if="props.deleteCallback" @click="deleteItem(item)">Delete</button>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <script>
@@ -37,10 +40,17 @@ export default {
 			type: Function,
 			required: true,
 		},
+		deleteCallback: {
+			type: Function,
+			required: false,
+		}
 	},
 	setup(props) {
 		const editItem = (item) => {
 			props.editCallback(item);
+		};
+		const deleteItem = (item) => {
+			props.deleteCallback(item);
 		};
 
 		const getValue = (column, item) => {
@@ -61,8 +71,10 @@ export default {
 
 		return {
 			editItem,
+			deleteItem,
 			getValue,
-			getClass
+			getClass,
+			props
 		}
 	}
 }
@@ -100,5 +112,11 @@ tr:not(.is_published):not(.header-row) {
 
 button {
 	font-weight: bold;
+}
+
+.actions {
+	display: flex;
+	gap: 0.5rem;
+	height: 100%;
 }
 </style>
