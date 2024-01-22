@@ -1,7 +1,8 @@
 import axios from 'axios';
 import store from '@/store';
 
-const API_URL = 'http://localhost:500/api'
+const API_URL = 'https://ferri.dev/api'
+//const API_URL = 'http://localhost:500/api'
 
 const instance = axios.create({
     baseURL: API_URL,
@@ -38,7 +39,15 @@ instance.interceptors.response.use(
 );
 
 const apiManager = {
-    // Example method for fetching articles
+    async login(username, password) {
+        try {
+            const response = await instance.post('/login', {username, password});
+            return response.data;
+        } catch (error) {
+            console.error('Error logging in:', error.message);
+            throw error;
+        }
+    },
     async getArticles() {
         try {
             const response = await instance.get('/articles');

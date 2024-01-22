@@ -1,37 +1,42 @@
 <template>
-    <div class="cms-layout">
-        <Navbar />
-        <div class="nav-container">
-            <CMSNavigation />
-            <router-view class="content" />
-        </div>
-    </div>
+	<div class="cms-layout">
+		<Navbar/>
+		<div class="nav-container">
+			<CMSNavigation/>
+			<router-view class="content"/>
+		</div>
+	</div>
 </template>
-  
+
 <script>
 import Navbar from "@/components/Navbar";
 import CMSNavigation from "@/components/CMSNavigation";
 
 export default {
-    name: 'CmsLayout',
-    components: {
-        Navbar,
-        CMSNavigation
-    },
+	name: 'CmsLayout',
+	components: {
+		Navbar,
+		CMSNavigation
+	},
 };
 </script>
-  
+
 <style scoped>
 .cms-layout {
 }
+
 .nav-container {
-    display: flex;  
-    
+	display: flex;
+
+}
+
+body {
+	margin: 0;
 }
 
 .cms-nav-wrapper {
-    flex-shrink: 0;
-    flex-grow: 0;
+	flex-shrink: 0;
+	flex-grow: 0;
 }
 
 </style>

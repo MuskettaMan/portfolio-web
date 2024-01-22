@@ -1,153 +1,160 @@
 <template>
-    <div class="cms-nav-wrapper">
-        <nav id="nav">
-            <div class="bar">
-                <ul>
-                    <li><router-link to="/cms"><span class="route-name">CMS Home</span></router-link></li>
-                    <li><router-link to="/cms/articles"><span class="route-name">Edit Articles</span></router-link></li>
-                    <li><router-link to="/cms/projects"><span class="route-name">Edit Projects</span></router-link></li>
-                    <li v-if="loggedIn"><button @click="logout">Logout</button></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+	<div class="cms-nav-wrapper">
+		<nav id="nav">
+			<div class="bar">
+				<ul>
+					<li>
+						<router-link to="/cms"><span class="route-name">CMS Home</span></router-link>
+					</li>
+					<li>
+						<router-link to="/cms/articles"><span class="route-name">Edit Articles</span></router-link>
+					</li>
+					<li>
+						<router-link to="/cms/projects"><span class="route-name">Edit Projects</span></router-link>
+					</li>
+					<li v-if="loggedIn">
+						<button @click="logout">Logout</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 </template>
-  
+
 <script>
 import store from '@/store'
-import { computed } from 'vue'
-import { useRouter } from "vue-router";
+import {computed} from 'vue'
+import {useRouter} from "vue-router";
 
 export default {
-    name: "CMS Navigation",
-    components: {  },
-    setup() {
-        const icon = require('@/assets/images/favicon-32x32.png');
-        const loggedIn = computed(() => store.getters.isAuthenticated);
-        const router = useRouter();
+	name: "CMS Navigation",
+	components: {},
+	setup() {
+		const icon = require('@/assets/images/favicon-32x32.png');
+		const loggedIn = computed(() => store.getters.isAuthenticated);
+		const router = useRouter();
 
-        const logout = () => {
-            store.dispatch('logout');
-            
-            router.push({ name: 'login' });
-        }
+		const logout = () => {
+			store.dispatch('logout');
 
-        return {
-            icon,
-            loggedIn,
-            logout
-        }
-    }
+			router.push({name: 'login'});
+		}
+
+		return {
+			icon,
+			loggedIn,
+			logout
+		}
+	}
 }
 </script>
-  
+
 <style scoped lang="scss">
-@import '../assets/variables';
 
 .cms-nav-wrapper {
-    height: calc(100vh - 6rem);
-    width: 15rem;
-    margin-right: 2rem;
+	height: calc(100vh - 6rem);
+	width: 15rem;
+	margin-right: 2rem;
 
-    nav {
-        position: absolute;
-        top: 0;
-        width: 15rem;
-        z-index: 0;
-        height: calc(100vh - 5rem);
-        pointer-events: none;
+	nav {
+		position: absolute;
+		top: 0;
+		width: 15rem;
+		z-index: 0;
+		height: calc(100vh - 5rem);
+		pointer-events: none;
 
-        .shape-divider {
-            top: 3.5rem;
-            z-index: 10;
-            transform-origin: top;
-            transform: scaleY(30%);
-        }
-    }
+		.shape-divider {
+			top: 3.5rem;
+			z-index: 10;
+			transform-origin: top;
+			transform: scaleY(30%);
+		}
+	}
 
-    .bar {
-        padding-top: 5rem;
-        background-color: #333;
-        height: 100%;
-        pointer-events: auto;
-    }
+	.bar {
+		padding-top: 5rem;
+		background-color: #333;
+		height: 100%;
+		pointer-events: auto;
+	}
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        list-style-type: none;
-        margin: 0;
-        overflow: hidden;
-        height: 100%;
-        padding: 0;
-    }
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		list-style-type: none;
+		margin: 0;
+		overflow: hidden;
+		height: 100%;
+		padding: 0;
+	}
 
-    li {
-        height: 3rem;
+	li {
+		height: 3rem;
 
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: $flame;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 6px;
-        }
-    }
+		button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			background-color: $flame;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 6px;
+		}
+	}
 
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        gap: 1rem;
-        transition: background-color 0.2s ease-in-out;
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		gap: 1rem;
+		transition: background-color 0.2s ease-in-out;
 
-        .route-name,
-        img {
-            margin: auto;
+		.route-name,
+		img {
+			margin: auto;
 
-            .name {
-                font-size: 1.3rem;
-            }
-        }
-    }
+			.name {
+				font-size: 1.3rem;
+			}
+		}
+	}
 
-    li a.router-link-exact-active {
-        background-color: $flame;
-        font-weight: bold;
-    }
+	li a.router-link-exact-active {
+		background-color: $flame;
+		font-weight: bold;
+	}
 
-    li:last-child {
-        margin-top: auto;
+	li:last-child {
+		margin-top: auto;
 
-        a {
-            background-color: inherit;
+		a {
+			background-color: inherit;
 
-        }
+		}
 
-        img {
-            height: 50%;
-        }
-        
-    }
+		img {
+			height: 50%;
+		}
+
+	}
 
 
-    li a:hover {
-        background-color: #141414;
-    }
+	li a:hover {
+		background-color: #141414;
+	}
 
-    li:not(:last-child) a.router-link-exact-active:hover {
-        background-color: rgb(187, 72, 27);
-    }
+	li:not(:last-child) a.router-link-exact-active:hover {
+		background-color: rgb(187, 72, 27);
+	}
 
 }
 

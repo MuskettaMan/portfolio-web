@@ -25,6 +25,11 @@ const routes = [
         component: ArticleOverview
     },
     {
+        path: '',
+        name: 'home',
+        component: HomeView
+    },
+    {
         path: '/:project?',
         name: 'home',
         component: HomeView
