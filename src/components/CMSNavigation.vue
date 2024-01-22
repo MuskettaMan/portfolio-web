@@ -4,7 +4,8 @@
             <div class="bar">
                 <ul>
                     <li><router-link to="/cms"><span class="route-name">CMS Home</span></router-link></li>
-                    <li><router-link to="/articles"><span class="route-name">Edit Articles</span></router-link></li>
+                    <li><router-link to="/cms/articles"><span class="route-name">Edit Articles</span></router-link></li>
+                    <li><router-link to="/cms/projects"><span class="route-name">Edit Projects</span></router-link></li>
                     <li v-if="loggedIn"><button @click="logout">Logout</button></li>
                 </ul>
             </div>
@@ -18,7 +19,7 @@ import { computed } from 'vue'
 import { useRouter } from "vue-router";
 
 export default {
-    name: "Navbar",
+    name: "CMS Navigation",
     components: {  },
     setup() {
         const icon = require('@/assets/images/favicon-32x32.png');
@@ -120,7 +121,7 @@ export default {
         }
     }
 
-    li a.router-link-active {
+    li a.router-link-exact-active {
         background-color: $flame;
         font-weight: bold;
     }
@@ -144,7 +145,7 @@ export default {
         background-color: #141414;
     }
 
-    li:not(:last-child) a.router-link-active:hover {
+    li:not(:last-child) a.router-link-exact-active:hover {
         background-color: rgb(187, 72, 27);
     }
 

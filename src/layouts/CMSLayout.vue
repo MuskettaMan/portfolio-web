@@ -3,7 +3,7 @@
         <Navbar />
         <div class="nav-container">
             <CMSNavigation />
-            <router-view  />
+            <router-view class="content" />
         </div>
     </div>
 </template>
@@ -25,7 +25,14 @@ export default {
 .cms-layout {
 }
 .nav-container {
-    display: flex;    
+    display: flex;  
+    
 }
+
+.cms-nav-wrapper {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
 </style>
   

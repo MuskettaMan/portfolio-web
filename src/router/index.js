@@ -4,6 +4,9 @@ import ArticleOverview from '../views/ArticleOverview.vue'
 import ArticleView from '../views/ArticleView.vue'
 import LoginView from '../views/LoginView.vue'
 import CMSView from '../views/CMSView.vue'
+import CMSArticles from '../views/CMSArticles.vue'
+import EditArticleView from '../views/EditArticleView.vue'
+import CMSProjects from '../views/CMSProjects.vue'
 import CMSLayout from '../layouts/CMSLayout.vue'
 import store from '@/store'
 
@@ -36,6 +39,21 @@ const routes = [
         path: '',
         name: 'cms-home',
         component: CMSView
+      },
+      {
+        path: 'articles',
+        name: 'cms-articles',
+        component: CMSArticles
+      },
+      {
+        path: 'articles/:id',
+        name: 'edit-article',
+        component: EditArticleView
+      },
+      {
+        path: 'projects',
+        name: 'cms-projects',
+        component: CMSProjects
       }
     ]
   }
