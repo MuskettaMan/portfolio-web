@@ -1,7 +1,7 @@
 <template>
 	<div class="cms-layout">
 		<Navbar/>
-		<div v-if="authenticated" class="nav-container">
+		<div class="nav-container">
 			<CMSNavigation/>
 			<NuxtPage class="content"/>
 		</div>
@@ -11,7 +11,7 @@
 <script>
 import Navbar from "~/components/Navbar";
 import CMSNavigation from "~/components/CMSNavigation";
-import {useMainStore} from '~/store/index'
+
 
 export default {
 	name: 'CmsLayout',
@@ -20,16 +20,10 @@ export default {
 		CMSNavigation
 	},
 	setup() {
-		const router = useRouter();
-		const store = useMainStore();
-
-		if(!store.isAuthenticated) {
-			router.push('/login');
-		}
-
-		return {
-			authenticated: store.isAuthenticated
-		}
+		definePageMeta({
+			middleware: ['auth'],
+		})
+		return {}
 	}
 };
 </script>

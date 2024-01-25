@@ -4,13 +4,16 @@
 		<div class="login-container">
 			<h2>Login</h2>
 			<form @submit.prevent="login" method="post" class="login-form">
+				<!--				<ClientOnly>-->
 				<label for="username">Username:</label>
 				<input type="text" name="username" id="username" v-model="username" required class="login-input"/>
 
 				<label for="password">Password:</label>
-				<input type="password" name="password" id="password" v-model="password" required class="login-input"/>
+				<input type="password" name="password" id="password" v-model="password" required
+					   class="login-input"/>
 
 				<button type="submit" class="login-button">Login</button>
+				<!--				</ClientOnly>-->
 			</form>
 		</div>
 	</div>
@@ -40,8 +43,6 @@ export default {
 				router.push('/cms');
 			});
 		};
-
-		if(store.isAuthenticated) router.push('/cms');
 
 		return {
 			username,

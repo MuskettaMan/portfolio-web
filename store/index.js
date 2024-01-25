@@ -1,14 +1,16 @@
 import cookies from 'js-cookie'
 import {defineStore} from "pinia";
 
-export const useMainStore = defineStore('main-store',{
-    state: () => ({
-        authToken: cookies.get('token') || null,
-        user: cookies.get('user') || null
-    }),
+export const useMainStore = defineStore('main-store', {
+    state: () => {
+        return {
+            authToken: cookies.get('token') || null,
+            user: cookies.get('user') || null
+        }
+    },
     getters: {
-        isAuthenticated: (state) => !!state.authToken,
-        token: (state) => state.authToken
+        isAuthenticated: (state) => !!cookies.get('token'),
+        token: (state) => cookies.get('token')
     },
     actions: {
         login(token, user, expiresIn) {

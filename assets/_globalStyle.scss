@@ -71,7 +71,7 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-  p {
+  p, li {
     font-size: .9rem;
   }
 
@@ -135,4 +135,41 @@ button {
 
 button:hover {
   filter: brightness(0.9);
+}
+
+.hljs {
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .hljs {
+    font-size: .8rem;
+  }
+}
+
+code {
+  background-color: rgba(93, 83, 73, 0.89);
+  color: white;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.article-body {
+
+  h1 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
 }

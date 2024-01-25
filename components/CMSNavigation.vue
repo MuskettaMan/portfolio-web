@@ -12,7 +12,7 @@
 					<li>
 						<router-link to="/cms/projects"><span class="route-name">Edit Projects</span></router-link>
 					</li>
-					<li v-if="loggedIn">
+					<li>
 						<button @click="logout">Logout</button>
 					</li>
 				</ul>
@@ -23,7 +23,6 @@
 
 <script>
 import {useMainStore} from "~/store/index.js";
-import {computed} from 'vue'
 import {useRouter} from "vue-router";
 
 export default {
@@ -31,7 +30,6 @@ export default {
 	components: {},
 	setup() {
 		const store = useMainStore();
-		const loggedIn = computed(() => store.isAuthenticated);
 		const router = useRouter();
 
 		const logout = () => {
@@ -41,7 +39,6 @@ export default {
 		}
 
 		return {
-			loggedIn,
 			logout
 		}
 	}
