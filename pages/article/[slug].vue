@@ -25,8 +25,9 @@ export default {
 		const route = useRoute();
 
 
-		apiManager.getArticle(route.params.id).then((result) => {
+		apiManager.getArticleBySlug(route.params.slug).then((result) => {
 			article.value = result.data;
+			console.log(article.value)
 		}).catch((error) => {
 			console.error("Failed making GET call to get articles!", error);
 		});

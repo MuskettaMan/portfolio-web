@@ -12,11 +12,11 @@
 
 			<div class="articles">
 				<div v-if="articles" v-for="(item, index) in articles" :key="index"
-					 @click="() => routeToArticle(item.id)" class="article-box">
+					 @click="() => routeToArticle(item)" class="article-box">
 					<h3>{{ item.title }}</h3>
 					<p>{{ item.description }}</p>
 					<div class="footer">
-						<NuxtLink :to="`/article/${item.id}`" class="read-more">read more</NuxtLink>
+						<NuxtLink :to="getRoute(item)" class="read-more">read more</NuxtLink>
 						<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
 					</div>
 				</div>
@@ -29,6 +29,7 @@
 import Navbar from "~/components/Navbar";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
+import slugify from "slugify";
 
 export default {
 	name: 'Articles',
@@ -44,13 +45,18 @@ export default {
 			articles.value = result.data;
 		});
 
-		const routeToArticle = (id) => {
-			router.push(`/article/${id}`);
+		const getRoute = (item) => {
+			return `/article/${slugify(item.title, {lower: true})}`;
+		}
+
+		const routeToArticle = (item) => {
+			router.push(getRoute(item));
 		};
 
 		return {
 			articles,
 			routeToArticle,
+			getRoute,
 			getFormattedDate
 		}
 	}

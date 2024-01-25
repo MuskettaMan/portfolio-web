@@ -68,6 +68,15 @@ const apiManager = {
             throw error;
         }
     },
+    async getArticleBySlug(slug) {
+        try {
+            const response = await instance.get(`/articles?slug=${slug}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching article:', error.message);
+            throw error;
+        }
+    },
     async getProjects() {
         try {
             const response = await instance.get('/projects');

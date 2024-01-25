@@ -12,7 +12,7 @@
 				<div class="image-wrapper">
 					<img v-if="data.images.length > 0" :src="`/${data.images[0]}`" alt="">
 				</div>
-				<button class="read-more"><span class="effect">Read more</span></button>
+				<button v-if="false" class="read-more"><span class="effect">Read more</span></button>
 			</div>
 		</div>
 		<ShapeDivider :type="divider" :color="transitionColor" :background-color="nextBackgroundColor"/>
