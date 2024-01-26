@@ -1,6 +1,7 @@
 <template>
 	<div class="article">
 		<Navbar></Navbar>
+		<div class="banner" style="--banner-url: url('../../assets/media/final.png');" alt=""/>
 		<div v-if="article" class="wrapper">
 			<Markdown class="article-body" :source="article.markdown"/>
 		</div>
@@ -27,7 +28,6 @@ export default {
 
 		apiManager.getArticleBySlug(route.params.slug).then((result) => {
 			article.value = result.data;
-			console.log(article.value)
 		}).catch((error) => {
 			console.error("Failed making GET call to get articles!", error);
 		});
@@ -47,6 +47,16 @@ export default {
 
 .article {
 	scroll-behavior: smooth;
+
+	.banner {
+		width: 100%;
+		margin-top: -3rem;
+		height: 50vh;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
+		background-size: cover;
+		background-position: bottom;
+		margin-bottom: 2rem;
+	}
 
 	.wrapper {
 		position: relative;

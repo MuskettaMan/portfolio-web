@@ -148,11 +148,16 @@ button:hover {
   }
 }
 
+pre {
+  overflow: auto;
+}
+
 code {
   background-color: rgba(93, 83, 73, 0.89);
   color: white;
   border-radius: 3px;
   padding: 0 2px;
+  width: fit-content;
 }
 
 .article-body {
@@ -171,5 +176,30 @@ code {
 
   p {
     margin: 1rem 0;
+  }
+
+  img {
+    box-sizing: border-box;
+    max-width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 1rem 0;
+    border: white 2px solid;
+    background-color: white;
+    filter: contrast(125%) brightness(105%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .article-body {
+    code {
+      box-sizing: border-box;
+      width: fit-content;
+      min-width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 }
