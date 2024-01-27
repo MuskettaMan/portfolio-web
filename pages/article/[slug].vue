@@ -1,7 +1,7 @@
 <template>
 	<div class="article">
 		<Navbar></Navbar>
-		<div class="banner" style="--banner-url: url('../../assets/media/final.png');" alt=""/>
+		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`" alt=""/>
 		<div class="wrapper">
 			<div class="article-body">
 				<ContentRenderer :value="content"/>

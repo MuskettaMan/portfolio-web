@@ -11,13 +11,27 @@
 			</div>
 
 			<div class="articles">
-				<div v-if="articles" v-for="(item, index) in articles" :key="index"
-					 @click="() => routeToArticle(item)" class="article-box">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.description }}</p>
-					<div class="footer">
-						<NuxtLink :to="getRoute(item)" class="read-more">read more</NuxtLink>
-						<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+				<div v-if="articles" class="articles-container">
+					<div
+						v-for="(item, index) in articles"
+						:key="index"
+						@click="() => routeToArticle(item)"
+						class="article-box"
+					>
+						<div class="thumbnail-container">
+							<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
+							<div class="shadow"/>
+						</div>
+						<div class="content">
+							<h3>{{ item.title }}</h3>
+							<p class="description">{{ item.description }}</p>
+							<div class="footer">
+								<NuxtLink :to="getRoute(item)" class="read-more">
+									Read more
+								</NuxtLink>
+								<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -25,42 +39,22 @@
 	</div>
 </template>
 
-<script>
-import Navbar from "~/components/Navbar";
+<script setup>
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import slugify from "slugify";
 
-export default {
-	name: 'Articles',
-	title: "Ferri's Portfolio",
-	components: {
-		Navbar
-	},
-	setup() {
-		let articles = ref([]);
-		const router = useRouter();
+let articles = (await apiManager.getArticles()).data;
+const router = useRouter();
 
-		apiManager.getArticles().then((result) => {
-			articles.value = result.data;
-		});
 
-		const getRoute = (item) => {
-			return `/article/${slugify(item.title, {lower: true})}`;
-		}
-
-		const routeToArticle = (item) => {
-			router.push(getRoute(item));
-		};
-
-		return {
-			articles,
-			routeToArticle,
-			getRoute,
-			getFormattedDate
-		}
-	}
+const getRoute = (item) => {
+	return `/article/${slugify(item.title, {lower: true})}`;
 }
+
+const routeToArticle = (item) => {
+	router.push(getRoute(item));
+};
 </script>
 
 <style lang="scss" scoped>
@@ -118,7 +112,7 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	max-width: 30rem;
+	max-width: 350px;
 	text-align: center;
 	box-sizing: border-box;
 
@@ -139,6 +133,30 @@ export default {
 
 	/* Optional: Add a transition for smooth hover effects */
 	transition: box-shadow 0.3s ease-in-out;
+
+	.thumbnail-container {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+		border-radius: 8px;
+		margin-bottom: 1rem;
+		position: relative;
+
+		.thumbnail {
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.shadow {
+			position: absolute;
+			box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+			width: 100%;
+			height: 100%;
+			top: 0;
+		}
+	}
 
 	.footer {
 		display: flex;
