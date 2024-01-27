@@ -2,6 +2,14 @@ import slugify from "slugify";
 import axios from "axios";
 
 export default defineNuxtConfig({
+    content: {
+        highlight: {
+            theme: 'one-dark-pro',
+            preload: [
+                'cpp'
+            ]
+        }
+    },
     devtools: {enabled: true},
     css: [
         '@fortawesome/fontawesome-svg-core/styles.css'
@@ -16,7 +24,7 @@ export default defineNuxtConfig({
         }
     },
     modules: [
-        '@pinia/nuxt'
+        '@pinia/nuxt', '@nuxt/content'
     ],
     build: {
         transpile: ['@fortawesome/vue-fontawesome']

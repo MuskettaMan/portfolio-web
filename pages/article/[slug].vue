@@ -2,41 +2,28 @@
 	<div class="article">
 		<Navbar></Navbar>
 		<div class="banner" style="--banner-url: url('../../assets/media/final.png');" alt=""/>
-		<div v-if="article" class="wrapper">
-			<Markdown class="article-body" :source="article.markdown"/>
+		<div class="wrapper">
+			<div class="article-body">
+				<ContentRenderer :value="content"/>
+			</div>
 		</div>
 	</div>
 </template>
 
-<script>
+<script setup>
 import Navbar from "~/components/Navbar";
-import {ref} from "vue";
 import {useRoute} from "vue-router";
-import Markdown from 'vue3-markdown-it';
 
-export default {
-	name: 'Article',
-	title: "Ferri's Portfolio",
-	components: {
-		Navbar,
-		Markdown
-	},
-	setup() {
-		let article = ref();
-		const route = useRoute();
+const route = useRoute();
+const article = await apiManager.getArticleBySlug(route.params.slug);
 
-
-		apiManager.getArticleBySlug(route.params.slug).then((result) => {
-			article.value = result.data;
-		}).catch((error) => {
-			console.error("Failed making GET call to get articles!", error);
-		});
-
-		return {
-			article
-		}
+const {data: content} = await useFetch(() => '/api/transform', {
+	method: 'POST',
+	body: {
+		markdown: article.data.markdown
 	}
-}
+})
+
 </script>
 
 <style lang="scss" scoped>

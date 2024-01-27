@@ -150,10 +150,14 @@ button:hover {
 
 pre {
   overflow: auto;
+  background-color: #1F1F1F;
+  color: white;
+  border-radius: 3px;
+  padding: 7px;
 }
 
-code {
-  background-color: rgba(93, 83, 73, 0.89);
+code:not(pre code) {
+  background-color: rgba(63, 54, 49, 0.89);
   color: white;
   border-radius: 3px;
   padding: 0 2px;
@@ -170,8 +174,14 @@ code {
 
   h2 {
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: -4rem;
+    padding-top: 6rem;
     margin-bottom: 1rem;
+
+    a {
+      color: $black-olive;
+      text-decoration: none;
+    }
   }
 
   p {
