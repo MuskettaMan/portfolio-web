@@ -4,7 +4,7 @@
 		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`" alt=""/>
 		<div class="wrapper">
 			<div class="article-body">
-				<ContentRenderer :value="content"/>
+				<ContentRenderer :value="articleMarkdown"/>
 			</div>
 		</div>
 	</div>
@@ -13,16 +13,17 @@
 <script setup>
 import Navbar from "~/components/Navbar";
 import {useRoute} from "vue-router";
+import markdownParser from "@nuxt/content/transformers/markdown";
 
 const route = useRoute();
 const article = await apiManager.getArticleBySlug(route.params.slug);
 
-const {data: content} = await useFetch(() => '/api/transform', {
-	method: 'POST',
-	body: {
-		markdown: article.data.markdown
-	}
-})
+const articleMarkdown = await markdownParser.parse(
+	"article-markdown",
+	article.data.markdown,
+	{breaks: true}
+);
+
 
 </script>
 
