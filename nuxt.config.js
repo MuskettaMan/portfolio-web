@@ -33,9 +33,12 @@ export default defineNuxtConfig({
     hooks: {
         async 'nitro:config'(nitroConfig) {
             const articles = (await axios.get('https://ferri.dev/api/articles')).data.data;
+            const projects = (await axios.get('https://ferri.dev/api/projects')).data.data;
 
-            const slugs = articles.map(article => `/article/${slugify(article.title, {lower: true})}`);
-            nitroConfig.prerender.routes.push(...slugs);
+            const articleSlugs = articles.map(article => `/article/${slugify(article.title, {lower: true})}`);
+            const projectSlugs = projects.map(project => `/project/${slugify(project.title, {lower: true})}`);
+            nitroConfig.prerender.routes.push(...articleSlugs);
+            nitroConfig.prerender.routes.push(...projectSlugs);
         }
     },
     app: {

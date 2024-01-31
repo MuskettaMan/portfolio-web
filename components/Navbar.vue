@@ -106,7 +106,7 @@ li:last-child {
 
 	a {
 		background-color: inherit;
-
+		font-weight: inherit;
 	}
 
 	img {

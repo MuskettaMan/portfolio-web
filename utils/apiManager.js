@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {useMainStore} from '~/store/index';
 
-const API_URL = 'https://ferri.dev/api'
-//const API_URL = 'http://localhost:500/api'
+//const API_URL = 'https://ferri.dev/api'
+const API_URL = 'http://localhost:500/api'
 
 const instance = axios.create({
     baseURL: API_URL,
@@ -92,6 +92,15 @@ const apiManager = {
             return response.data;
         } catch (error) {
             console.error('Error fetching projects:', error.message);
+            throw error;
+        }
+    },
+    async getProjectBySlug(slug) {
+        try {
+            const response = await instance.get(`/projects?slug=${slug}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching project:', error.message);
             throw error;
         }
     },

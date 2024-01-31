@@ -5,8 +5,7 @@
 			<PageHeader/>
 			<PortfolioFooter ref="footer"
 							 :transition-color="'#fffcf2ff'"/>
-			<ScrollDownButton v-if="projects" :targets="sections"/>
-			<PortfolioMention v-if="projects" v-for="(item) in projects" :key="item.id"
+			<PortfolioMention v-for="(item) in projects" :key="item.id"
 							  :ref="el => { sections[item.id] = el }" :data="item"
 							  :background-color="getSectionBackgroundColor(item.id)"
 							  :next-background-color="getSectionBackgroundColor(item.id + 1)"

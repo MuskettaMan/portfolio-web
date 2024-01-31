@@ -10,7 +10,9 @@
 					I've spent a solid 3 years crafting games in Unity, C# at multimedia company DTT. I'm driven to
 					realize games and the tools for them.
 				</p>
-				<p>Curious to know more? Have a look at my projects or take a gander at my articles!</p>
+				<p>Curious to know more? Have a look at my projects or take a gander at my
+					<nuxt-link to="/articles">articles!</nuxt-link>
+				</p>
 				<br>
 				<!--        <p>-->
 				<!--          <fa-icon icon="file-pdf"/> <a href="@/assets/resume.pdf">Curriculum vitae</a>-->

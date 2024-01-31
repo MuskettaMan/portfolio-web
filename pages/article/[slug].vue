@@ -1,7 +1,7 @@
 <template>
 	<div class="article">
 		<Navbar></Navbar>
-		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`" alt=""/>
+		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`"/>
 		<div class="wrapper">
 			<div class="article-body">
 				<ContentRenderer :value="articleMarkdown"/>
@@ -39,11 +39,11 @@ const articleMarkdown = await markdownParser.parse(
 	.banner {
 		width: 100%;
 		margin-top: -3rem;
+		margin-bottom: 2rem;
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
 		background-size: cover;
 		background-position: bottom;
-		margin-bottom: 2rem;
 	}
 
 	.wrapper {

@@ -164,6 +164,12 @@ code:not(pre code) {
   width: fit-content;
 }
 
+.bg-dark {
+  p, h1, h2, h3, li, ol, ul {
+    color: white;
+  }
+}
+
 .article-body {
 
   h1 {

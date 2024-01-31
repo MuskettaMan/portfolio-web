@@ -10,12 +10,18 @@
 					<p>{{ data.description }}</p>
 				</div>
 				<div class="image-wrapper">
-					<img v-if="data.images.length > 0" :src="`/${data.images[0]}`" alt="">
+					<img :src="`/${data.thumbnail_path}`" alt="">
 				</div>
-				<button v-if="false" class="read-more"><span class="effect">Read more</span></button>
+
+				<button class="read-more">
+					<nuxt-link :to="`project/${getRoute(data)}`"><span class="effect">Read more</span></nuxt-link>
+				</button>
+
 			</div>
 		</div>
-		<ShapeDivider :type="divider" :color="transitionColor" :background-color="nextBackgroundColor"/>
+		<client-only>
+			<ShapeDivider :type="divider" :color="transitionColor" :background-color="nextBackgroundColor"/>
+		</client-only>
 	</section>
 </template>
 
@@ -24,6 +30,7 @@ import {computed, ref} from "vue";
 import ShapeDivider from "~/components/ShapeDivider";
 import {dividers} from "~/components/ShapeDivider";
 import ProjectTag from "~/components/ProjectTag";
+import slugify from "slugify";
 
 export default {
 	name: "PortfolioMention",
@@ -58,11 +65,15 @@ export default {
 		}
 
 		const divider = ref(getRandomDivider())
+		const getRoute = (data) => {
+			return slugify(data.title, {lower: true});
+		}
 
 
 		return {
 			style,
-			divider
+			divider,
+			getRoute
 		}
 	}
 }
@@ -96,6 +107,10 @@ export default {
 				background: none;
 				padding: 0;
 				width: fit-content;
+
+				a {
+					text-decoration: none;
+				}
 
 				.effect {
 					will-change: transform;
