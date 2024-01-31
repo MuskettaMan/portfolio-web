@@ -70,6 +70,7 @@ ul {
 }
 
 li {
+	margin-bottom: 1rem;
 	height: 3rem;
 }
 
@@ -82,7 +83,7 @@ li a {
 	display: flex;
 	gap: 1rem;
 	border-radius: 0px 0px 8px 8px;
-	transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
 
 	.route-name,
@@ -99,6 +100,7 @@ li a {
 li a.router-link-active {
 	background-color: $flame;
 	font-weight: bold;
+	box-shadow: 0 4px 8px rgba($flame, 0.5);
 }
 
 li:last-child {
@@ -107,6 +109,7 @@ li:last-child {
 	a {
 		background-color: inherit;
 		font-weight: inherit;
+		box-shadow: inherit;
 	}
 
 	img {
@@ -121,7 +124,8 @@ li a:hover {
 }
 
 li:not(:last-child) a.router-link-active:hover {
-	background-color: rgb(187, 72, 27);
+	background-color: rgb(210, 86, 33);
+	box-shadow: 0 4px 8px rgba($flame, 0.7);
 }
 </style>
   

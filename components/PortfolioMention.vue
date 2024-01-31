@@ -114,7 +114,7 @@ export default {
 
 				.effect {
 					will-change: transform;
-					transition: transform 450ms;
+					transition: transform 450ms, box-shadow 850ms;
 
 					display: block;
 					background-color: #eb5e28;
@@ -125,12 +125,14 @@ export default {
 					font-weight: 700;
 					font-size: 1rem;
 					filter: drop-shadow(4px 4px 8px rgba(black, 0.2));
+					box-shadow: 0 4px 8px rgba($flame, 0.5);
 				}
 
 				&:hover .effect {
 					cursor: pointer;
 					transition: transform 150ms;
 					transform: translateY(-10px);
+					box-shadow: 0 4px 8px rgba($flame, 0.7);
 				}
 			}
 
@@ -166,7 +168,7 @@ export default {
 
 				img {
 					width: 33vw;
-					object-fit: contain;
+					object-fit: cover;
 					display: block;
 					float: right;
 					height: 100%;

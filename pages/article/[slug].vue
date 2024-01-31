@@ -18,6 +18,11 @@ import markdownParser from "@nuxt/content/transformers/markdown";
 const route = useRoute();
 const article = await apiManager.getArticleBySlug(route.params.slug);
 
+useSeoMeta({
+	title: article.data.title,
+	description: article.data.description
+})
+
 const articleMarkdown = await markdownParser.parse(
 	"article-markdown",
 	article.data.markdown,

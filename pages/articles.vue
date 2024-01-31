@@ -44,6 +44,12 @@ import {ref} from "vue";
 import {useRouter} from "vue-router";
 import slugify from "slugify";
 
+useSeoMeta({
+	title: 'Articles',
+	description: 'Articles page of my portfolio website',
+	keywords: 'portfolio, articles, articles page, articles page portfolio, portfolio articles page, ferri, ferri de lange, developer, game developer'
+})
+
 let articles = (await apiManager.getArticles()).data;
 const router = useRouter();
 

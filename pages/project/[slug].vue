@@ -21,7 +21,9 @@
 						<h3>{{ data.sections[index].title }}</h3>
 						<ContentRenderer :value="section" class="description bg-dark"/>
 					</div>
-					<img :src="`../../${data.sections[index].image_path}`" alt="">
+					<div class="img-wrapper">
+						<img :src="`../../${data.sections[index].image_path}`" alt="">
+					</div>
 				</div>
 				<client-only>
 					<ShapeDivider v-if="index !== markdownSections.length - 1" :type="'waves-opacity'"
@@ -39,8 +41,13 @@ import markdownParser from "@nuxt/content/transformers/markdown";
 const route = useRoute();
 
 const data = (await apiManager.getProjectBySlug(route.params.slug)).data;
-const markdownSections = [];
 
+useSeoMeta({
+	title: data.project.title,
+	description: data.project.description
+})
+
+const markdownSections = [];
 for (let i = 0; i < data.sections.length; ++i) {
 	markdownSections[i] = await markdownParser.parse('section-' + i, data.sections[i].description, {});
 }
@@ -93,7 +100,6 @@ const getSectionTransitionColor = (index) => {
 
 				.content {
 					flex-direction: row-reverse;
-					text-align: right;
 				}
 			}
 
@@ -101,8 +107,8 @@ const getSectionTransitionColor = (index) => {
 				width: 75vw;
 				display: flex;
 				margin: 0 auto;
-				padding-bottom: 15rem;
-				padding-top: 10rem;
+				padding-bottom: 10rem;
+				padding-top: 5rem;
 				gap: 2rem;
 
 				.text {
@@ -110,18 +116,23 @@ const getSectionTransitionColor = (index) => {
 						color: white;
 					}
 
-					flex: 2;
+					flex: 3;
 				}
 
-
-				img {
-					object-fit: cover;
-					display: block;
+				.img-wrapper {
 					width: 100%;
-					height: auto;
-					flex: 1;
-					border-radius: 5px;
-					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+					flex: 2;
+					display: flex;
+					align-items: flex-start;
+
+					img {
+						object-fit: contain;
+						display: block;
+						width: 100%;
+						height: auto;
+						border-radius: 5px;
+						box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+					}
 				}
 			}
 		}
