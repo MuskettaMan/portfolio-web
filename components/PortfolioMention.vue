@@ -19,7 +19,7 @@
 
 			</div>
 		</div>
-		<client-only>
+		<client-only v-if="!last">
 			<ShapeDivider :type="divider" :color="transitionColor" :background-color="nextBackgroundColor"/>
 		</client-only>
 	</section>
@@ -51,6 +51,11 @@ export default {
 		transitionColor: {
 			type: String,
 			required: true
+		},
+		last: {
+			type: Boolean,
+			required: false,
+			default: false
 		}
 	},
 	setup(props, context) {

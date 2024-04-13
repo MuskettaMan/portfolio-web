@@ -1,15 +1,17 @@
 <template>
 	<div class="home">
 		<div class="wrapper">
-			<Navbar></Navbar>
 			<PageHeader/>
-			<PortfolioFooter ref="footer"
-							 :transition-color="'#fffcf2ff'"/>
-			<PortfolioMention v-for="(item, index) in projects" :key="item.id"
-							  :ref="el => { sections[item.id] = el }" :data="item"
-							  :background-color="getSectionBackgroundColor(index)"
-							  :next-background-color="getSectionBackgroundColor(index + 1)"
-							  :transition-color="getSectionTransitionColor(index)"/>
+			<PortfolioAboutMe ref="section"
+							  :transition-color="'#fffcf2ff'"/>
+			<section id="projects">
+				<PortfolioMention v-for="(item, index) in projects" :key="item.id"
+								  :ref="el => { sections[item.id] = el }" :data="item"
+								  :background-color="getSectionBackgroundColor(index)"
+								  :next-background-color="getSectionBackgroundColor(index + 1)"
+								  :transition-color="getSectionTransitionColor(index)"
+								  :last="index === projects.length - 1"/>
+			</section>
 		</div>
 	</div>
 </template>

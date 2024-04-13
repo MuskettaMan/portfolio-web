@@ -1,6 +1,5 @@
 <template>
 	<div class="article-overview">
-		<Navbar></Navbar>
 		<div class="wrapper">
 
 			<h2>Articles</h2>

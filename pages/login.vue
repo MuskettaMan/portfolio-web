@@ -1,6 +1,5 @@
 <template>
 	<div class="login">
-		<Navbar></Navbar>
 		<div class="login-container">
 			<h2>Login</h2>
 			<form @submit.prevent="login" method="post" class="login-form">
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-import Navbar from "~/components/Navbar";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import {useMainStore} from '~/store/index'
@@ -26,9 +24,7 @@ import {useMainStore} from '~/store/index'
 export default {
 	name: 'LoginView',
 	title: "Ferri's Portfolio",
-	components: {
-		Navbar
-	},
+	components: {},
 	setup() {
 		const username = ref('');
 		const password = ref('');

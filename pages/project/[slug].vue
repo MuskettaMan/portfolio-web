@@ -1,6 +1,5 @@
 <template>
 	<div class="project">
-		<Navbar/>
 		<div class="banner" :style="`--banner-url: url(../../${data.project.banner_path});`"/>
 		<div class="content">
 			<header>
@@ -21,8 +20,11 @@
 						<h3>{{ data.sections[index].title }}</h3>
 						<ContentRenderer :value="section" class="description bg-dark"/>
 					</div>
-					<div class="img-wrapper">
-						<img :src="`../../${data.sections[index].image_path}`" alt="">
+					<div class="media-wrapper">
+						<img v-if="data.sections[index].media.type === 'image'"
+							 :src="`../../${data.sections[index].media.path}`" alt=""/>
+						<video v-else-if="data.sections[index].media.type === 'video'"
+							   :src="`../../${data.sections[index].media.path}`" controls/>
 					</div>
 				</div>
 				<client-only>
@@ -119,13 +121,13 @@ const getSectionTransitionColor = (index) => {
 					flex: 3;
 				}
 
-				.img-wrapper {
+				.media-wrapper {
 					width: 100%;
 					flex: 2;
 					display: flex;
 					align-items: flex-start;
 
-					img {
+					img, video {
 						object-fit: contain;
 						display: block;
 						width: 100%;
@@ -139,5 +141,65 @@ const getSectionTransitionColor = (index) => {
 	}
 }
 
+@media (max-width: 1200px) {
+	.project {
+		.content {
+			header {
+				.content {
+					width: 80vw;
+				}
+			}
+
+			section {
+				.content {
+					width: 80vw;
+					flex-direction: column;
+					gap: 1rem;
+
+					.text {
+						h3 {
+							margin-top: 0;
+						}
+
+						.description {
+							margin-bottom: 1rem;
+						}
+					}
+
+					.media-wrapper {
+						margin-top: 2rem;
+					}
+				}
+
+
+				&.uneven {
+					background-color: #403D39;
+
+					.content {
+						flex-direction: column;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.project {
+		.content {
+			header {
+				.content {
+					width: 90vw;
+				}
+			}
+
+			section {
+				.content {
+					width: 90vw;
+				}
+			}
+		}
+	}
+}
 
 </style>

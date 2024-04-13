@@ -1,6 +1,5 @@
 <template>
 	<div class="article">
-		<Navbar></Navbar>
 		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`"/>
 		<div class="wrapper">
 			<div class="article-body">
@@ -11,7 +10,6 @@
 </template>
 
 <script setup>
-import Navbar from "~/components/Navbar";
 import {useRoute} from "vue-router";
 import markdownParser from "@nuxt/content/transformers/markdown";
 
@@ -57,6 +55,7 @@ const articleMarkdown = await markdownParser.parse(
 		flex-direction: column;
 		width: 60vw;
 		margin: 0 auto;
+		padding: 4rem 0;
 	}
 }
 

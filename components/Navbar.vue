@@ -7,10 +7,15 @@
 						<NuxtLink to="/"><span class="route-name">Home</span></NuxtLink>
 					</li>
 					<li>
+						<NuxtLink class="no-highlight" to="/#projects"><span class="route-name">Projects</span>
+						</NuxtLink>
+					</li>
+					<li>
 						<NuxtLink to="/articles"><span class="route-name">Articles</span></NuxtLink>
 					</li>
 					<li>
-						<NuxtLink to="/"><img src="~/assets/images/icon.png"/><span class="route-name"><b
+						<NuxtLink class="no-highlight" to="/"><img src="~/assets/images/icon.png"/><span
+							class="route-name"><b
 							class="name">Ferri</b></span></NuxtLink>
 					</li>
 				</ul>
@@ -97,7 +102,7 @@ li a {
 	}
 }
 
-li a.router-link-active {
+li a.router-link-active:not(.no-highlight) {
 	background-color: $flame;
 	font-weight: bold;
 	box-shadow: 0 4px 8px rgba($flame, 0.5);
@@ -123,7 +128,7 @@ li a:hover {
 	background-color: #141414;
 }
 
-li:not(:last-child) a.router-link-active:hover {
+li:not(:last-child) a.router-link-active:hover:not(.no-highlight) {
 	background-color: rgb(210, 86, 33);
 	box-shadow: 0 4px 8px rgba($flame, 0.7);
 }
