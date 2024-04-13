@@ -23,6 +23,9 @@
 						<a href="https://github.com/MuskettaMan" target="_blank">
 							<font-awesome-icon :icon="['fab', 'github']"/>
 						</a>
+						<a href="https://twitter.com/ferri_de_lange" target="_blank">
+							<font-awesome-icon :icon="['fab', 'x-twitter']"/>
+						</a>
 					</div>
 				</div>
 			</div>

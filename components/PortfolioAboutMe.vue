@@ -6,12 +6,12 @@
 				<h2>About me</h2>
 				<p>
 					Hey, I'm Ferri, currently studying programming at BUas. At the moment I'm head-deep in C++, engine
-					development, and trying to get into graphics programming.
+					development, and graphics programming.
 					I've spent a solid 4 years crafting games in Unity, C# at multimedia company DTT.
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
-					or take a read one of my
+					or take a look at one of my
 					<nuxt-link to="/articles">articles!</nuxt-link>
 				</p>
 				<br>
@@ -22,14 +22,18 @@
 			<div class="get-in-contact">
 				<h2>Contact me</h2>
 				<p>
-					<font-awesome-icon icon="envelope"></font-awesome-icon>
+					<font-awesome-icon icon="envelope"/>
 					Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a></p>
 				<p>
-					<font-awesome-icon :icon="['fa-brands', 'github']"></font-awesome-icon>
+					<font-awesome-icon :icon="['fa-brands', 'github']"/>
 					Find me on <a href="https://github.com/MuskettaMan" target="_blank">GitHub</a></p>
 				<p>
-					<font-awesome-icon :icon="['fa-brands', 'linkedin']"></font-awesome-icon>
+					<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
 					Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank">LinkedIn</a>
+				</p>
+				<p>
+					<font-awesome-icon :icon="['fab', 'x-twitter']"/>
+					Follow me on <a href="https://twitter.com/ferri_de_lange" target="_blank">twitter</a>
 				</p>
 			</div>
 		</div>
@@ -68,9 +72,10 @@ export default {
 
 	.portrait {
 		position: absolute;
-		transform: scaleX(-1);
-		right: 4rem;
-		bottom: -2rem;
+		transform-origin: bottom;
+		transform: scaleX(-1) scale(0.9);
+		right: 5vw;
+		bottom: 0;
 		mix-blend-mode: multiply;
 		pointer-events: none;
 	}
@@ -81,9 +86,10 @@ export default {
 
 	.wrapper {
 		position: relative;
+		width: 80%;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		column-gap: 10rem;
+		column-gap: 5rem;
 
 		.about-me {
 			h2 {
@@ -99,8 +105,11 @@ export default {
 			p {
 				margin-bottom: 0.3rem;
 
+
 				svg {
+					height: 1.3rem;
 					margin-right: 0.5rem;
+					margin-bottom: -0.075rem;
 				}
 			}
 		}
@@ -110,7 +119,7 @@ export default {
 
 @media only screen and (max-width: 1000px) {
 	.portfolio-about-me {
-		padding: 11rem 2rem 22rem;
+		padding: 11rem 2rem 26rem;
 
 		.portrait {
 			height: 400px;

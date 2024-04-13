@@ -4,8 +4,11 @@
 			<div class="content">
 				<div class="text-wrapper">
 					<div class="header">
-						<project-tag v-for="(tag, index) in data.tags" :key="index" :message="tag"/>
 						<h2>{{ data.title }}</h2>
+						<div class="tags">
+							<span class="tag" v-for="(tag, index) in data.tags" :key="index"><ProjectTag
+								:message="tag"/>&nbsp; </span>
+						</div>
 					</div>
 					<p>{{ data.description }}</p>
 				</div>
@@ -60,9 +63,7 @@ export default {
 	},
 	setup(props, context) {
 		const style = computed(() => {
-			return `
-        --background-color: ${props.backgroundColor};
-      `
+			return `--background-color: ${props.backgroundColor};`
 		})
 
 		const getRandomDivider = () => {
@@ -72,6 +73,16 @@ export default {
 		const divider = ref(getRandomDivider())
 		const getRoute = (data) => {
 			return slugify(data.title, {lower: true});
+		}
+
+		props.data.tags = props.data.tags.split(', ');
+		if (props.data.tags.length === 1 && props.data.tags[0] === "")
+			props.data.tags = [];
+
+		props.data.tags.sort();
+
+		for (let i = 0; i < props.data.tags.length; ++i) {
+			props.data.tags[i] = props.data.tags[i].trim().toUpperCase();
 		}
 
 
@@ -148,6 +159,14 @@ export default {
 					display: flex;
 					flex-direction: column;
 					gap: 0.5rem;
+
+
+					.tags {
+						white-space: break-spaces;
+						overflow-wrap: break-word;
+
+						line-height: 2rem;
+					}
 
 					.link-header {
 						margin-bottom: 3rem;

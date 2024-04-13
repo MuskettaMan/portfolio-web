@@ -5,6 +5,10 @@
 			<header>
 				<div class="content">
 					<h2>{{ data.project.title }}</h2>
+					<div class="tags">
+							<span class="tag" v-for="(tag, index) in data.project.tags" :key="index"><ProjectTag
+								:message="tag"/>&nbsp; </span>
+					</div>
 					<p class="description">{{ data.project.description }}</p>
 				</div>
 				<client-only>
@@ -42,7 +46,18 @@ import markdownParser from "@nuxt/content/transformers/markdown";
 
 const route = useRoute();
 
-const data = (await apiManager.getProjectBySlug(route.params.slug)).data;
+let data = (await apiManager.getProjectBySlug(route.params.slug)).data;
+
+data.project.tags = data.project.tags.split(', ');
+if (data.project.tags.length === 1 && data.project.tags[0] === "")
+	data.project.tags = [];
+
+data.project.tags.sort();
+
+for (let i = 0; i < data.project.tags.length; ++i) {
+	data.project.tags[i] = data.project.tags[i].trim().toUpperCase();
+}
+
 
 useSeoMeta({
 	title: data.project.title,
@@ -86,6 +101,13 @@ const getSectionTransitionColor = (index) => {
 				padding-bottom: 10rem;
 			}
 
+		}
+
+		.tags {
+			white-space: break-spaces;
+			overflow-wrap: break-word;
+
+			line-height: 2rem;
 		}
 
 		.description {
