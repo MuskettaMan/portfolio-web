@@ -14,10 +14,11 @@
 					or take a look at one of my
 					<nuxt-link to="/articles">articles!</nuxt-link>
 				</p>
-				<br>
-				<!--        <p>-->
-				<!--          <fa-icon icon="file-pdf"/> <a href="@/assets/resume.pdf">Curriculum vitae</a>-->
-				<!--        </p>-->
+				<p>
+					<font-awesome-icon icon="file-lines"/>
+					Checkout my
+					<a href="ferri-de-lange-resume.pdf">resume</a>
+				</p>
 			</div>
 			<div class="get-in-contact">
 				<h2>Contact me</h2>
@@ -70,6 +71,12 @@ export default {
 
 	overflow: hidden;
 
+	svg {
+		height: 1.3rem;
+		margin-right: 0.5rem;
+		margin-bottom: -0.075rem;
+	}
+
 	.portrait {
 		position: absolute;
 		transform-origin: bottom;
@@ -104,13 +111,6 @@ export default {
 
 			p {
 				margin-bottom: 0.3rem;
-
-
-				svg {
-					height: 1.3rem;
-					margin-right: 0.5rem;
-					margin-bottom: -0.075rem;
-				}
 			}
 		}
 	}

@@ -13,7 +13,8 @@
 							<nuxt-link to="/">Home</nuxt-link>
 							<nuxt-link to="/#projects">Projects</nuxt-link>
 							<nuxt-link to="/articles">Articles</nuxt-link>
-							<a href="mailto:ferr@ferri.dev">Contact</a>
+							<a href="mailto:ferr@ferri.dev" target="_blank">Contact</a>
+							<a href="/ferri-de-lange-resume.pdf" target="_blank">Resume</a>
 						</div>
 					</div>
 					<div class="footer-socials">
@@ -26,6 +27,7 @@
 						<a href="https://twitter.com/ferri_de_lange" target="_blank">
 							<font-awesome-icon :icon="['fab', 'x-twitter']"/>
 						</a>
+						<span class="copyright">Copyright © 2020-2024 Ferri de Lange</span>
 					</div>
 				</div>
 			</div>
@@ -145,6 +147,65 @@
 	height: 2px;
 	background-color: #eb5e28;
 	transition: width 0.3s;
+}
+
+.copyright {
+	font-size: 0.8rem;
+	color: #7F848E;
+	margin: 0.8rem 0 0;
+	margin-left: auto;
+}
+
+// mobile responsiveness
+@media only screen and (max-width: 1000px) {
+	.footer {
+		padding: 2rem 0;
+	}
+
+	.footer-logo {
+		margin-right: 0;
+	}
+
+	.footer-wrapper {
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.footer-content {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.footer-logo {
+		margin-bottom: 2rem;
+	}
+
+	.footer-links {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.footer-socials {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.footer-socials a {
+		font-size: 1.2rem;
+	}
+	.copyright {
+		text-align: center;
+		margin: 0.5rem 0 0;
+		margin-left: auto;
+	}
 }
 
 </style>
