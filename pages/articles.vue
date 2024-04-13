@@ -85,14 +85,14 @@ const routeToArticle = (item) => {
 
 .articles {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
 	gap: 20px;
 }
 
 
 @media (min-width: 1500px) {
 	.articles {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -114,37 +114,23 @@ const routeToArticle = (item) => {
 
 .article-box {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
 	width: 100%;
-	max-width: 350px;
-	text-align: center;
+	height: 20rem;
+	max-width: 900px;
 	box-sizing: border-box;
-
+	gap: 2rem;
 	cursor: pointer;
 
 	padding: 20px;
 	margin: 20px 0;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	/* Box shadow for a subtle lift */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-	/* Background color */
-	background-color: #fff;
 
 	/* Text properties */
 	color: #333;
 
-	/* Optional: Add a transition for smooth hover effects */
-	transition: box-shadow 0.3s ease-in-out;
-
 	.thumbnail-container {
-		width: 100%;
-		height: 200px;
+		flex-grow: 5;
+		height: 100%;
 		overflow: hidden;
-		border-radius: 8px;
-		margin-bottom: 1rem;
 		position: relative;
 
 		.thumbnail {
@@ -164,6 +150,7 @@ const routeToArticle = (item) => {
 	}
 
 	.footer {
+		flex-shrink: 5;
 		display: flex;
 		justify-content: space-between;
 		margin-top: auto;
@@ -186,10 +173,6 @@ const routeToArticle = (item) => {
 			font-size: 2rem;
 		}
 	}
-}
-
-.article-box:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 </style>
   

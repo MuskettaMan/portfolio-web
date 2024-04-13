@@ -13,6 +13,15 @@ $ghost-white: #fffaffff;
 $cerise: #d8315bff;
 $black-chocolate: #1e1b18ff;
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#__nuxt, #app {
+  height: 100%;
+}
+
 body,
 h1,
 h2,
