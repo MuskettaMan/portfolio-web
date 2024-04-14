@@ -27,7 +27,9 @@
 						<a href="https://twitter.com/ferri_de_lange" target="_blank">
 							<font-awesome-icon :icon="['fab', 'x-twitter']"/>
 						</a>
-						<span class="copyright">Copyright © 2020-2024 Ferri de Lange</span>
+						<client-only>
+							<span class="copyright">Copyright © 2020-{{ currentYear }} Ferri de Lange</span>
+						</client-only>
 					</div>
 				</div>
 			</div>
@@ -36,7 +38,9 @@
 </template>
 
 <script setup>
+import {computed} from "vue";
 
+const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <style scoped lang="scss">

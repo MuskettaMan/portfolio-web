@@ -141,7 +141,7 @@ export default {
 					font-weight: 700;
 					font-size: 1rem;
 					filter: drop-shadow(4px 4px 8px rgba(black, 0.2));
-					box-shadow: 0 4px 8px rgba($flame, 0.5);
+					box-shadow: 0 4px 8px rgba($flame, 0.2);
 				}
 
 				&:hover .effect {

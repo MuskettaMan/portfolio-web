@@ -9,27 +9,25 @@
 				programming!
 			</div>
 
-			<div class="articles">
-				<div v-if="articles" class="articles-container">
-					<div
-						v-for="(item, index) in articles"
-						:key="index"
-						@click="() => routeToArticle(item)"
-						class="article-box"
-					>
-						<div class="thumbnail-container">
-							<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
-							<div class="shadow"/>
-						</div>
-						<div class="content">
-							<h3>{{ item.title }}</h3>
-							<p class="description">{{ item.description }}</p>
-							<div class="footer">
-								<NuxtLink :to="getRoute(item)" class="read-more">
-									Read more
-								</NuxtLink>
-								<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
-							</div>
+			<div v-if="articles" class="articles">
+				<div
+					v-for="(item, index) in articles"
+					:key="index"
+					@click="() => routeToArticle(item)"
+					class="article-box"
+				>
+					<div class="thumbnail-container">
+						<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
+						<div class="shadow"/>
+					</div>
+					<div class="content">
+						<h3>{{ item.title }}</h3>
+						<p class="description">{{ item.description }}</p>
+						<div class="footer">
+							<NuxtLink :to="getRoute(item)" class="read-more">
+								Read more
+							</NuxtLink>
+							<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
 						</div>
 					</div>
 				</div>
@@ -51,7 +49,6 @@ useSeoMeta({
 
 let articles = (await apiManager.getArticles()).data;
 const router = useRouter();
-
 
 const getRoute = (item) => {
 	return `/article/${slugify(item.title, {lower: true})}`;
@@ -84,54 +81,37 @@ const routeToArticle = (item) => {
 }
 
 .articles {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-	gap: 20px;
-}
-
-
-@media (min-width: 1500px) {
-	.articles {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 600px) {
-	.article-overview {
-		.wrapper {
-			margin: 1rem 3rem 0 3rem;
-		}
-	}
-}
-
-@media (max-width: 400px) {
-	.article-overview {
-		.wrapper {
-			margin: 1rem 1rem 0 1rem;
-		}
-	}
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	margin-bottom: 4rem;
 }
 
 .article-box {
 	display: flex;
+	box-sizing: border-box;
 	width: 100%;
 	height: 20rem;
 	max-width: 900px;
-	box-sizing: border-box;
-	gap: 2rem;
+	gap: 3rem;
 	cursor: pointer;
 
 	padding: 20px;
-	margin: 20px 0;
 
-	/* Text properties */
-	color: #333;
+	color: white;
+	background-color: #403d39;
+
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
 
 	.thumbnail-container {
-		flex-grow: 5;
-		height: 100%;
+		min-width: 300px;
+		min-height: 300px;
 		overflow: hidden;
 		position: relative;
+		margin: -20px;
+		border-radius: 4px;
+		border-right: 4px solid $flame;
 
 		.thumbnail {
 			z-index: -1;
@@ -149,18 +129,83 @@ const routeToArticle = (item) => {
 		}
 	}
 
-	.footer {
-		flex-shrink: 5;
-		display: flex;
-		justify-content: space-between;
-		margin-top: auto;
-		align-self: flex-start;
+	.content {
+		color: white;
 
-		width: 100%;
 
-		.date {
-			font-style: italic;
+		h3 {
+			font-size: 2rem;
 			margin: 0;
+		}
+
+		.description {
+			color: white;
+		}
+
+		.footer {
+			display: flex;
+			justify-content: space-between;
+			margin-top: auto;
+
+			p {
+				color: white;
+			}
+
+			width: 100%;
+
+			.date {
+				font-style: italic;
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+@media (min-width: 1500px) {
+	.articles {
+		//grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 1200px) {
+	h3 {
+		font-size: 1.5rem;
+	}
+	p {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 1000px) {
+	.article-box {
+		flex-direction: column;
+		gap: 1rem;
+		height: fit-content;
+
+		.thumbnail-container {
+			min-width: 100%;
+			min-height: 200px;
+		}
+
+		.content {
+			margin-top: 10px;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.article-overview {
+		.wrapper {
+			margin: 1rem 3rem 0 3rem;
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.article-overview {
+		.wrapper {
+			margin: 1rem 1rem 0 1rem;
 		}
 	}
 }

@@ -14,28 +14,41 @@
 					or take a look at one of my
 					<nuxt-link to="/articles">articles!</nuxt-link>
 				</p>
-				<p>
-					<font-awesome-icon icon="file-lines"/>
-					Checkout my
-					<a href="ferri-de-lange-resume.pdf">resume</a>
-				</p>
+				<span class="underline">
+					<p>
+						<font-awesome-icon icon="file-lines"/>
+						Checkout my
+						<a href="ferri-de-lange-resume.pdf">resume</a>
+					</p>
+				</span>
 			</div>
 			<div class="get-in-contact">
 				<h2>Contact me</h2>
-				<p>
-					<font-awesome-icon icon="envelope"/>
-					Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a></p>
-				<p>
-					<font-awesome-icon :icon="['fa-brands', 'github']"/>
-					Find me on <a href="https://github.com/MuskettaMan" target="_blank">GitHub</a></p>
-				<p>
-					<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
-					Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank">LinkedIn</a>
-				</p>
-				<p>
-					<font-awesome-icon :icon="['fab', 'x-twitter']"/>
-					Follow me on <a href="https://twitter.com/ferri_de_lange" target="_blank">twitter</a>
-				</p>
+				<span class="underline">
+					<p>
+						<font-awesome-icon icon="envelope"/>
+						Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a>
+					</p>
+				</span>
+				<span class="underline">
+					<p>
+						<font-awesome-icon :icon="['fa-brands', 'github']"/>
+						Find me on <a href="https://github.com/MuskettaMan" target="_blank">GitHub</a>
+					</p>
+				</span>
+				<span class="underline">
+					<p>
+						<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
+						Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange"
+											  target="_blank">LinkedIn</a>
+					</p>
+				</span>
+				<span class="underline">
+					<p>
+						<font-awesome-icon :icon="['fab', 'x-twitter']"/>
+						Follow me on <a href="https://twitter.com/ferri_de_lange" target="_blank">twitter</a>
+					</p>
+				</span>
 			</div>
 		</div>
 		<img src="~/assets/images/portrait_03.jpg" class="portrait"/>
@@ -75,6 +88,11 @@ export default {
 		height: 1.3rem;
 		margin-right: 0.5rem;
 		margin-bottom: -0.075rem;
+		transition: transform 0.2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.25);
+		}
 	}
 
 	.portrait {
@@ -109,9 +127,31 @@ export default {
 				margin-bottom: 3rem;
 			}
 
-			p {
-				margin-bottom: 0.3rem;
-			}
+			width: fit-content;
+
+		}
+	}
+}
+
+.underline {
+	display: block;
+	width: fit-content;
+
+	p {
+		margin-bottom: 0.3rem;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 2px;
+			margin-top: 0.1rem;
+			background-color: #403d39;
+			transition: width 0.3s;
+		}
+
+		&:hover::after {
+			width: 100%;
 		}
 	}
 }

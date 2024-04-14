@@ -41,19 +41,24 @@ export default {
 
 <style lang="scss" scoped>
 p {
-	display: inline;
+	transition: padding 0.2s ease-in-out;
+	display: inline-block;
 	color: white;
 	background-color: var(--tag-color);
 	width: fit-content;
 	white-space: break-spaces;
 	border-radius: 8px;
-	padding: 3px 8px 3px 8px;
+	padding: 0 6px;
 	font-weight: 600;
 	opacity: .95;
 
 	position: relative;
 
 	box-shadow: var(--tag-color) 0 0 2px 0;
+
+	&:hover {
+		padding: 0 12px;
+	}
 
 	&::after {
 		content: "";
@@ -70,7 +75,7 @@ p {
 @media only screen and (max-width: 600px) {
 	p {
 		border-radius: 6px;
-		padding: 1px 7px 2px 6px;
+		padding: 0 6px;
 	}
 }
 </style>
