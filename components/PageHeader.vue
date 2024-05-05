@@ -22,7 +22,7 @@ export default {
 
 <style scoped lang="scss">
 .page-header {
-	margin: 4rem 10rem 0;
+	margin: 0 10rem 0;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -32,6 +32,7 @@ export default {
 
 	p {
 		font-size: 2rem;
+		margin: 0;
 	}
 
 	h1 {
@@ -41,7 +42,7 @@ export default {
 
 @media only screen and (max-width: 1000px) {
 	.page-header {
-		margin: 6rem 2rem 0;
+		margin: 0 2rem 0;
 		height: 30vh;
 
 		p {
@@ -56,7 +57,7 @@ export default {
 
 @media only screen and (max-width: 600px) {
 	.page-header {
-		margin: 5rem 2rem 0;
+		margin: 0 2rem 0;
 		height: 30vh;
 
 		p {

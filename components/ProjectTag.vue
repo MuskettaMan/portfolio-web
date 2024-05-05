@@ -50,25 +50,17 @@ p {
 	border-radius: 8px;
 	padding: 0 6px;
 	font-weight: 600;
+	font-size: 1rem;
 	opacity: .95;
+	line-height: 1.6rem;
+	margin: 0;
 
 	position: relative;
 
-	box-shadow: var(--tag-color) 0 0 2px 0;
+	box-shadow: var(--tag-color) 0 0 1px 0;
 
 	&:hover {
 		padding: 0 12px;
-	}
-
-	&::after {
-		content: "";
-		position: absolute;
-		bottom: 2px;
-		right: 7px;
-		width: calc(100% - 15px);
-		height: 2px;
-		filter: brightness(0.8);
-		background-color: var(--tag-color);
 	}
 }
 
@@ -76,6 +68,7 @@ p {
 	p {
 		border-radius: 6px;
 		padding: 0 6px;
+		font-size: 0.8rem;
 	}
 }
 </style>

@@ -16,10 +16,7 @@
 					<img :src="`/${data.thumbnail_path}`" alt="">
 				</div>
 
-				<button class="read-more">
-					<nuxt-link :to="`project/${getRoute(data)}`"><span class="effect">Read more</span></nuxt-link>
-				</button>
-
+				<CTAButton :link="`/project/${getRoute(data)}/`" :text="'Read more'"/>
 			</div>
 		</div>
 		<client-only v-if="!last">
@@ -115,42 +112,6 @@ export default {
 			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
 			width: 100%;
-
-			.read-more {
-				display: block;
-				margin-top: 2rem;
-				border: none;
-				background: none;
-				padding: 0;
-				width: fit-content;
-
-				a {
-					text-decoration: none;
-				}
-
-				.effect {
-					will-change: transform;
-					transition: transform 450ms, box-shadow 850ms;
-
-					display: block;
-					background-color: #eb5e28;
-					border-radius: 5px;
-					color: white;
-					padding: 1rem 2rem;
-					text-transform: uppercase;
-					font-weight: 700;
-					font-size: 1rem;
-					filter: drop-shadow(4px 4px 8px rgba(black, 0.2));
-					box-shadow: 0 4px 8px rgba($flame, 0.2);
-				}
-
-				&:hover .effect {
-					cursor: pointer;
-					transition: transform 150ms;
-					transform: translateY(-10px);
-					box-shadow: 0 4px 8px rgba($flame, 0.7);
-				}
-			}
 
 			.text-wrapper {
 				height: fit-content;
@@ -250,8 +211,7 @@ export default {
 
 					img {
 						float: none;
-						width: 60vw;
-						margin: 0 auto;
+						width: 100%;
 					}
 				}
 			}

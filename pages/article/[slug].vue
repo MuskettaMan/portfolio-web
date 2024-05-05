@@ -1,6 +1,7 @@
 <template>
 	<div class="article">
 		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`"/>
+		<div class="banner-fix"/>
 		<div class="wrapper">
 			<div class="article-body">
 				<ContentRenderer :value="articleMarkdown"/>
@@ -41,12 +42,20 @@ const articleMarkdown = await markdownParser.parse(
 
 	.banner {
 		width: 100%;
-		margin-top: -3rem;
-		margin-bottom: 2rem;
+		margin-top: -4.5rem;
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
 		background-size: cover;
-		background-position: bottom;
+		background-position: center;
+		border-bottom: 0;
+	}
+
+	.banner-fix {
+		width: 100%;
+		background-color: $floral-white;
+		height: 2px;
+		margin-top: -2px;
+		margin-bottom: 2rem;
 	}
 
 	.wrapper {

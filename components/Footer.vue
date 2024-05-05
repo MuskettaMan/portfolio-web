@@ -12,7 +12,7 @@
 						<div class="footer-links">
 							<nuxt-link to="/">Home</nuxt-link>
 							<nuxt-link to="/#projects">Projects</nuxt-link>
-							<nuxt-link to="/articles">Articles</nuxt-link>
+							<nuxt-link to="/articles/">Articles</nuxt-link>
 							<a href="mailto:ferr@ferri.dev" target="_blank">Contact</a>
 							<a href="/ferri-de-lange-resume.pdf" target="_blank">Resume</a>
 						</div>
@@ -209,6 +209,14 @@ const currentYear = computed(() => new Date().getFullYear());
 		text-align: center;
 		margin: 0.5rem 0 0;
 		margin-left: auto;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.footer-socials {
+		.copyright {
+			margin: 0;
+		}
 	}
 }
 

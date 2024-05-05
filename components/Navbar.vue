@@ -41,7 +41,7 @@ export default {
 .nav-wrapper {
 	height: 5.5rem;
 	position: relative;
-
+	margin-bottom: 8rem;
 }
 
 nav {
@@ -131,6 +131,31 @@ li a:hover {
 li:not(:last-child) a.router-link-active:hover:not(.no-highlight) {
 	background-color: rgb(210, 86, 33);
 	box-shadow: 0 4px 8px rgba($flame, 0.7);
+}
+
+@media screen and (max-width: 600px) {
+	.bar {
+		height: 4rem;
+	}
+
+	ul {
+		padding: 0 0.5rem;
+	}
+
+	li a {
+		padding: 0px 8px;
+
+		.route-name,
+		img {
+			font-size: 1rem;
+		}
+	}
+
+	li:last-child {
+		img {
+			height: 50%;
+		}
+	}
 }
 </style>
   

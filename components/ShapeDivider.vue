@@ -79,6 +79,7 @@ export default {
 	line-height: 0;
 	background-color: var(--background-color);
 
+
 	&.flip {
 		transform: rotate(180deg);
 	}

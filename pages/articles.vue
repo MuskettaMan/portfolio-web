@@ -3,10 +3,13 @@
 		<div class="wrapper">
 
 			<h2>Articles</h2>
-			<div class="description">Hey, welcome to my articles! Every so often I write about something that interests
-				me and I wanted
-				to share with others. I hope you encounter something you might want to read more about. Happy
-				programming!
+			<div class="description">
+				<p>
+					Hey, welcome to my articles! Every so often I write about something that interests
+					me and I wanted
+					to share with others. I hope you encounter something you might want to read more about. Happy
+					programming!
+				</p>
 			</div>
 
 			<div v-if="articles" class="articles">
@@ -14,20 +17,20 @@
 					v-for="(item, index) in articles"
 					:key="index"
 					@click="() => routeToArticle(item)"
-					class="article-box"
+					class="article-box btn-4"
 				>
 					<div class="thumbnail-container">
 						<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
 						<div class="shadow"/>
 					</div>
-					<div class="content">
-						<h3>{{ item.title }}</h3>
-						<p class="description">{{ item.description }}</p>
-						<div class="footer">
-							<NuxtLink :to="getRoute(item)" class="read-more">
-								Read more
-							</NuxtLink>
-							<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+					<div class="content-wrapper">
+						<div class="content">
+							<h3>{{ item.title }}</h3>
+							<p class="description">{{ item.description }}</p>
+							<div class="footer">
+								<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+								<CTAButton :link="getRoute(item)" :text="'Read more'"/>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -60,13 +63,13 @@ const routeToArticle = (item) => {
 </script>
 
 <style lang="scss" scoped>
-.read-more-transition-leave-active {
-	transition: opacity 250ms;
-	opacity: 0;
-}
-
 .article-overview {
 	scroll-behavior: smooth;
+
+	.description {
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+	}
 
 	.wrapper {
 		position: relative;
@@ -76,15 +79,43 @@ const routeToArticle = (item) => {
 	}
 }
 
-.description {
-	margin: 2rem 0;
-}
-
 .articles {
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
 	margin-bottom: 4rem;
+}
+
+.btn-4 {
+	overflow: hidden;
+	position: relative;
+
+	span {
+		z-index: 20;
+	}
+
+	&:after {
+		background: #fff;
+		content: "";
+		height: 200%;
+		left: -50%;
+		opacity: .1;
+		position: absolute;
+		top: -50%;
+		transform: rotate(35deg);
+		transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+		width: 16%;
+		z-index: 0;
+		pointer-events: none;
+	}
+}
+
+.btn-4:hover {
+
+	&:after {
+		left: 120%;
+		transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+	}
 }
 
 .article-box {
@@ -93,10 +124,7 @@ const routeToArticle = (item) => {
 	width: 100%;
 	height: 20rem;
 	max-width: 900px;
-	gap: 3rem;
 	cursor: pointer;
-
-	padding: 20px;
 
 	color: white;
 	background-color: #403d39;
@@ -104,14 +132,18 @@ const routeToArticle = (item) => {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 
+	transition: box-shadow 0.3s ease-in-out;
+
+	&:hover {
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+	}
+
 	.thumbnail-container {
 		min-width: 300px;
 		min-height: 300px;
 		overflow: hidden;
 		position: relative;
-		margin: -20px;
 		border-radius: 4px;
-		border-right: 4px solid $flame;
 
 		.thumbnail {
 			z-index: -1;
@@ -129,33 +161,46 @@ const routeToArticle = (item) => {
 		}
 	}
 
-	.content {
-		color: white;
+	.content-wrapper {
+		padding: 20px;
+		border-left: 4px solid $flame;
 
-
-		h3 {
-			font-size: 2rem;
-			margin: 0;
-		}
-
-		.description {
+		.content {
 			color: white;
-		}
-
-		.footer {
 			display: flex;
+			flex-direction: column;
 			justify-content: space-between;
-			margin-top: auto;
+			height: 100%;
 
-			p {
-				color: white;
+			h3 {
+				font-size: 2rem;
+				margin: 0;
+				font-weight: 700;
 			}
 
-			width: 100%;
+			.description {
+				color: white;
+				
+			}
 
-			.date {
-				font-style: italic;
-				margin: 0;
+			.footer {
+				display: flex;
+				justify-content: space-between;
+				margin-top: auto;
+
+				p {
+					color: white;
+				}
+
+				width: 100%;
+
+				.date {
+					border-radius: 0.5rem;
+					padding: 0.4rem;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: auto 0 0;
+					height: fit-content;
+				}
 			}
 		}
 	}
@@ -178,9 +223,13 @@ const routeToArticle = (item) => {
 }
 
 @media (max-width: 1000px) {
+	.btn-4 {
+		&:after {
+			display: none;
+		}
+	}
 	.article-box {
 		flex-direction: column;
-		gap: 1rem;
 		height: fit-content;
 
 		.thumbnail-container {
@@ -188,13 +237,18 @@ const routeToArticle = (item) => {
 			min-height: 200px;
 		}
 
-		.content {
-			margin-top: 10px;
+		.content-wrapper {
+			border-left: 0;
+			border-top: 4px solid $flame;
+
+			.content {
+				margin-top: 10px;
+			}
 		}
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	.article-overview {
 		.wrapper {
 			margin: 1rem 3rem 0 3rem;

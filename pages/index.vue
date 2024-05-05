@@ -3,7 +3,7 @@
 		<div class="wrapper">
 			<PageHeader/>
 			<PortfolioAboutMe ref="section"
-							  :transition-color="'#fffcf2ff'"/>
+							  :transition-color="'#fffbf8'"/>
 			<section id="projects">
 				<PortfolioMention v-for="(item, index) in projects" :key="item.id"
 								  :ref="el => { sections[item.id] = el }" :data="item"

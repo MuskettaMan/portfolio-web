@@ -17,10 +17,24 @@
 				<input type="date" v-model="project.startDate" id="startDate" required/>
 			</div>
 
-			<div class="form-group">
-				<label for="markdown">Markdown:</label>
-				<textarea v-model="project.markdown" id="markdown" required></textarea>
+			<div class="section" v-for="(item, index) in project.sections" :key="index">
+				<h3>Section {{ index + 1 }}</h3>
+				<button @click="project.sections.splice(index, 1)" type="button">Remove</button>
+				<div class="form-group">
+					<label for="title">Title:</label>
+					<input type="text" v-model="item.title" :id="`title-${index}`" required/>
+				</div>
+				<div class="form-group">
+					<label for="markdown">Markdown:</label>
+					<textarea v-model="item.description" :id="`markdown-${index}`"
+							  required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="media_id">Media ID:</label>
+					<input type="number" v-model="item.media_id" :id="`media_id-${index}`" required/>
+				</div>
 			</div>
+			<button @click="addProject" type="button">Add section</button>
 
 			<div class="form-group">
 				<label for="environment">Environment:</label>
@@ -42,6 +56,21 @@
 				<input type="checkbox" v-model="project.is_published" id="is_published"/>
 			</div>
 
+			<div class="form-group">
+				<label for="tags">Tags:</label>
+				<input type="text" v-model="project.tags" id="tags"/>
+			</div>
+
+			<div class="form-group">
+				<label for="thumbnail">Thumbnail:</label>
+				<input type="number" v-model="project.thumbnail" :id="`thumbnail`" required/>
+			</div>
+
+			<div class="form-group">
+				<label for="banner">Banner:</label>
+				<input type="number" v-model="project.banner" :id="`banner`" required/>
+			</div>
+
 			<button type="submit">Save Changes</button>
 		</form>
 	</div>
@@ -59,7 +88,7 @@ export default {
 		Markdown
 	},
 	setup() {
-		const project = ref({startDate: new Date(Date.now()).toLocaleString('en-CA').split(',')[0]});
+		const project = ref({startDate: new Date(Date.now()).toLocaleString('en-CA').split(',')[0], sections: []});
 		const router = useRouter();
 
 		const createProject = (projectId) => {
@@ -74,9 +103,14 @@ export default {
 			});
 		};
 
+		const addProject = () => {
+			project.value.sections.push({title: "", description: ""});
+		}
+
 		return {
 			project,
-			createProject
+			createProject,
+			addProject
 		}
 	}
 }

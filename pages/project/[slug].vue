@@ -29,6 +29,12 @@
 							 :src="`../../${data.sections[index].media.path}`" alt=""/>
 						<video v-else-if="data.sections[index].media.type === 'video'"
 							   :src="`../../${data.sections[index].media.path}`" controls/>
+						<iframe v-else-if="data.sections[index].media.type === 'youtube'"
+								width="560" height="315"
+								:src="`${data.sections[index].media.path}`"
+								title="YouTube video player" frameborder="0"
+								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 					</div>
 				</div>
 				<client-only>
@@ -53,6 +59,7 @@ if (data.project.tags.length === 1 && data.project.tags[0] === "")
 	data.project.tags = [];
 
 data.project.tags.sort();
+data.sections.sort((a, b) => a.order - b.order);
 
 for (let i = 0; i < data.project.tags.length; ++i) {
 	data.project.tags[i] = data.project.tags[i].trim().toUpperCase();
@@ -83,12 +90,12 @@ const getSectionTransitionColor = (index) => {
 .project {
 	.banner {
 		width: 100%;
-		margin-top: -3rem;
+		margin-top: -4.5rem;
 		margin-bottom: 2rem;
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
 		background-size: cover;
-		background-position: bottom;
+		background-position: center;
 	}
 
 	.content {
@@ -149,13 +156,17 @@ const getSectionTransitionColor = (index) => {
 					display: flex;
 					align-items: flex-start;
 
-					img, video {
+					img, video, iframe {
 						object-fit: contain;
 						display: block;
 						width: 100%;
 						height: auto;
 						border-radius: 5px;
 						box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+					}
+
+					iframe {
+						height: 20rem;
 					}
 				}
 			}

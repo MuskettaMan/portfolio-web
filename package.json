@@ -26,6 +26,7 @@
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.6.5",
     "js-cookie": "^3.0.5",
+    "nuxt-start": "^2.17.3",
     "pinia": "^2.1.7",
     "scss": "^0.2.4",
     "shiki": "^1.0.0-beta.0",

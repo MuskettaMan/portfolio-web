@@ -12,13 +12,15 @@
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
 					or take a look at one of my
-					<nuxt-link to="/articles">articles!</nuxt-link>
+					<nuxt-link to="/articles/">articles!</nuxt-link>
 				</p>
 				<span class="underline">
 					<p>
+						<a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="file-lines"/>
-						Checkout my
-						<a href="ferri-de-lange-resume.pdf">resume</a>
+						Check out my
+						<a href="ferri-de-lange-resume.pdf" target="_blank">resume</a>
+							</a>
 					</p>
 				</span>
 			</div>
@@ -26,27 +28,35 @@
 				<h2>Contact me</h2>
 				<span class="underline">
 					<p>
+						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="envelope"/>
 						Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a>
+							</a>
 					</p>
 				</span>
 				<span class="underline">
 					<p>
+						<a href="https://github.com/MuskettaMan" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'github']"/>
 						Find me on <a href="https://github.com/MuskettaMan" target="_blank">GitHub</a>
+							</a>
 					</p>
 				</span>
 				<span class="underline">
 					<p>
+						<a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
 						Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange"
 											  target="_blank">LinkedIn</a>
+							</a>
 					</p>
 				</span>
 				<span class="underline">
 					<p>
+						<a href="https://twitter.com/ferri_de_lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fab', 'x-twitter']"/>
 						Follow me on <a href="https://twitter.com/ferri_de_lange" target="_blank">twitter</a>
+							</a>
 					</p>
 				</span>
 			</div>
@@ -80,9 +90,14 @@ export default {
 .portfolio-about-me {
 	position: relative;
 	padding: 12rem 10rem 12rem;
-	background-color: #F3EFE4;
+	background-color: #f8f3ec;
 
 	overflow: hidden;
+
+	.link-no-style {
+		color: inherit;
+		text-decoration: none;
+	}
 
 	svg {
 		height: 1.3rem;
@@ -173,6 +188,7 @@ export default {
 			flex-direction: column;
 			margin-bottom: 3.5rem;
 			gap: 2rem;
+			width: 100%;
 
 			.about-me {
 				h2 {
