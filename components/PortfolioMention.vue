@@ -110,8 +110,15 @@ export default {
 			display: grid;
 			grid-template-rows: auto auto auto;
 			grid-template-columns: 1fr 1fr;
-			gap: 2rem;
+
 			width: 100%;
+
+			.cta-button {
+				grid-column-start: 1;
+				grid-column-end: 2;
+				display: block;
+				margin-top: 2rem;
+			}
 
 			.text-wrapper {
 				height: fit-content;

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
         highlight: {
             theme: 'one-dark-pro',
             preload: [
-                'cpp'
+                'cpp', 'wgsl', 'cmake'
             ]
         }
     },
@@ -15,6 +15,11 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css'
     ],
     vite: {
+        server: {
+            fs: {
+                allow: ['.'] // Allows access to the root directory
+            }
+        },
         css: {
             preprocessorOptions: {
                 scss: {

@@ -17,7 +17,7 @@
 					v-for="(item, index) in articles"
 					:key="index"
 					@click="() => routeToArticle(item)"
-					class="article-box btn-4"
+					class="article-box"
 				>
 					<div class="thumbnail-container">
 						<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
@@ -86,38 +86,6 @@ const routeToArticle = (item) => {
 	margin-bottom: 4rem;
 }
 
-.btn-4 {
-	overflow: hidden;
-	position: relative;
-
-	span {
-		z-index: 20;
-	}
-
-	&:after {
-		background: #fff;
-		content: "";
-		height: 200%;
-		left: -50%;
-		opacity: .1;
-		position: absolute;
-		top: -50%;
-		transform: rotate(35deg);
-		transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-		width: 16%;
-		z-index: 0;
-		pointer-events: none;
-	}
-}
-
-.btn-4:hover {
-
-	&:after {
-		left: 120%;
-		transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-	}
-}
-
 .article-box {
 	display: flex;
 	box-sizing: border-box;
@@ -132,10 +100,11 @@ const routeToArticle = (item) => {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 
-	transition: box-shadow 0.3s ease-in-out;
+	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 
 	&:hover {
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+		transform: scale(1.02);
 	}
 
 	.thumbnail-container {
@@ -180,7 +149,7 @@ const routeToArticle = (item) => {
 
 			.description {
 				color: white;
-				
+
 			}
 
 			.footer {

@@ -19,7 +19,10 @@ const article = await apiManager.getArticleBySlug(route.params.slug);
 
 useSeoMeta({
 	title: article.data.title,
-	description: article.data.description
+	ogTitle: article.data.title,
+	description: article.data.description,
+	ogDescription: article.data.description,
+	ogImage: 'https://ferri.dev/' + article.data.thumbnail_path,
 })
 
 const articleMarkdown = await markdownParser.parse(
@@ -46,7 +49,7 @@ const articleMarkdown = await markdownParser.parse(
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
 		background-size: cover;
-		background-position: center;
+		background-position: top;
 		border-bottom: 0;
 	}
 

@@ -90,7 +90,7 @@ export default {
 .portfolio-about-me {
 	position: relative;
 	padding: 12rem 10rem 12rem;
-	background-color: #f8f3ec;
+	background-color: #f3efea;
 
 	overflow: hidden;
 
