@@ -19,8 +19,8 @@
 						<a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="file-lines"/>
 						Check out my
-						<a href="ferri-de-lange-resume.pdf" target="_blank">resume</a>
-							</a>
+						<span class="url">resume</span>
+						</a>
 					</p>
 				</span>
 			</div>
@@ -30,7 +30,7 @@
 					<p>
 						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="envelope"/>
-						Email me at <a href="mailto:ferri@ferri.dev" target="_blank">ferri@ferri.dev</a>
+						Email me at <span class="url">ferri@ferri.dev</span>
 							</a>
 					</p>
 				</span>
@@ -38,7 +38,7 @@
 					<p>
 						<a href="https://github.com/MuskettaMan" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'github']"/>
-						Find me on <a href="https://github.com/MuskettaMan" target="_blank">GitHub</a>
+						Find me on <span class="url">GitHub</span>
 							</a>
 					</p>
 				</span>
@@ -46,17 +46,16 @@
 					<p>
 						<a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
-						Connect with me on <a href="https://www.linkedin.com/in/ferri-de-lange"
-											  target="_blank">LinkedIn</a>
-							</a>
+						Connect with me on <span class="url">LinkedIn</span>
+						</a>
 					</p>
 				</span>
 				<span class="underline">
 					<p>
 						<a href="https://twitter.com/ferri_de_lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fab', 'x-twitter']"/>
-						Follow me on <a href="https://twitter.com/ferri_de_lange" target="_blank">twitter</a>
-							</a>
+						Follow me on <span class="url">twitter</span>
+						</a>
 					</p>
 				</span>
 			</div>
@@ -145,6 +144,11 @@ export default {
 			width: fit-content;
 
 		}
+	}
+
+	.url {
+		color: $flame;
+		text-decoration: underline;
 	}
 }
 

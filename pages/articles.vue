@@ -13,27 +13,30 @@
 			</div>
 
 			<div v-if="articles" class="articles">
-				<div
-					v-for="(item, index) in articles"
-					:key="index"
-					@click="() => routeToArticle(item)"
-					class="article-box"
-				>
-					<div class="thumbnail-container">
-						<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
-						<div class="shadow"/>
-					</div>
-					<div class="content-wrapper">
-						<div class="content">
-							<h3>{{ item.title }}</h3>
-							<p class="description">{{ item.description }}</p>
-							<div class="footer">
-								<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
-								<CTAButton :link="getRoute(item)" :text="'Read more'"/>
+				<transition-group appear @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+					<div
+						v-for="(item, index) in articles"
+						:key="index"
+						:data-index="index"
+						@click="() => routeToArticle(item)"
+						class="article-box"
+					>
+						<div class="thumbnail-container">
+							<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
+							<div class="shadow"/>
+						</div>
+						<div class="content-wrapper">
+							<div class="content">
+								<h3>{{ item.title }}</h3>
+								<p class="description">{{ item.description }}</p>
+								<div class="footer">
+									<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+									<CTAButton :link="getRoute(item)" :text="'Read more'"/>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</transition-group>
 			</div>
 		</div>
 	</div>
@@ -43,6 +46,7 @@
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import slugify from "slugify";
+import gsap from 'gsap'
 
 useSeoMeta({
 	title: 'Articles',
@@ -62,6 +66,20 @@ const getRoute = (item) => {
 const routeToArticle = (item) => {
 	router.push(getRoute(item));
 };
+
+const beforeEnter = (el) => {
+	el.style.opacity = 0;
+	el.style.transform = 'translateY(60px)';
+}
+
+const enter = (el) => {
+	gsap.to(el, {opacity: 1, y: 0, duration: 1, delay: el.dataset.index * 0.2});
+}
+
+const afterEnter = (el) => {
+	console.log(el.classList)
+	el.classList.add('anim');
+}
 </script>
 
 <style lang="scss" scoped>
@@ -102,11 +120,13 @@ const routeToArticle = (item) => {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+	&.anim {
+		transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 
-	&:hover {
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-		transform: scale(1.02);
+		&:hover {
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+			transform: scale(1.02);
+		}
 	}
 
 	.thumbnail-container {
