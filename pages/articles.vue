@@ -51,6 +51,8 @@ useSeoMeta({
 })
 
 let articles = (await apiManager.getArticles()).data;
+articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 const router = useRouter();
 
 const getRoute = (item) => {
