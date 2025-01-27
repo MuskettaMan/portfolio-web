@@ -1,8 +1,12 @@
 <template>
-	<div class="cta-button">
-		<nuxt-link v-if="isNuxtLink" :to="link">{{ text }}</nuxt-link>
-		<a v-else :href="link">{{ text }}</a>
-		<font-awesome-icon icon="angle-right"/>
+	<div>
+		<nuxt-link class="cta-button" v-if="isNuxtLink" :to="link">{{ text }}
+			<font-awesome-icon icon="angle-right"/>
+		</nuxt-link>
+		<a v-else :href="link">{{ text }}
+			<font-awesome-icon icon="angle-right"/>
+		</a>
+
 	</div>
 </template>
 
@@ -52,6 +56,11 @@ export default {
 		color: inherit;
 		text-decoration: none;
 		margin-right: 0.5rem;
+
+	}
+
+	&:visited {
+		color: #fff;
 	}
 
 	&:after {

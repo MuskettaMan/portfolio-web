@@ -5,12 +5,14 @@ export const useMainStore = defineStore('main-store', {
     state: () => {
         return {
             authToken: cookies.get('token') || null,
-            user: cookies.get('user') || null
+            user: cookies.get('user') || null,
+            inProjects: false,
         }
     },
     getters: {
         isAuthenticated: (state) => !!cookies.get('token'),
-        token: (state) => cookies.get('token')
+        token: (state) => cookies.get('token'),
+        isInProjects: (state) => state.inProjects,
     },
     actions: {
         login(token, user, expiresIn) {
@@ -36,6 +38,9 @@ export const useMainStore = defineStore('main-store', {
 
             cookies.remove('token');
             cookies.remove('user');
+        },
+        setInProjects(isTrue) {
+            this.inProjects = isTrue;
         }
     },
     modules: {}

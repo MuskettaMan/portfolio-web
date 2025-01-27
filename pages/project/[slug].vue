@@ -59,7 +59,7 @@ const getSectionTransitionColor = (index) => {
 .project {
 	.banner {
 		width: 100%;
-		margin-top: -4.5rem;
+		margin-top: -4.6rem;
 		margin-bottom: 2rem;
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);

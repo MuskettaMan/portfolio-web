@@ -4,10 +4,12 @@
 			<div class="bar">
 				<ul>
 					<li>
-						<NuxtLink to="/"><span class="route-name">Home</span></NuxtLink>
+						<NuxtLink :class="{'no-highlight': store.isInProjects}" to="/"><span
+							class="route-name">Home</span></NuxtLink>
 					</li>
 					<li>
-						<NuxtLink class="no-highlight" to="/#projects"><span class="route-name">Projects</span>
+						<NuxtLink :class="{'no-highlight': !store.isInProjects}" to="/#projects"><span
+							class="route-name">Projects</span>
 						</NuxtLink>
 					</li>
 					<li>
@@ -27,12 +29,19 @@
 
 <script>
 import ShapeDivider from "~/components/ShapeDivider";
+import {useMainStore} from "~/store/index.js";
+
 
 export default {
 	name: "Navbar",
 	components: {ShapeDivider},
 	setup() {
-		
+
+		const store = useMainStore();
+
+		return {
+			store
+		}
 	}
 }
 </script>
@@ -40,7 +49,6 @@ export default {
 <style scoped lang="scss">
 
 .nav-wrapper {
-	height: 5.5rem;
 	position: relative;
 	margin-bottom: 8rem;
 }

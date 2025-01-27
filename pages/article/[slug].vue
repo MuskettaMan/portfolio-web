@@ -45,7 +45,7 @@ const articleMarkdown = await markdownParser.parse(
 
 	.banner {
 		width: 100%;
-		margin-top: -4.5rem;
+		margin-top: -4.6rem;
 		height: 50vh;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
 		background-size: cover;

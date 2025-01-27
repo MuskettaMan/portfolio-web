@@ -17,7 +17,8 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
+import {onMounted, onBeforeUnmount, ref} from "vue";
+import {useMainStore} from "~/store/index.js";
 
 useSeoMeta({
 	title: 'Home',
@@ -28,6 +29,8 @@ useSeoMeta({
 const sections = ref([]);
 const footer = ref(null);
 
+const store = useMainStore();
+
 const projects = (await apiManager.getProjects()).data;
 const getSectionBackgroundColor = (index) => {
 	return index % 2 === 0 ? '#403d39' : '#252422'
@@ -37,7 +40,19 @@ const getSectionTransitionColor = (index) => {
 	return index % 2 === 0 ? '#403d39' : '#252422'
 }
 
+const onScroll = () => {
+	const projectEl = document.getElementById('projects');
+	const top = projectEl.offsetTop;
+	const scrollPosition = window.scrollY;
+
+	store.setInProjects(scrollPosition >= top)
+}
+
 onMounted(() => sections.value.splice(0, 0, footer.value))
+onMounted(() => window.addEventListener('scroll', onScroll));
+onMounted(() => onScroll());
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll));
+
 </script>
 
 <style lang="scss" scoped>
