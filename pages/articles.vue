@@ -13,7 +13,8 @@
 			</div>
 
 			<div v-if="articles" class="articles">
-				<transition-group appear @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+				<transition-group appear @before-enter="beforeEnter" @enter="enter"
+								  @after-enter="afterEnter">
 					<div
 						v-for="(item, index) in articles"
 						:key="index"
@@ -68,6 +69,7 @@ const routeToArticle = (item) => {
 };
 
 const beforeEnter = (el) => {
+	el.classList.remove('anim');
 	el.style.opacity = 0;
 	el.style.transform = 'translateY(60px)';
 }
@@ -77,7 +79,7 @@ const enter = (el) => {
 }
 
 const afterEnter = (el) => {
-	console.log(el.classList)
+	console.log(el.classList);
 	el.classList.add('anim');
 }
 </script>

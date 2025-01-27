@@ -32,6 +32,7 @@ export default {
 	name: "Navbar",
 	components: {ShapeDivider},
 	setup() {
+		
 	}
 }
 </script>

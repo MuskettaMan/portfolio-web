@@ -1,7 +1,7 @@
 <template>
 	<div class="default-layout">
 		<Navbar/>
-		<NuxtPage class="content"/>
+		<NuxtPage/>
 		<Footer/>
 	</div>
 </template>
@@ -21,7 +21,4 @@
 	}
 }
 
-.content {
-	min-height: 100%;
-}
 </style>
