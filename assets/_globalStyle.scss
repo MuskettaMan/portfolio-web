@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+$floral-white: #fffbf8;
+$pale-silver: #ccc5b9ff;
+$black-olive: #403d39ff;
+$eerie-black: #252422ff;
+$flame: #eb5e28ff;
+
+$royal-blue-dark: #0a2463ff;
+$tufts-blue: #3e92ccff;
+$ghost-white: #fffaffff;
+$cerise: #d8315bff;
+$black-chocolate: #1e1b18ff;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-padding-top: 6rem;
+}
+
+#__nuxt, #app {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p, li, ul, ol {
+  font-size: 1.1rem;
+  color: $black-olive;
+  opacity: 0.9;
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+}
+
+ol, ul {
+  opacity: 1;
+}
+
+h1 {
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 3.5rem;
+  opacity: 0.9;
+}
+
+h2 {
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  opacity: 0.9;
+}
+
+h3 {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  opacity: 0.9;
+}
+
+a {
+  color: $flame;
+}
+
+a:visited {
+  color: #9f380f;
+}
+
+button {
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: $flame;
+}
+
+@media only screen and (max-width: 600px) {
+  p, li {
+    font-size: .9rem;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+
+#app {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(249, 247, 240);
+  background: linear-gradient(90deg, rgba(249, 247, 240, 1) 0%, rgb(241, 226, 210) 100%);
+  color: $eerie-black;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea,
+button {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: 'Monsterrat', Helvetica, Arial, sans-serif;
+}
+
+textarea {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  height: 20rem;
+}
+
+button {
+  background-color: $flame;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+.hljs {
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .hljs {
+    font-size: .8rem;
+  }
+}
+
+pre {
+  overflow: auto;
+  background-color: #1F1F1F;
+  color: white;
+  border-radius: 3px;
+  padding: 7px;
+}
+
+code:not(pre code) {
+  background-color: rgba(63, 54, 49, 0.89);
+  color: white;
+  border-radius: 3px;
+  padding: 0 2px;
+  width: fit-content;
+}
+
+.bg-dark {
+  p, h1, h2, h3, li, ol, ul {
+    color: white;
+  }
+}
+
+.article-body {
+
+  background: linear-gradient(128deg, rgb(245, 235, 225) 0%, rgba(249, 246, 240, 1) 100%);
+  box-shadow: 0px 0px 46px -12px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+
+  .toc {
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-decoration: underline;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    a {
+      color: $black-olive;
+      text-decoration: none;
+    }
+  }
+
+  h3 {
+    color: $black-olive;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  img {
+    box-sizing: border-box;
+    max-width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 1rem 0;
+    border: white 2px solid;
+    background-color: white;
+    filter: contrast(125%) brightness(105%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .article-body {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+
+    code {
+      box-sizing: border-box;
+      width: fit-content;
+      min-width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
