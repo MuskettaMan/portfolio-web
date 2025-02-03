@@ -1,9 +1,15 @@
 <template>
 	<div class="article">
 		<div class="banner" :style="`--banner-url: url(../../${article.data.banner_path});`"/>
-		<div class="banner-fix"/>
 		<div class="wrapper">
 			<div class="article-body">
+				<h1>{{ articleMarkdown.title }}</h1>
+				<h3>Contents</h3>
+				<ul class="toc">
+					<li v-for="link of articleMarkdown.body.toc.links" :key="link.id">
+						<a :href="`#${link.id}`">{{ link.text }}</a>
+					</li>
+				</ul>
 				<ContentRenderer :value="articleMarkdown"/>
 			</div>
 		</div>
@@ -47,10 +53,12 @@ const articleMarkdown = await markdownParser.parse(
 		width: 100%;
 		margin-top: -4.6rem;
 		height: 50vh;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
+		background: var(--banner-url);
 		background-size: cover;
 		background-position: top;
-		border-bottom: 0;
+		box-shadow: 0px 0px 30px -10px rgba(33, 17, 0, 1);
+		//border-bottom: 1px solid $black-olive;
+		border-bottom: 10px solid $flame;
 	}
 
 	.banner-fix {
@@ -66,6 +74,7 @@ const articleMarkdown = await markdownParser.parse(
 		display: flex;
 		flex-direction: column;
 		width: 60vw;
+		max-width: 1000px;
 		margin: 0 auto;
 		padding: 4rem 0;
 	}

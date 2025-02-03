@@ -1,5 +1,16 @@
 <template>
 	<div class="shape-divider" :style="style" :class="{'flip': props.flip}">
+		<svg v-if="useGradient"
+			 viewBox="0 0 0 0"
+			 xmlns="http://www.w3.org/2000/svg"
+			 class="gradient-svg">
+			<defs ref="gradient-def">
+				<linearGradient id="gradient">
+					<stop class="stop1" offset="0%"/>
+					<stop class="stop2" offset="100%"/>
+				</linearGradient>
+			</defs>
+		</svg>
 		<svg v-if="props.type === 'waves-opacity'" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
 			 viewBox="0 0 1200 120" preserveAspectRatio="none">
 			<path
@@ -16,7 +27,7 @@
 			 viewBox="0 0 1200 120" preserveAspectRatio="none">
 			<path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
 		</svg>
-		<svg v-else-if="props.type === 'curve'" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+		<svg v-else-if="props.type === 'curve'" xmlns="http://www.w3.org/2000/svg"
 			 viewBox="0 0 1200 120" preserveAspectRatio="none">
 			<path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
 		</svg>
@@ -51,19 +62,42 @@ export default {
 			type: Boolean,
 			required: false,
 			default: false
+		},
+		useGradient: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		gradientBeginColor: {
+			type: String,
+			required: false,
+			default: "red"
+		},
+		gradientEndColor: {
+			type: String,
+			required: false,
+			default: "white"
+		},
+		gradientTransform: {
+			type: String,
+			required: false,
+			default: "rotate(40deg)"
 		}
 	},
 	setup(props) {
 		const style = computed(() => {
 			return `
-        --color: ${props.color};
-        --background-color: ${props.backgroundColor};
-      `
+      		  --color: ${props.useGradient ? "url(#gradient)" : props.color};
+      		  --background-color: ${props.backgroundColor};
+      		  --gradient-begin-color: ${props.gradientBeginColor};
+      		  --gradient-end-color: ${props.gradientEndColor};
+      		  --gradient-transform: ${props.gradientTransform};
+      		`
 		})
 
 		return {
 			style,
-			props
+			props,
 		}
 	}
 }
@@ -79,9 +113,23 @@ export default {
 	line-height: 0;
 	background-color: var(--background-color);
 
-
 	&.flip {
 		transform: rotate(180deg);
+	}
+}
+
+.gradient-svg {
+
+	#gradient {
+		transform: var(--gradient-transform);
+
+		.stop1 {
+			stop-color: var(--gradient-begin-color);
+		}
+
+		.stop2 {
+			stop-color: var(--gradient-end-color);
+		}
 	}
 }
 
@@ -90,6 +138,10 @@ export default {
 	display: block;
 	width: calc(100% + 1.3px);
 	height: 92px;
+}
+
+.shape-divider .gradient-svg {
+	height: 0;
 }
 
 .shape-divider .shape-fill {

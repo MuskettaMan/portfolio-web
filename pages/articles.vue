@@ -13,7 +13,11 @@
 			</div>
 
 			<div v-if="articles" class="articles">
-				<transition-group appear @before-enter="beforeEnter" @enter="enter"
+				<!--				<transition-group :css="false" name="articles-group" @before-enter="beforeEnter" @enter="enter"-->
+				<!--								  @after-enter="afterEnter">-->
+
+				<transition-group :css="false" name="articles-group" @before-enter="() => console.log('test')"
+								  @enter="enter"
 								  @after-enter="afterEnter">
 					<div
 						v-for="(item, index) in articles"
@@ -69,17 +73,19 @@ const routeToArticle = (item) => {
 };
 
 const beforeEnter = (el) => {
+	console.log('beforeneter')
 	el.classList.remove('anim');
 	el.style.opacity = 0;
 	el.style.transform = 'translateY(60px)';
 }
 
-const enter = (el) => {
-	gsap.to(el, {opacity: 1, y: 0, duration: 1, delay: el.dataset.index * 0.2});
+const enter = (el, done) => {
+	console.log('enter')
+	gsap.to(el, {opacity: 1, y: 0, duration: 1, delay: el.dataset.index * 0.2, onComplete: done});
 }
 
 const afterEnter = (el) => {
-	console.log(el.classList);
+	console.log('afetr enter');
 	el.classList.add('anim');
 }
 </script>
@@ -97,7 +103,7 @@ const afterEnter = (el) => {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		margin: 5rem 10rem 0 10rem;
+		margin: 3rem 10rem 0 10rem;
 	}
 }
 

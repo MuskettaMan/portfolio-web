@@ -51,12 +51,12 @@ export default {
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
+	text-decoration: none;
 
 	a {
 		color: inherit;
 		text-decoration: none;
 		margin-right: 0.5rem;
-
 	}
 
 	&:visited {

@@ -28,6 +28,7 @@ export default {
 			"UNITY": "#9d9d9d",
 			"C#": "#8d43cc",
 			"ALGORITHMS": "#a1a44a",
+			"VULKAN": "#ac162c"
 		}
 
 		const style = computed(() => `--tag-color: ${map[props.message] ?? "#a861d7"}`)

@@ -1,7 +1,7 @@
 <template>
 	<div class="default-layout">
 		<Navbar/>
-		<NuxtPage/>
+		<NuxtPage class="page"/>
 		<Footer/>
 	</div>
 </template>
@@ -10,14 +10,24 @@
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .default-layout {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	justify-content: flex-start;
+	min-height: 100vh;
+	height: inherit;
+
+	.nav-wrapper {
+		flex-grow: 0;
+	}
+
+	.page {
+		flex-grow: 10;
+	}
 
 	.footer {
-		margin-top: auto;
+		flex-grow: 0;
 	}
 }
 

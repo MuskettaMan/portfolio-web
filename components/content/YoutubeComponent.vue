@@ -28,8 +28,8 @@ export default {
 	iframe {
 		object-fit: contain;
 		display: block;
-		width: 100%;
-		height: auto;
+		width: 80%;
+		height: 50vh;
 		border-radius: 5px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	}

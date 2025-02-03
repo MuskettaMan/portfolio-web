@@ -1,13 +1,14 @@
 <template>
 	<section class="portfolio-about-me">
-		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"/>
+		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"
+					  :use-gradient="true" gradient-begin-color="#f9f7f0"
+					  gradient-end-color="#f1e2d2" gradient-transform="rotate(0deg)"/>
 		<div class="wrapper">
 			<div class="about-me">
-				<h2>About me</h2>
+				<h2>Who am I</h2>
 				<p>
-					Hey, I'm Ferri, currently studying programming at BUas. At the moment I'm head-deep in C++, engine
-					development, and graphics programming.
-					I've spent a solid 4 years crafting games in Unity, C# at multimedia company DTT.
+					Hey, I'm Ferri, currently studying game programming at BUas, in my third year. I specialize in
+					graphics programming, and enjoy working with C++ and Vulkan.
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
@@ -25,7 +26,7 @@
 				</span>
 			</div>
 			<div class="get-in-contact">
-				<h2>Contact me</h2>
+				<h2>Reach out</h2>
 				<span class="underline">
 					<p>
 						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
@@ -89,7 +90,8 @@ export default {
 .portfolio-about-me {
 	position: relative;
 	padding: 12rem 10rem 12rem;
-	background-color: #f3efea;
+	background: rgb(255, 242, 235);
+	background: linear-gradient(0deg, rgba(255, 242, 235, 1) 0%, rgb(238, 234, 226) 100%);
 
 	overflow: hidden;
 
@@ -165,7 +167,7 @@ export default {
 			width: 0;
 			height: 2px;
 			margin-top: 0.1rem;
-			background-color: #403d39;
+			background-color: $flame;
 			transition: width 0.3s;
 		}
 

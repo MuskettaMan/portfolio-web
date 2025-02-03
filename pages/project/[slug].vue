@@ -11,8 +11,16 @@
 				</div>
 			</header>
 
-
-			<ContentRenderer :value="projectMarkdown" class="article-body"/>
+			<div class="article-body">
+				<h1>{{ projectMarkdown.title }}</h1>
+				<h3>Contents</h3>
+				<ul class="toc">
+					<li v-for="link of projectMarkdown.body.toc.links" :key="link.id">
+						<a :href="`#${link.id}`">{{ link.text }}</a>
+					</li>
+				</ul>
+				<ContentRenderer :value="projectMarkdown"/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,35 +53,33 @@ const projectMarkdown = await markdownParser.parse(
 	{breaks: true}
 );
 
-const getSectionBackgroundColor = (index) => {
-	return index % 2 === 1 ? '#403D39' : '#252422'
-}
-
-const getSectionTransitionColor = (index) => {
-	return index % 2 === 0 ? '#403D39' : '#252422'
-}
 </script>
 
 <style lang="scss">
 
 .project {
+	position: relative;
+
 	.banner {
 		width: 100%;
 		margin-top: -4.6rem;
 		margin-bottom: 2rem;
 		height: 50vh;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, $floral-white 100%), var(--banner-url);
+		background: var(--banner-url);
 		background-size: cover;
 		background-position: center;
+		box-shadow: 0px 0px 30px -10px rgba(33, 17, 0, 1);
+		border-bottom: 3px solid $flame;
 	}
 
 	.content {
 		width: 60vw;
+		max-width: 1000px;
 		margin: 0 auto;
 
 		header {
 			position: relative;
-
+			margin: 1rem 0;
 		}
 
 		.tags {

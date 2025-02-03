@@ -16,6 +16,7 @@ $black-chocolate: #1e1b18ff;
 html, body {
   height: 100%;
   margin: 0;
+  scroll-padding-top: 6rem;
 }
 
 #__nuxt, #app {
@@ -97,9 +98,11 @@ button {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $floral-white;
+  background: rgb(249, 247, 240);
+  background: linear-gradient(90deg, rgba(249, 247, 240, 1) 0%, rgb(241, 226, 210) 100%);
   color: $eerie-black;
   min-height: 100vh;
+  height: fit-content;
 }
 
 .form-group {
@@ -181,10 +184,21 @@ code:not(pre code) {
 
 .article-body {
 
+  background: linear-gradient(128deg, rgb(245, 235, 225) 0%, rgba(249, 246, 240, 1) 100%);
+  box-shadow: 0px 0px 46px -12px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+
+  .toc {
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
   h1 {
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 3rem;
+    text-decoration: underline;
   }
 
   h2 {
@@ -196,6 +210,12 @@ code:not(pre code) {
       color: $black-olive;
       text-decoration: none;
     }
+  }
+
+  h3 {
+    color: $black-olive;
+    font-size: 1.8rem;
+    font-weight: 600;
   }
 
   p {
@@ -216,6 +236,11 @@ code:not(pre code) {
 
 @media only screen and (max-width: 600px) {
   .article-body {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+
     code {
       box-sizing: border-box;
       width: fit-content;
