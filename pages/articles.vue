@@ -1,7 +1,6 @@
 <template>
 	<div class="article-overview">
 		<div class="wrapper">
-
 			<h2>Articles</h2>
 			<div class="description">
 				<p>
@@ -13,35 +12,28 @@
 			</div>
 
 			<div v-if="articles" class="articles">
-				<!--				<transition-group :css="false" name="articles-group" @before-enter="beforeEnter" @enter="enter"-->
-				<!--								  @after-enter="afterEnter">-->
-
-				<transition-group :css="false" name="articles-group" @before-enter="() => console.log('test')"
-								  @enter="enter"
-								  @after-enter="afterEnter">
-					<div
-						v-for="(item, index) in articles"
-						:key="index"
-						:data-index="index"
-						@click="() => routeToArticle(item)"
-						class="article-box"
-					>
-						<div class="thumbnail-container">
-							<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
-							<div class="shadow"/>
-						</div>
-						<div class="content-wrapper">
-							<div class="content">
-								<h3>{{ item.title }}</h3>
-								<p class="description">{{ item.description }}</p>
-								<div class="footer">
-									<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
-									<CTAButton :link="getRoute(item)" :text="'Read more'"/>
-								</div>
+				<div
+					v-for="(item, index) in articles"
+					:key="index"
+					:data-index="index"
+					@click="() => routeToArticle(item)"
+					class="article-box"
+				>
+					<div class="thumbnail-container">
+						<img :src="`../${item.thumbnail_path}`" alt="Thumbnail" class="thumbnail"/>
+						<div class="shadow"/>
+					</div>
+					<div class="content-wrapper">
+						<div class="content">
+							<h3>{{ item.title }}</h3>
+							<p class="description">{{ item.description }}</p>
+							<div class="footer">
+								<p class="date">{{ getFormattedDate(new Date(item.date)) }}</p>
+								<CTAButton :link="getRoute(item)" :text="'Read more'"/>
 							</div>
 						</div>
 					</div>
-				</transition-group>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -71,23 +63,6 @@ const getRoute = (item) => {
 const routeToArticle = (item) => {
 	router.push(getRoute(item));
 };
-
-const beforeEnter = (el) => {
-	console.log('beforeneter')
-	el.classList.remove('anim');
-	el.style.opacity = 0;
-	el.style.transform = 'translateY(60px)';
-}
-
-const enter = (el, done) => {
-	console.log('enter')
-	gsap.to(el, {opacity: 1, y: 0, duration: 1, delay: el.dataset.index * 0.2, onComplete: done});
-}
-
-const afterEnter = (el) => {
-	console.log('afetr enter');
-	el.classList.add('anim');
-}
 </script>
 
 <style lang="scss" scoped>
