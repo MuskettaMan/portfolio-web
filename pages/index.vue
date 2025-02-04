@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import {onMounted, onBeforeUnmount, ref} from "vue";
+import {onMounted, onBeforeUnmount, onUnmounted, ref} from "vue";
 import {useMainStore} from "~/store/index.js";
 
 useSeoMeta({
@@ -52,6 +52,7 @@ onMounted(() => sections.value.splice(0, 0, footer.value))
 onMounted(() => window.addEventListener('scroll', onScroll));
 onMounted(() => onScroll());
 onBeforeUnmount(() => window.removeEventListener('scroll', onScroll));
+onUnmounted(() => store.setInProjects(false));
 
 </script>
 
