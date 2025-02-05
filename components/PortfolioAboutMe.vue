@@ -178,7 +178,7 @@ export default {
 }
 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
 	.portfolio-about-me {
 		padding: 11rem 2rem 26rem;
 

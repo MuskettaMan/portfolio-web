@@ -30,17 +30,16 @@
 <script>
 import ShapeDivider from "~/components/ShapeDivider";
 import {useMainStore} from "~/store/index.js";
-
+import NiceModel from "~/components/NiceModel.vue";
 
 export default {
 	name: "Navbar",
-	components: {ShapeDivider},
-	setup() {
-
+	components: {NiceModel, ShapeDivider},
+	async setup() {
 		const store = useMainStore();
 
 		return {
-			store
+			store,
 		}
 	}
 }
