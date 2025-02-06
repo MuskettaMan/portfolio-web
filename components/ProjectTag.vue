@@ -42,7 +42,6 @@ export default {
 
 <style lang="scss" scoped>
 p {
-	transition: padding 0.2s ease-in-out;
 	display: inline-block;
 	color: white;
 	background-color: var(--tag-color);
@@ -59,10 +58,6 @@ p {
 	position: relative;
 
 	box-shadow: var(--tag-color) 0 0 1px 0;
-
-	&:hover {
-		padding: 0 12px;
-	}
 }
 
 @media only screen and (max-width: 600px) {

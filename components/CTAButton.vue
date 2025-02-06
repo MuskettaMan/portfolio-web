@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:color";
+
 .cta-button {
 	display: inline-block;
 	padding: .75rem 1.25rem;
@@ -80,9 +82,9 @@ export default {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 0%;
+		width: 0;
 		height: 100%;
-		background-color: darken(#eb5e28, 15%);
+		background-color: color.adjust(#eb5e28, $lightness: -15%);
 		transition: all .3s;
 		border-radius: 0.5rem;
 		z-index: -1;
