@@ -6,7 +6,7 @@
 			<p>I enjoy low-level graphics and game development</p>
 		</div>
 		<div class="model">
-			<!--			<NiceModel/>-->
+			<NiceModel/>
 		</div>
 	</header>
 </template>
@@ -28,7 +28,6 @@ export default {
 <style scoped lang="scss">
 .page-header {
 	display: flex;
-	justify-content: space-between;
 	margin: 0 10rem 0;
 	min-height: 40vh;
 
@@ -38,7 +37,7 @@ export default {
 		gap: 1rem;
 		justify-content: center;
 		position: relative;
-		width: 70%;
+		width: 50%;
 
 		p {
 			font-size: 2rem;
@@ -52,6 +51,7 @@ export default {
 
 	.model {
 		width: 30%;
+    margin-left: 5rem;
 	}
 }
 
@@ -93,6 +93,7 @@ export default {
 
 		.model {
 			width: 100%;
+      margin-left: 0;
 		}
 	}
 }

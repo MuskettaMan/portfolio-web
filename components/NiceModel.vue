@@ -4,12 +4,14 @@
 			<TresPerspectiveCamera :fov="fov"/>
 			<OrbitControls :enable-zoom="false" :auto-rotate="true" :enable-damping="true" :min-distance="distance"
 						   :max-distance="distance"/>
+      <TresDirectionalLight :intensity="3" :position="[1, 2, 0]"/>
+      <TresMesh>
+        <TresIcosahedronGeometry :args="[radius, 1]"/>
+        <TresMeshToonMaterial color="#403d39"/>
+      </TresMesh>
 			<TresMesh>
-				<!--				&lt;!&ndash;				<TresPrimitive :object="birb"/>&ndash;&gt;-->
-				<!--				<TresTorusKnotGeometry :args="[radius, 0.4, 128, 16, 2, 3]"/>-->
-				<TresSphereGeometry :args="[radius]"/>
-				<TresMeshToonMaterial color="#eb5e28"/>
-				<TresDirectionalLight :intensity="2"/>
+				<TresIcosahedronGeometry :args="[radius, 1]"/>
+				<TresMeshBasicMaterial color="#eb5e28" :wireframe="true"/>
 			</TresMesh>
 		</TresCanvas>
 	</div>
@@ -50,9 +52,7 @@ export default {
 		//await useLoader(GLTFLoader, 'assets/models/watercolor_bird.glb');
 
 		function onResize() {
-			distance.value = getOptimalCameraDistance(fov.value, wrapperEl.value.offsetWidth, wrapperEl.value.offsetHeight, radius.value);
-
-			console.log(distance.value);
+			distance.value = 1.65;//getOptimalCameraDistance(fov.value, wrapperEl.value.offsetWidth, wrapperEl.value.offsetHeight, radius.value);
 		}
 
 		onMounted(() => {
