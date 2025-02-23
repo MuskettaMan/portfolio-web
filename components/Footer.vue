@@ -13,7 +13,7 @@
 							<nuxt-link to="/">Home</nuxt-link>
 							<nuxt-link to="/#projects">Projects</nuxt-link>
 							<nuxt-link to="/articles/">Articles</nuxt-link>
-							<a href="mailto:ferr@ferri.dev" target="_blank">Contact</a>
+							<nuxt-link to="/#reach-out/">Contact</nuxt-link>
 							<a href="/ferri-de-lange-resume.pdf" target="_blank">Resume</a>
 						</div>
 					</div>

@@ -108,11 +108,12 @@ if (project.data.product_page)
 
 	.content-wrapper {
 		display: flex;
+		justify-content: center;
+		gap: 2rem;
 
 		.content {
 			width: 60vw;
 			max-width: 1000px;
-			margin: 0 auto;
 
 			.description {
 				margin-bottom: 5rem;
@@ -135,6 +136,7 @@ if (project.data.product_page)
 
 			.content {
 				width: 80vw;
+				margin: 0 auto;
 			}
 
 			.project-container {

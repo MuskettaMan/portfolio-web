@@ -1,13 +1,17 @@
 <template>
 	<header class="page-header">
-		<div class="intro">
-			<p>Hi, my name is</p>
-			<h1>Ferri de Lange</h1>
-			<p>Low-level graphics and game development</p>
+		<div class="wrapper">
+			<div class="intro">
+				<p>Hi, my name is</p>
+				<h1>Ferri de Lange</h1>
+				<p>Low-level graphics and game development</p>
+			</div>
+			<div class="model">
+				<NiceModel/>
+			</div>
 		</div>
-		<div class="model">
-			<NiceModel/>
-		</div>
+
+		<ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true"/>
 	</header>
 </template>
 
@@ -27,75 +31,87 @@ export default {
 
 <style scoped lang="scss">
 .page-header {
-	display: flex;
-	margin: 0 10rem 0;
-	min-height: 40vh;
+	width: 100%;
+	position: relative;
+	padding-bottom: 12rem;
 
-	.intro {
+	.wrapper {
 		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		justify-content: center;
-		position: relative;
-		width: 50%;
+		margin: 0 10rem 0;
+		min-height: 40vh;
 
-		p {
-			font-size: 2rem;
-			margin: 0;
+		.intro {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			justify-content: center;
+			position: relative;
+			width: 50%;
+
+			p {
+				font-size: 2rem;
+				margin: 0;
+			}
+
+			h1 {
+				font-size: 6rem;
+			}
 		}
 
-		h1 {
-			font-size: 6rem;
+		.model {
+			width: 30%;
+			margin-left: 5rem;
 		}
-	}
-
-	.model {
-		width: 30%;
-		margin-left: 5rem;
 	}
 }
 
 @media only screen and (max-width: 1100px) {
 	.page-header {
-		margin: 0 2rem 0;
-		min-height: 30vh;
+		.wrapper {
 
-		.intro {
-			p {
-				font-size: 1.6rem;
+			margin: 0 2rem 0;
+			min-height: 30vh;
+
+			.intro {
+				p {
+					font-size: 1.6rem;
+				}
+
+				h1 {
+					font-size: 4.0rem;
+				}
 			}
 
-			h1 {
-				font-size: 4.0rem;
+			.model {
+				height: 20rem;
 			}
-		}
-
-		.model {
-			height: 20rem;
 		}
 	}
 }
 
 @media only screen and (max-width: 600px) {
 	.page-header {
-		margin: 0 2rem 0;
-		flex-direction: column;
+		.wrapper {
 
-		.intro {
-			width: 100%;
+			margin: 0 2rem 0;
+			flex-direction: column;
 
-			p {
-				font-size: 1.2rem;
+			.intro {
+				width: 100%;
+
+				p {
+					font-size: 1.2rem;
+				}
+
+				h1 {
+					font-size: 3.0rem;
+				}
 			}
 
-			h1 {
-				font-size: 3.0rem;
+			.model {
+				width: 100%;
+				margin-left: 0;
 			}
-		}
-
-		.model {
-			width: 100%;
-			margin-left: 0;
 		}
 	}
 }

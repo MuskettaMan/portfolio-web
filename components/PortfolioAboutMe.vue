@@ -1,8 +1,6 @@
 <template>
 	<section class="portfolio-about-me">
-		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"
-					  :use-gradient="true" gradient-begin-color="#f9f7f0"
-					  gradient-end-color="#f1e2d2" gradient-transform="rotate(0deg)"/>
+		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"/>
 		<div class="wrapper">
 			<div class="about-me">
 				<h2>Who am I</h2>
@@ -25,7 +23,7 @@
 					</p>
 				</span>
 			</div>
-			<div class="get-in-contact">
+			<div class="get-in-contact" id="reach-out">
 				<h2>Reach out</h2>
 				<span class="underline">
 					<p>
@@ -62,7 +60,6 @@
 			</div>
 		</div>
 		<img src="~/assets/images/portrait_03.jpg" class="portrait"/>
-		<ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true"/>
 	</section>
 </template>
 
