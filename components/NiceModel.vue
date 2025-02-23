@@ -4,13 +4,13 @@
 			<TresPerspectiveCamera :fov="fov"/>
 			<OrbitControls :enable-zoom="false" :auto-rotate="true" :enable-damping="true" :min-distance="distance"
 						   :max-distance="distance"/>
-      <TresDirectionalLight :intensity="3" :position="[1, 2, 0]"/>
-      <TresMesh>
-        <TresIcosahedronGeometry :args="[radius, 1]"/>
-        <TresMeshToonMaterial color="#403d39"/>
-      </TresMesh>
+			<TresDirectionalLight :intensity="3" :position="[1, 2, 0]"/>
 			<TresMesh>
 				<TresIcosahedronGeometry :args="[radius, 1]"/>
+				<TresMeshToonMaterial color="#403d39"/>
+			</TresMesh>
+			<TresMesh>
+				<TresIcosahedronGeometry :args="[radius + 0.009, 1]"/>
 				<TresMeshBasicMaterial color="#eb5e28" :wireframe="true"/>
 			</TresMesh>
 		</TresCanvas>

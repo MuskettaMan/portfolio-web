@@ -144,6 +144,7 @@ export default {
 
 				p {
 					line-height: 1.5rem;
+					margin-bottom: 0;
 				}
 
 				p, h2 {

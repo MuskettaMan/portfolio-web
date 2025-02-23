@@ -3,7 +3,7 @@
 		<div class="intro">
 			<p>Hi, my name is</p>
 			<h1>Ferri de Lange</h1>
-			<p>I enjoy low-level graphics and game development</p>
+			<p>Low-level graphics and game development</p>
 		</div>
 		<div class="model">
 			<NiceModel/>
@@ -51,7 +51,7 @@ export default {
 
 	.model {
 		width: 30%;
-    margin-left: 5rem;
+		margin-left: 5rem;
 	}
 }
 
@@ -82,6 +82,8 @@ export default {
 		flex-direction: column;
 
 		.intro {
+			width: 100%;
+
 			p {
 				font-size: 1.2rem;
 			}
@@ -93,7 +95,7 @@ export default {
 
 		.model {
 			width: 100%;
-      margin-left: 0;
+			margin-left: 0;
 		}
 	}
 }

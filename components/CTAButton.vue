@@ -1,13 +1,10 @@
 <template>
-	<div>
-		<nuxt-link class="cta-button" v-if="isNuxtLink" :to="link">{{ text }}
-			<font-awesome-icon icon="angle-right"/>
-		</nuxt-link>
-		<a v-else :href="link">{{ text }}
-			<font-awesome-icon icon="angle-right"/>
-		</a>
-
-	</div>
+	<nuxt-link class="cta-button" v-if="isNuxtLink" :to="link">{{ text }}
+		<font-awesome-icon icon="angle-right"/>
+	</nuxt-link>
+	<a class="cta-button" v-else :href="link">{{ text }}
+		<font-awesome-icon icon="angle-right"/>
+	</a>
 </template>
 
 <script>
