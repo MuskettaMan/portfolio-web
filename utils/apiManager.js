@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {useMainStore} from '~/store/index';
 
-const API_URL = 'https://ferri.dev/api'
-//const API_URL = 'http://localhost:500/api'
+//const API_URL = 'https://ferri.dev/api'
+const API_URL = 'http://localhost:500/api'
 
 const instance = axios.create({
     baseURL: API_URL,
