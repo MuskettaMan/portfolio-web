@@ -5,12 +5,6 @@
 			<div class="content">
 				<div class="article-body">
 					<h1>{{ projectMarkdown.title }}</h1>
-					<h3>Contents</h3>
-					<ul class="toc">
-						<li v-for="link of projectMarkdown.body.toc.links" :key="link.id">
-							<a :href="`#${link.id}`">{{ link.text }}</a>
-						</li>
-					</ul>
 					<ContentRenderer :value="projectMarkdown"/>
 				</div>
 			</div>

@@ -216,6 +216,11 @@ code:not(pre code) {
     color: $black-olive;
     font-size: 1.8rem;
     font-weight: 600;
+
+    a {
+      color: $black-olive;
+      text-decoration: none;
+    }
   }
 
   p {

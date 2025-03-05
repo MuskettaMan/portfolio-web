@@ -6,7 +6,7 @@
 				<h2>Who am I</h2>
 				<p>
 					Hey, I'm Ferri, currently studying game programming at BUas, in my third year. I specialize in
-					graphics programming, and enjoy working with C++ and Vulkan.
+					graphics programming, and enjoy working with C++ and Vulkan. I am currently looking for an internship for September 2025.
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
