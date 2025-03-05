@@ -81,7 +81,7 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-  p, li {
+  p, li, td {
     font-size: .9rem;
   }
 
@@ -231,6 +231,16 @@ code:not(pre code) {
     border: white 2px solid;
     background-color: white;
     filter: contrast(125%) brightness(105%);
+  }
+
+  table {
+    background: #f5f1ef;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px #0000001a;
+    opacity: .9;
+    padding: .25rem;
+    width: 100%;
   }
 }
 

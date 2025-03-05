@@ -9,9 +9,7 @@
 					{{ labels[key] }}
 				</td>
 				<td class="project-value">
-					<a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">{{
-							value
-						}}</a>
+					<a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">Repository</a>
 					<span v-else>{{ value }}</span>
 				</td>
 			</tr>
@@ -106,6 +104,9 @@ const icons = {
 		.project-value {
 			padding: 12px;
 			color: #666;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
 		}
 	}
 }
