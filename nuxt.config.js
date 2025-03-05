@@ -6,7 +6,7 @@ export default defineNuxtConfig({
         highlight: {
             theme: 'one-dark-pro',
             preload: [
-                'cpp', 'wgsl', 'cmake'
+                'cpp', 'wgsl', 'cmake', 'glsl'
             ]
         }
     },

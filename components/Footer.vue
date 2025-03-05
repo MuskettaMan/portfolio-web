@@ -18,14 +18,17 @@
 						</div>
 					</div>
 					<div class="footer-socials">
+            <a href="mailto:ferri@ferri.dev" target="_blank">
+              <font-awesome-icon icon="envelope"/>
+            </a>
 						<a href="https://www.linkedin.com/in/ferri-de-lange/" target="_blank">
 							<font-awesome-icon :icon="['fab', 'linkedin']"/>
 						</a>
 						<a href="https://github.com/MuskettaMan" target="_blank">
 							<font-awesome-icon :icon="['fab', 'github']"/>
 						</a>
-						<a href="https://twitter.com/ferri_de_lange" target="_blank">
-							<font-awesome-icon :icon="['fab', 'x-twitter']"/>
+						<a href="https://bsky.app/profile/ferri-de-lange.bsky.social" target="_blank">
+							<font-awesome-icon :icon="['fab', 'bluesky']"/>
 						</a>
 						<client-only>
 							<span class="copyright">Copyright © 2020-{{ currentYear }} Ferri de Lange</span>

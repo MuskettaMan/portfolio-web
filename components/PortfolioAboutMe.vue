@@ -13,7 +13,7 @@
 					or take a look at one of my
 					<nuxt-link to="/articles/">articles!</nuxt-link>
 				</p>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="file-lines"/>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="get-in-contact" id="reach-out">
 				<h2>Reach out</h2>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="envelope"/>
@@ -33,7 +33,7 @@
 							</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="https://github.com/MuskettaMan" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'github']"/>
@@ -41,7 +41,7 @@
 							</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
@@ -49,10 +49,10 @@
 						</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
-						<a href="https://twitter.com/ferri_de_lange" target="_blank" class="link-no-style">
-						<font-awesome-icon :icon="['fab', 'x-twitter']"/>
+						<a href="https://bsky.app/profile/ferri-de-lange.bsky.social" target="_blank" class="link-no-style">
+						<font-awesome-icon :icon="['fab', 'bluesky']"/>
 						Follow me on <span class="url">twitter</span>
 						</a>
 					</p>
@@ -150,30 +150,6 @@ export default {
 		text-decoration: underline;
 	}
 }
-
-.underline {
-	display: block;
-	width: fit-content;
-
-	p {
-		margin-bottom: 0.3rem;
-
-		&::after {
-			content: "";
-			display: block;
-			width: 0;
-			height: 2px;
-			margin-top: 0.1rem;
-			background-color: $flame;
-			transition: width 0.3s;
-		}
-
-		&:hover::after {
-			width: 100%;
-		}
-	}
-}
-
 
 @media only screen and (max-width: 1100px) {
 	.portfolio-about-me {
