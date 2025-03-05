@@ -1,4 +1,5 @@
 <template>
+  <div class="nice-model">
 	<div class="canvas-wrapper" ref="wrapper">
 		<TresCanvas class="tres-canvas">
 			<TresPerspectiveCamera :fov="fov"/>
@@ -15,6 +16,7 @@
 			</TresMesh>
 		</TresCanvas>
 	</div>
+  </div>
 </template>
 
 <script>
@@ -28,22 +30,6 @@ export default {
 	name: "NiceModel",
 	components: {OrbitControls},
 	async setup() {
-
-		// TODO: Distancing from camera is not responsive!
-		function getOptimalCameraDistance(fov, divWidth, divHeight, sphereRadius) {
-			const aspectRatio = divWidth / divHeight;
-			const fovRadians = (fov * Math.PI) / 180; // Convert FOV to radians
-			const halfFov = fovRadians / 2;
-
-			// Compute distances needed to fit the sphere
-			const verticalDistance = sphereRadius / Math.sin(halfFov);
-			const horizontalDistance = (sphereRadius * aspectRatio) / Math.sin(halfFov);
-
-			// Use the larger one to ensure visibility
-			return Math.max(verticalDistance, horizontalDistance);
-		}
-
-		const wrapperEl = useTemplateRef("wrapper");
 		const radius = computed(() => 0.85);
 		const fov = computed(() => 70);
 
@@ -52,7 +38,7 @@ export default {
 		//await useLoader(GLTFLoader, 'assets/models/watercolor_bird.glb');
 
 		function onResize() {
-			distance.value = 1.65;//getOptimalCameraDistance(fov.value, wrapperEl.value.offsetWidth, wrapperEl.value.offsetHeight, radius.value);
+			distance.value = 1.65;
 		}
 
 		onMounted(() => {
@@ -76,9 +62,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.nice-model {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
 
 .canvas-wrapper {
-	height: 100%;
-	width: 100%;
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
 </style>

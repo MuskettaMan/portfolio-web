@@ -67,6 +67,7 @@ export default {
 
 @media only screen and (max-width: 1100px) {
 	.page-header {
+    padding-bottom: 10rem;
 		.wrapper {
 
 			margin: 0 2rem 0;
@@ -109,8 +110,10 @@ export default {
 			}
 
 			.model {
-				width: 100%;
-				margin-left: 0;
+				width: 80%;
+        height: 50vw;
+				margin: 0 auto;
+        margin-top: 1rem;
 			}
 		}
 	}
