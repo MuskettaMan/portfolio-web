@@ -100,7 +100,7 @@ export default {
 	padding: 2rem 10rem 8rem;
 
 	.content-wrapper {
-		min-height: 55vh;
+		min-height: 42vh;
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
