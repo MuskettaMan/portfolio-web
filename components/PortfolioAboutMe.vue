@@ -51,9 +51,9 @@
 				</span>
 				<span>
 					<p>
-						<a href="https://bsky.app/profile/ferri-de-lange.bsky.social" target="_blank" class="link-no-style">
+						<a href="ferri-de-lange.bsky.social" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fab', 'bluesky']"/>
-						Follow me on <span class="url">twitter</span>
+						Follow me on <span class="url">bluesky</span>
 						</a>
 					</p>
 				</span>

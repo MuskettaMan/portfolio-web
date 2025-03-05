@@ -33,12 +33,12 @@ export default {
 .page-header {
 	width: 100%;
 	position: relative;
-	padding-bottom: 12rem;
+	padding-bottom: 10rem;
 
 	.wrapper {
 		display: flex;
 		margin: 0 10rem 0;
-		min-height: 40vh;
+		min-height: 20vh;
 
 		.intro {
 			display: flex;
@@ -49,17 +49,18 @@ export default {
 			width: 50%;
 
 			p {
-				font-size: 2rem;
+				font-size: 1.75rem;
 				margin: 0;
 			}
 
 			h1 {
-				font-size: 6rem;
+				font-size: 5rem;
 			}
 		}
 
 		.model {
 			width: 30%;
+      max-width: 350px;
 			margin-left: 5rem;
 		}
 	}

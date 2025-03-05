@@ -26,7 +26,7 @@
               <a href="https://github.com/MuskettaMan" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']"/>
               </a>
-              <a href="https://bsky.app/profile/ferri-de-lange.bsky.social" target="_blank">
+              <a href="ferri-de-lange.bsky.social" target="_blank">
                 <font-awesome-icon :icon="['fab', 'bluesky']"/>
               </a>
             </div>
