@@ -159,7 +159,7 @@ export default {
 			height: 400px;
 			left: 50%;
 			transform: translateX(-50%) scaleX(-1);
-			bottom: 1rem;
+			bottom: 0;
 		}
 
 		.wrapper {

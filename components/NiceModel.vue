@@ -3,7 +3,7 @@
 	<div class="canvas-wrapper" ref="wrapper">
 		<TresCanvas class="tres-canvas">
 			<TresPerspectiveCamera :fov="fov"/>
-			<OrbitControls :enable-zoom="false" :auto-rotate="true" :enable-damping="true" :min-distance="distance"
+			<OrbitControls :enable-zoom="false" :enable-pan="false" :auto-rotate="true" :enable-damping="true" :min-distance="distance"
 						   :max-distance="distance"/>
 			<TresDirectionalLight :intensity="3" :position="[1, 2, 0]"/>
 			<TresMesh>

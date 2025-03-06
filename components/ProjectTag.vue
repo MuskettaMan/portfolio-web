@@ -17,18 +17,13 @@ export default {
 	},
 	setup(props) {
 		const map = {
-			"COMPANY": "#339989",
-			"GRAPHICS": "#c55348",
-			"C++": "#b061d7",
-			"CUSTOM-ENGINE": "#d7618e",
-			"OPENGL": "#83ad4e",
-			"CUDA": "#4aa44c",
+			"OPENGL": "#5a8aa7",
+			"CUDA": "#8bc441",
+      "VULKAN": "#ac162c",
 			"PERSONAL": "#4a5eb2",
-			"SCHOOL": "#bb7333",
-			"UNITY": "#9d9d9d",
-			"C#": "#8d43cc",
-			"ALGORITHMS": "#a1a44a",
-			"VULKAN": "#ac162c"
+			"SCHOOL": "#ee7623",
+      "TEAM": "#8e6fde",
+      "SOLO": "#d94873",
 		}
 
 		const style = computed(() => `--tag-color: ${map[props.message] ?? "#a861d7"}`)
