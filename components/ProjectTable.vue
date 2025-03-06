@@ -5,11 +5,13 @@
 			<tbody>
 			<tr v-for="(value, key) in details" :key="key" class="project-row">
 				<td class="project-label">
-					<span class="project-icon" v-html="icons[key]"></span>
-					{{ labels[key] }}
+					<span class="project-icon">
+            <font-awesome-icon :icon="icons[key]"/>
+          </span>
+					<span class="project-label-text">{{ labels[key] }}</span>
 				</td>
 				<td class="project-value">
-					<a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">Repository</a>
+					<a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">{{ value }}</a>
 					<span v-else>{{ value }}</span>
 				</td>
 			</tr>
@@ -46,15 +48,15 @@ const labels = {
 };
 
 const icons = {
-	timeFrame: '⏳',
-	schoolYear: '🎓',
-	githubLink: '🔗',
-	programmingLanguage: '💻',
-	graphicsBackend: '🎨',
-	teamSize: '👥',
-	role: '🎭',
-	projectType: '🤝',
-	productPage: '🚀'
+	timeFrame: 'clock',
+	schoolYear: 'graduation-cap',
+	githubLink: ['fab', 'github'],
+	programmingLanguage: 'square-binary',
+	graphicsBackend: 'palette',
+	teamSize: 'people-group',
+	role: 'masks-theater',
+	projectType: 'handshake',
+	productPage: 'rocket'
 };
 </script>
 
@@ -95,9 +97,15 @@ const icons = {
 			display: flex;
 			align-items: center;
 
+      .project-label-text {
+        width: fit-content;
+      }
+
 			.project-icon {
 				margin-right: 8px;
 				font-size: 18px;
+        color: $eerie-black;
+        width: 25px;
 			}
 		}
 
@@ -109,5 +117,13 @@ const icons = {
       width: 100%;
 		}
 	}
+}
+
+
+@media (max-width: 600px) {
+
+  .project-value {
+    max-width: 2rem;
+  }
 }
 </style>
