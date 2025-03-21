@@ -2,9 +2,12 @@
 	<header class="page-header">
 		<div class="wrapper">
 			<div class="intro">
-				<p>Hi, my name is</p>
+				<p class="subtext">Hi, my name is</p>
 				<h1>Ferri de Lange</h1>
-				<p>Low-level graphics and game development</p>
+				<p class="subtext">Low-level graphics and game development</p>
+				<p class="highlight">
+					Available for <b>6-month or 1-year internship</b> opportunities starting September.
+				</p>
 			</div>
 			<div class="model">
 				<NiceModel/>
@@ -48,9 +51,17 @@ export default {
 			position: relative;
 			width: 50%;
 
-			p {
+			.subtext {
 				font-size: 1.75rem;
 				margin: 0;
+			}
+
+			.highlight {
+				width: fit-content;
+				border-radius: 5px;
+				padding: 2px 4px;
+				color: white;
+				background: linear-gradient(30deg, $black-olive 0%, #a9441d 80%);
 			}
 
 			h1 {
@@ -60,7 +71,7 @@ export default {
 
 		.model {
 			width: 30%;
-      max-width: 350px;
+			max-width: 350px;
 			margin-left: 5rem;
 		}
 	}
@@ -68,14 +79,15 @@ export default {
 
 @media only screen and (max-width: 1100px) {
 	.page-header {
-    padding-bottom: 10rem;
+		padding-bottom: 10rem;
+
 		.wrapper {
 
 			margin: 0 2rem 0;
 			min-height: 30vh;
 
 			.intro {
-				p {
+				.subtext {
 					font-size: 1.6rem;
 				}
 
@@ -101,7 +113,7 @@ export default {
 			.intro {
 				width: 100%;
 
-				p {
+				.subtext {
 					font-size: 1.2rem;
 				}
 
@@ -112,9 +124,9 @@ export default {
 
 			.model {
 				width: 80%;
-        height: 50vw;
+				height: 50vw;
 				margin: 0 auto;
-        margin-top: 1rem;
+				margin-top: 1rem;
 			}
 		}
 	}

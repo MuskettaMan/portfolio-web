@@ -31,7 +31,7 @@ h3 {
   padding: 0;
 }
 
-p, li, ul, ol {
+p, li, ul, ol, table {
   font-size: 1.1rem;
   color: $black-olive;
   opacity: 0.9;
@@ -117,7 +117,8 @@ label {
 
 input,
 textarea,
-button {
+button,
+{
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -238,14 +239,34 @@ code:not(pre code) {
     filter: contrast(125%) brightness(105%);
   }
 
+
   table {
-    background: #f5f1ef;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px #0000001a;
-    opacity: .9;
-    padding: .25rem;
     width: 100%;
+    background: #f5f1ef;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    opacity: 0.9;
+
+    thead {
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr {
+      border-bottom: 1px solid #ddd;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    td {
+      padding: 12px;
+      color: #444;
+
+    }
   }
 }
 
