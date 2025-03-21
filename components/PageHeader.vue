@@ -6,7 +6,7 @@
 				<h1>Ferri de Lange</h1>
 				<p class="subtext">Low-level graphics and game development</p>
 				<p class="highlight">
-					Available for <b>6-month or 1-year internship</b> opportunities starting September.
+					Open for <b>6-12 month internship</b> starting September.
 				</p>
 			</div>
 			<div class="model">
@@ -72,7 +72,7 @@ export default {
 		.model {
 			width: 30%;
 			max-width: 350px;
-			margin-left: 5rem;
+			margin: 0 auto;
 		}
 	}
 }
