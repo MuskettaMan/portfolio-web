@@ -21,6 +21,7 @@ video {
 	width: 80%;
 	height: auto;
 	display: block;
+  border-radius: 5px;
 }
 
 </style>

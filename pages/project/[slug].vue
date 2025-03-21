@@ -1,26 +1,14 @@
 <template>
 	<div class="project">
 		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`"/>
-		<div class="content">
-			<header>
-				<div class="content">
-					<div class="tags">
-							<span class="tag" v-for="(tag, index) in project.data.tags" :key="index"><ProjectTag
-								:message="tag"/>&nbsp; </span>
-					</div>
+		<div class="content-wrapper">
+			<div class="content">
+				<div class="article-body">
+					<h1>{{ projectMarkdown.title }}</h1>
+					<ContentRenderer :value="projectMarkdown"/>
 				</div>
-			</header>
-
-			<div class="article-body">
-				<h1>{{ projectMarkdown.title }}</h1>
-				<h3>Contents</h3>
-				<ul class="toc">
-					<li v-for="link of projectMarkdown.body.toc.links" :key="link.id">
-						<a :href="`#${link.id}`">{{ link.text }}</a>
-					</li>
-				</ul>
-				<ContentRenderer :value="projectMarkdown"/>
 			</div>
+			<ProjectTable :title="project.data.title" :details="details"/>
 		</div>
 	</div>
 </template>
@@ -53,6 +41,46 @@ const projectMarkdown = await markdownParser.parse(
 	{breaks: true}
 );
 
+const timeFrame = () => {
+	const start = new Date(project.data.start_date);
+	const end = new Date(project.data.end_date);
+
+	// Array of month names for formatting
+	const monthNames = [
+		'January', 'February', 'March', 'April', 'May', 'June',
+		'July', 'August', 'September', 'October', 'November', 'December'
+	];
+
+	// Extract the year and month
+	const startYear = start.getFullYear();
+	const startMonth = monthNames[start.getMonth()];
+
+	const endYear = end.getFullYear();
+	const endMonth = monthNames[end.getMonth()];
+
+	// Return the formatted time frame
+	return `${startYear} ${startMonth} - ${endYear} ${endMonth}`;
+}
+
+const details = {};
+details['timeFrame'] = timeFrame();
+if (project.data.project_type)
+	details['projectType'] = project.data.project_type;
+if (project.data.school_year)
+	details['schoolYear'] = project.data.school_year;
+if (project.data.repository_url)
+	details['githubLink'] = project.data.repository_url;
+if (project.data.programming_language)
+	details['programmingLanguage'] = project.data.programming_language;
+if (project.data.graphics_backend)
+	details['graphicsBackend'] = project.data.graphics_backend;
+if (project.data.team_size)
+	details['teamSize'] = project.data.team_size;
+if (project.data.role)
+	details['role'] = project.data.role;
+if (project.data.product_page)
+	details['productPage'] = project.data.product_page;
+
 </script>
 
 <style lang="scss">
@@ -72,41 +100,60 @@ const projectMarkdown = await markdownParser.parse(
 		border-bottom: 3px solid $flame;
 	}
 
-	.content {
-		width: 60vw;
-		max-width: 1000px;
-		margin: 0 auto;
+	.content-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
 
-		header {
-			position: relative;
-			margin: 1rem 0;
+		.content {
+			width: 60vw;
+			max-width: 1000px;
+
+			.description {
+				margin-bottom: 5rem;
+			}
 		}
 
-		.tags {
-			white-space: break-spaces;
-			overflow-wrap: break-word;
-
-			line-height: 2rem;
-		}
-
-		.description {
-			margin-bottom: 5rem;
+		.project-container {
+			height: fit-content;
+			max-width: 30vw;
+			width: auto;
+			margin-right: 2rem;
 		}
 	}
 }
 
 @media (max-width: 1200px) {
 	.project {
-		.content {
-			width: 80vw;
+		.content-wrapper {
+			flex-direction: column-reverse;
+
+			.content {
+				width: 80vw;
+				margin: 0 auto;
+			}
+
+			.project-container {
+				margin: 0 auto;
+				max-width: initial;
+				width: 80vw;
+			}
 		}
 	}
 }
 
 @media (max-width: 900px) {
 	.project {
-		.content {
-			width: 90vw;
+		.content-wrapper {
+
+			.content {
+				width: 90vw;
+			}
+
+			.project-container {
+				margin: 0 auto;
+				width: 90vw;
+			}
 		}
 	}
 }

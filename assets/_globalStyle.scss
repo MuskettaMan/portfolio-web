@@ -31,7 +31,7 @@ h3 {
   padding: 0;
 }
 
-p, li, ul, ol {
+p, li, ul, ol, table {
   font-size: 1.1rem;
   color: $black-olive;
   opacity: 0.9;
@@ -81,7 +81,7 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-  p, li {
+  p, li, td {
     font-size: .9rem;
   }
 
@@ -117,7 +117,8 @@ label {
 
 input,
 textarea,
-button {
+button,
+{
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -169,8 +170,8 @@ pre {
 }
 
 code:not(pre code) {
-  background-color: rgba(63, 54, 49, 0.89);
-  color: white;
+  //background-color: rgba(63, 54, 49, 0.89);
+  color: #9f5111;
   border-radius: 3px;
   padding: 0 2px;
   width: fit-content;
@@ -188,6 +189,7 @@ code:not(pre code) {
   box-shadow: 0px 0px 46px -12px rgba(0, 0, 0, 0.39);
   border-radius: 10px;
   padding: 0.5rem 2rem;
+  margin-bottom: 2rem;
 
   .toc {
     font-weight: bold;
@@ -198,7 +200,6 @@ code:not(pre code) {
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 3rem;
-    text-decoration: underline;
   }
 
   h2 {
@@ -216,6 +217,11 @@ code:not(pre code) {
     color: $black-olive;
     font-size: 1.8rem;
     font-weight: 600;
+
+    a {
+      color: $black-olive;
+      text-decoration: none;
+    }
   }
 
   p {
@@ -231,6 +237,36 @@ code:not(pre code) {
     border: white 2px solid;
     background-color: white;
     filter: contrast(125%) brightness(105%);
+  }
+
+
+  table {
+    width: 100%;
+    background: #f5f1ef;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    opacity: 0.9;
+
+    thead {
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr {
+      border-bottom: 1px solid #ddd;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    td {
+      padding: 12px;
+      color: #444;
+
+    }
   }
 }
 

@@ -2,8 +2,7 @@
 	<div class="home">
 		<div class="wrapper">
 			<PageHeader/>
-			<PortfolioAboutMe ref="section"
-							  :transition-color="'#fffbf8'"/>
+
 			<section id="projects">
 				<PortfolioMention v-for="(item, index) in projects" :key="item.id"
 								  :ref="el => { sections[item.id] = el }" :data="item"
@@ -12,6 +11,8 @@
 								  :transition-color="getSectionTransitionColor(index)"
 								  :last="index === projects.length - 1"/>
 			</section>
+			<PortfolioAboutMe ref="section"
+							  :transition-color="getSectionTransitionColor(projects.length - 1)"/>
 		</div>
 	</div>
 </template>

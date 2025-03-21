@@ -1,21 +1,19 @@
 <template>
 	<section class="portfolio-about-me">
-		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"
-					  :use-gradient="true" gradient-begin-color="#f9f7f0"
-					  gradient-end-color="#f1e2d2" gradient-transform="rotate(0deg)"/>
+		<ShapeDivider class="top" type="curve" :color="transitionColor" background-color="#00000000"/>
 		<div class="wrapper">
 			<div class="about-me">
 				<h2>Who am I</h2>
 				<p>
 					Hey, I'm Ferri, currently studying game programming at BUas, in my third year. I specialize in
-					graphics programming, and enjoy working with C++ and Vulkan.
+					graphics programming, and enjoy working with C++ and Vulkan. I am currently looking for an internship for September 2025.
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
 					or take a look at one of my
 					<nuxt-link to="/articles/">articles!</nuxt-link>
 				</p>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="file-lines"/>
@@ -25,9 +23,9 @@
 					</p>
 				</span>
 			</div>
-			<div class="get-in-contact">
+			<div class="get-in-contact" id="reach-out">
 				<h2>Reach out</h2>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="envelope"/>
@@ -35,7 +33,7 @@
 							</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="https://github.com/MuskettaMan" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'github']"/>
@@ -43,7 +41,7 @@
 							</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
 						<a href="https://www.linkedin.com/in/ferri-de-lange" target="_blank" class="link-no-style">
 						<font-awesome-icon :icon="['fa-brands', 'linkedin']"/>
@@ -51,18 +49,17 @@
 						</a>
 					</p>
 				</span>
-				<span class="underline">
+				<span>
 					<p>
-						<a href="https://twitter.com/ferri_de_lange" target="_blank" class="link-no-style">
-						<font-awesome-icon :icon="['fab', 'x-twitter']"/>
-						Follow me on <span class="url">twitter</span>
+						<a href="ferri-de-lange.bsky.social" target="_blank" class="link-no-style">
+						<font-awesome-icon :icon="['fab', 'bluesky']"/>
+						Follow me on <span class="url">bluesky</span>
 						</a>
 					</p>
 				</span>
 			</div>
 		</div>
 		<img src="~/assets/images/portrait_03.jpg" class="portrait"/>
-		<ShapeDivider class="bottom" type="tilt" color="#403d39" background-color="#00000000" :flip="true"/>
 	</section>
 </template>
 
@@ -154,30 +151,6 @@ export default {
 	}
 }
 
-.underline {
-	display: block;
-	width: fit-content;
-
-	p {
-		margin-bottom: 0.3rem;
-
-		&::after {
-			content: "";
-			display: block;
-			width: 0;
-			height: 2px;
-			margin-top: 0.1rem;
-			background-color: $flame;
-			transition: width 0.3s;
-		}
-
-		&:hover::after {
-			width: 100%;
-		}
-	}
-}
-
-
 @media only screen and (max-width: 1100px) {
 	.portfolio-about-me {
 		padding: 11rem 2rem 26rem;
@@ -186,7 +159,7 @@ export default {
 			height: 400px;
 			left: 50%;
 			transform: translateX(-50%) scaleX(-1);
-			bottom: 1rem;
+			bottom: 0;
 		}
 
 		.wrapper {

@@ -76,8 +76,6 @@ export default {
 		if (props.data.tags.length === 1 && props.data.tags[0] === "")
 			props.data.tags = [];
 
-		props.data.tags.sort();
-
 		for (let i = 0; i < props.data.tags.length; ++i) {
 			props.data.tags[i] = props.data.tags[i].trim().toUpperCase();
 		}
@@ -100,7 +98,7 @@ export default {
 	padding: 2rem 10rem 8rem;
 
 	.content-wrapper {
-		min-height: 55vh;
+		min-height: 42vh;
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -144,6 +142,7 @@ export default {
 
 				p {
 					line-height: 1.5rem;
+					margin-bottom: 0;
 				}
 
 				p, h2 {
