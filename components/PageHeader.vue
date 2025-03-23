@@ -7,7 +7,15 @@
 				<p class="subtext">Low-level graphics and game development</p>
 				<p class="highlight">
 					Open for <b>6-12 month internship</b> starting September.
+          &nbsp;
+          <a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
+          <font-awesome-icon icon="file-lines"/>
+          My resume
+          </a>
 				</p>
+        <p>
+          I'm currently studying game programming at BUas, in my third year. I specialize in graphics programming, and enjoy working with C++ and Vulkan.
+        </p>
 			</div>
 			<div class="model">
 				<NiceModel/>
@@ -38,6 +46,15 @@ export default {
 	position: relative;
 	padding-bottom: 10rem;
 
+  .link-no-style {
+    color: inherit;
+  }
+
+  .url {
+    color: $flame;
+    text-decoration: underline;
+  }
+
 	.wrapper {
 		display: flex;
 		margin: 0 10rem 0;
@@ -61,7 +78,8 @@ export default {
 				border-radius: 5px;
 				padding: 2px 4px;
 				color: white;
-				background: linear-gradient(30deg, $black-olive 0%, #a9441d 80%);
+				background: $flame;
+        box-shadow: grey 1px 1px 6px 1px;
 			}
 
 			h1 {

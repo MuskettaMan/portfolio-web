@@ -5,8 +5,14 @@
 			<div class="about-me">
 				<h2>Who am I</h2>
 				<p>
-					Hey, I'm Ferri, currently studying game programming at BUas, in my third year. I specialize in
-					graphics programming, and enjoy working with C++ and Vulkan. I am currently looking for an internship for September 2025.
+					Hey, I'm Ferri, I'm a graphics programmer with multiple years of experience. I started as a Unity game developer and have since transitioned into low-level graphics.
+          <br>
+          <br>
+          I'm currently in my third-year at Breda University of Applied Sciences, where I am working a year long project to create our own game engine. Here I am applying my graphics knowledge through Vulkan and help make our game look and stay optimized.
+          <br>
+          <br>
+          I primarily know and use C++, but also have experience with different programming languages, like C#, python, and javascript.
+          I also enjoy learning about new programming languages, for example, I'm currently learning about <a href="https://ziglang.org/" target="_blank">zig</a>!
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
@@ -18,7 +24,7 @@
 						<a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="file-lines"/>
 						Check out my
-						<span class="url">resume</span>
+						<span class="url">resume</span> here
 						</a>
 					</p>
 				</span>
@@ -97,6 +103,11 @@ export default {
 		text-decoration: none;
 	}
 
+  .url {
+    color: $flame;
+    text-decoration: underline;
+  }
+
 	svg {
 		height: 1.3rem;
 		margin-right: 0.5rem;
@@ -143,11 +154,6 @@ export default {
 			width: fit-content;
 
 		}
-	}
-
-	.url {
-		color: $flame;
-		text-decoration: underline;
 	}
 }
 
