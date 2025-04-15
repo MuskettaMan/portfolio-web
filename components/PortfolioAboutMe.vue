@@ -5,14 +5,19 @@
 			<div class="about-me">
 				<h2>Who am I</h2>
 				<p>
-					Hey, I'm Ferri, I'm a graphics programmer with multiple years of experience. I started as a Unity game developer and have since transitioned into low-level graphics.
-          <br>
-          <br>
-          I'm currently in my third-year at Breda University of Applied Sciences, where I am working a year long project to create our own game engine. Here I am applying my graphics knowledge through Vulkan and help make our game look and stay optimized.
-          <br>
-          <br>
-          I primarily know and use C++, but also have experience with different programming languages, like C#, python, and javascript.
-          I also enjoy learning about new programming languages, for example, I'm currently learning about <a href="https://ziglang.org/" target="_blank">zig</a>!
+					Hey, I'm Ferri, I'm a graphics programmer with multiple years of experience. I started as a Unity
+					game developer and have since transitioned into low-level graphics.
+					<br>
+					<br>
+					I'm currently in my third-year at Breda University of Applied Sciences, where I am working a year
+					long project to create our own game engine. Here I am applying my graphics knowledge through Vulkan
+					and help make our game look and stay optimized.
+					<br>
+					<br>
+					I primarily know and use C++, but also have experience with different programming languages, like
+					C#, python, and javascript.
+					I also enjoy learning about new programming languages, for example, I'm currently learning about <a
+					href="https://ziglang.org/" target="_blank">zig</a>!
 				</p>
 				<p>Curious to know more? Have a look at my
 					<nuxt-link to="/#projects">projects</nuxt-link>
@@ -103,10 +108,10 @@ export default {
 		text-decoration: none;
 	}
 
-  .url {
-    color: $flame;
-    text-decoration: underline;
-  }
+	.url {
+		color: $flame;
+		text-decoration: underline;
+	}
 
 	svg {
 		height: 1.3rem;

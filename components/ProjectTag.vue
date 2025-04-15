@@ -18,12 +18,11 @@ export default {
 	setup(props) {
 		const map = {
 			"OPENGL": "#5a8aa7",
-			"CUDA": "#8bc441",
-      "VULKAN": "#ac162c",
-			"PERSONAL": "#4a5eb2",
+			"VULKAN": "#ac162c",
+			"PASSION": "#d94873",
 			"SCHOOL": "#ee7623",
-      "TEAM": "#8e6fde",
-      "SOLO": "#d94873",
+			"TEAM": "#8e6fde",
+			"SOLO": "#35b45d",
 		}
 
 		const style = computed(() => `--tag-color: ${map[props.message] ?? "#a861d7"}`)
