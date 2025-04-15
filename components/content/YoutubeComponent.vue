@@ -1,11 +1,12 @@
 <template>
 	<div class="youtube-component">
-		<iframe
-			width="560" height="315"
-			:src="url"
-			title="YouTube video player" frameborder="0"
-			allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<!--		<iframe-->
+		<!--			width="560" height="315"-->
+		<!--			:src="url"-->
+		<!--			title="YouTube video player" frameborder="0"-->
+		<!--			allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+		<!--			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+		<lite-youtube :videoid="videoid" :playlabel="'Play'" :title="title"/>
 	</div>
 </template>
 
@@ -13,9 +14,14 @@
 export default {
 	name: "YoutubeComponent",
 	props: {
-		url: {
+		videoid: {
 			required: true,
 			type: String
+		},
+		title: {
+			required: false,
+			type: String,
+			default: ""
 		}
 	}
 }

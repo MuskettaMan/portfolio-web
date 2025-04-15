@@ -14,8 +14,11 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
 
     css: [
-        '@fortawesome/fontawesome-svg-core/styles.css'
+        '@fortawesome/fontawesome-svg-core/styles.css',
+        'lite-youtube-embed/src/lite-yt-embed.css'
     ],
+
+    plugins: ['@/plugins/youtube.client.js'],
 
     vite: {
         server: {
