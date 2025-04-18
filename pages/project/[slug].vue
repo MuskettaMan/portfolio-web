@@ -1,6 +1,7 @@
 <template>
 	<div class="project">
 		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`"/>
+    <ProjectTable :title="project.data.title" :details="details"/>
 		<div class="content-wrapper">
 			<div class="content">
 				<div class="article-body">
@@ -8,7 +9,6 @@
 					<ContentRenderer :value="projectMarkdown"/>
 				</div>
 			</div>
-			<ProjectTable :title="project.data.title" :details="details"/>
 		</div>
 	</div>
 </template>
@@ -47,8 +47,8 @@ const timeFrame = () => {
 
 	// Array of month names for formatting
 	const monthNames = [
-		'January', 'February', 'March', 'April', 'May', 'June',
-		'July', 'August', 'September', 'October', 'November', 'December'
+		'Jan. ', 'Feb. ', 'Mar. ', 'Apr. ', 'May ', 'Jun. ',
+		'Jul. ', 'Aug. ', 'Sep. ', 'Oct. ', 'Nov. ', 'Dec. '
 	];
 
 	// Extract the year and month
@@ -59,7 +59,7 @@ const timeFrame = () => {
 	const endMonth = monthNames[end.getMonth()];
 
 	// Return the formatted time frame
-	return `${startYear} ${startMonth} - ${endYear} ${endMonth}`;
+	return `${startMonth} ${startYear} – ${endMonth} ${endYear}`;
 }
 
 const details = {};
@@ -100,10 +100,16 @@ if (project.data.product_page)
 		border-bottom: 3px solid $flame;
 	}
 
+  .project-container {
+    height: fit-content;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
 	.content-wrapper {
 		display: flex;
 		justify-content: center;
-		gap: 2rem;
 
 		.content {
 			width: 60vw;
@@ -113,18 +119,14 @@ if (project.data.product_page)
 				margin-bottom: 5rem;
 			}
 		}
-
-		.project-container {
-			height: fit-content;
-			max-width: 30vw;
-			width: auto;
-			margin-right: 2rem;
-		}
 	}
 }
 
 @media (max-width: 1200px) {
 	.project {
+
+    .project-container {
+    }
 		.content-wrapper {
 			flex-direction: column-reverse;
 
@@ -133,25 +135,18 @@ if (project.data.product_page)
 				margin: 0 auto;
 			}
 
-			.project-container {
-				margin: 0 auto;
-				max-width: initial;
-				width: 80vw;
-			}
 		}
 	}
 }
 
 @media (max-width: 900px) {
 	.project {
+
+    .project-container {
+    }
 		.content-wrapper {
 
 			.content {
-				width: 90vw;
-			}
-
-			.project-container {
-				margin: 0 auto;
 				width: 90vw;
 			}
 		}
