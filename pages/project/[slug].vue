@@ -62,24 +62,24 @@ const timeFrame = () => {
 	return `${startMonth} ${startYear} – ${endMonth} ${endYear}`;
 }
 
-const details = {};
-details['timeFrame'] = timeFrame();
-if (project.data.project_type)
-	details['projectType'] = project.data.project_type;
+const details = { general: {}, technical: {}, product: {}, team: {} };
+details.general['timeFrame'] = timeFrame();
 if (project.data.school_year)
-	details['schoolYear'] = project.data.school_year;
-if (project.data.repository_url)
-	details['githubLink'] = project.data.repository_url;
-if (project.data.programming_language)
-	details['programmingLanguage'] = project.data.programming_language;
-if (project.data.graphics_backend)
-	details['graphicsBackend'] = project.data.graphics_backend;
-if (project.data.team_size)
-	details['teamSize'] = project.data.team_size;
+  details.general['schoolYear'] = project.data.school_year;
+if (project.data.project_type)
+	details.team['projectType'] = project.data.project_type;
+if (project.data.team_size && project.data.team_size > 1)
+  details.team['teamSize'] = project.data.team_size;
 if (project.data.role)
-	details['role'] = project.data.role;
+  details.team['role'] = project.data.role;
+if (project.data.programming_language)
+	details.technical['programmingLanguage'] = project.data.programming_language;
+if (project.data.graphics_backend)
+	details.technical['graphicsBackend'] = project.data.graphics_backend;
+if (project.data.repository_url)
+  details.product['githubLink'] = project.data.repository_url;
 if (project.data.product_page)
-	details['productPage'] = project.data.product_page;
+	details.product['productPage'] = project.data.product_page;
 
 </script>
 

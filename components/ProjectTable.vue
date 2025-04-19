@@ -1,57 +1,49 @@
 <template>
   <div class="project-container">
-    <div class="block general">
+    <div class="block general" v-if="hasGeneral">
       <ul>
-        <li v-for="(value, key) in generalData" :key="key">
-          <font-awesome-icon :icon="value.icon"/>&nbsp;
-          {{ details[key] }}&nbsp;{{ value.suffix }}
+        <li v-for="(value, key) in details.general" :key="key">
+          <font-awesome-icon :icon="generalData[key].icon"/>&nbsp;
+          {{ value }}&nbsp;{{ generalData[key].suffix }}
         </li>
       </ul>
       <hr>
     </div>
-    <div class="block tech">
+    <div class="block team" v-if="hasTeam">
       <ul>
-        <li v-for="(value, key) in techData" :key="key">
-          <font-awesome-icon :icon="value.icon"/>&nbsp;
-          {{ details[key] }}&nbsp;{{ value.suffix }}
+        <li v-for="(value, key) in details.team" :key="key">
+          <font-awesome-icon :icon="teamData[key].icon"/>&nbsp;
+          {{ value }}&nbsp;{{ teamData[key].suffix }}
         </li>
       </ul>
       <hr>
     </div>
-    <div class="block product">
+    <div class="block tech" v-if="hasTech">
       <ul>
-        <li v-for="(value, key) in productData" :key="key">
-          <font-awesome-icon :icon="value.icon"/>&nbsp;
-          <a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">{{ details[key] }}</a>
+        <li v-for="(value, key) in details.technical" :key="key">
+          <font-awesome-icon :icon="techData[key].icon"/>&nbsp;
+          {{ value }}&nbsp;{{ techData[key].suffix }}
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <div class="block product" v-if="hasProduct">
+      <ul>
+        <li v-for="(value, key) in details.product" :key="key">
+          <font-awesome-icon :icon="productData[key].icon"/>&nbsp;
+          <a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">{{ value }}</a>
           <span v-else>{{ details[key] }}</span>
-          &nbsp;{{ value.suffix }}
+          &nbsp;{{ productData[key].suffix }}
         </li>
       </ul>
       <hr>
     </div>
-    <!--		<h2 class="project-title">{{ title }}</h2>
-        <table class="project-table">
-          <tbody>
-          <tr v-for="(value, key) in details" :key="key" class="project-row">
-            <td class="project-label">
-              <span class="project-icon">
-                <font-awesome-icon :icon="icons[key]"/>
-              </span>
-              <span class="project-label-text">{{ labels[key] }}</span>
-            </td>
-            <td class="project-value">
-              <a v-if="key === 'githubLink' || key === 'productPage'" :href="value" target="_blank">{{ value }}</a>
-              <span v-else>{{ value }}</span>
-            </td>
-          </tr>
-          </tbody>
-        </table>-->
   </div>
 </template>
 
 
 <script setup>
-import {defineProps} from 'vue';
+import {defineProps, computed} from 'vue';
 
 const props = defineProps({
   title: {
@@ -67,6 +59,9 @@ const props = defineProps({
 const generalData = {
   timeFrame: {icon: "clock", suffix: ""},
   schoolYear: {icon: "graduation-cap", suffix: ""},
+};
+
+const teamData = {
   teamSize: {icon: "people-group", suffix: "people"},
   projectType: {icon: "handshake", suffix: "project"},
   role: {icon: "masks-theater", suffix: ""},
@@ -78,9 +73,24 @@ const techData = {
 };
 
 const productData = {
-  githubLink: {icon: "clock", suffix: ""},
-  productPage: {icon: "rocket", suffix: ""},
+  githubLink: {icon: ['fab', 'github'], suffix: ""},
+  productPage: {icon: ['fab', 'itch-io'], suffix: ""},
 };
+
+function isEmpty(obj) {
+  for (const prop in obj) {
+    if (Object.hasOwn(obj, prop)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const hasGeneral = computed(() => !isEmpty(props.details.general));
+const hasTech = computed(() => !isEmpty(props.details.technical));
+const hasProduct = computed(() => !isEmpty(props.details.product));
+const hasTeam = computed(() => !isEmpty(props.details.team));
 
 </script>
 
@@ -137,6 +147,14 @@ const productData = {
 
       hr {
         background-color: #b9a5fa;
+      }
+    }
+
+    &.team {
+      background: radial-gradient(circle at top left, rgb(66, 84, 57) 10%, rgb(35, 37, 34) 100%);
+
+      hr {
+        background-color: #cbfaa5;
       }
     }
 
