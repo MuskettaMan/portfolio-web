@@ -1,11 +1,12 @@
 <template>
 	<div class="project">
-		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`"/>
+		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`">
+      <h1>{{ projectMarkdown.title }}</h1>
+    </div>
     <ProjectTable :title="project.data.title" :details="details"/>
 		<div class="content-wrapper">
 			<div class="content">
 				<div class="article-body">
-					<h1>{{ projectMarkdown.title }}</h1>
 					<ContentRenderer :value="projectMarkdown"/>
 				</div>
 			</div>
@@ -89,6 +90,8 @@ if (project.data.product_page)
 	position: relative;
 
 	.banner {
+    position: relative;
+
 		width: 100%;
 		margin-top: -4.6rem;
 		margin-bottom: 2rem;
@@ -101,6 +104,15 @@ if (project.data.product_page)
 
     image-rendering: crisp-edges;
     image-rendering: pixelated;
+
+    h1 {
+      font-weight: 600;
+      color: white;
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      text-shadow: 3px 3px 8px #593507;
+    }
 	}
 
   .project-container {
