@@ -35,9 +35,7 @@ export default defineNuxtConfig({
         }
     },
 
-    modules: [
-        '@pinia/nuxt', '@nuxt/content', '@tresjs/nuxt'
-    ],
+    modules: ['@pinia/nuxt', '@nuxt/content', '@tresjs/nuxt', '@nuxtjs/google-fonts'],
 
     tres: {
         devtools: true
@@ -69,5 +67,11 @@ export default defineNuxtConfig({
         }
     },
 
-    compatibilityDate: '2025-01-27'
+    compatibilityDate: '2025-01-27',
+
+    googleFonts: {
+        families: {
+            'JetBrains Mono': true
+        }
+    }
 })

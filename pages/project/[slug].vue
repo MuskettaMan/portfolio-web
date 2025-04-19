@@ -98,6 +98,9 @@ if (project.data.product_page)
 		background-position: center;
 		box-shadow: 0px 0px 30px -10px rgba(33, 17, 0, 1);
 		border-bottom: 3px solid $flame;
+
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 	}
 
   .project-container {
