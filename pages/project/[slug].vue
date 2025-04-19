@@ -107,6 +107,7 @@ if (project.data.product_page)
 
     h1 {
       font-weight: 600;
+      font-size: 5vw;
       color: white;
       position: absolute;
       bottom: 2rem;
@@ -140,6 +141,7 @@ if (project.data.product_page)
 @media (max-width: 1200px) {
 	.project {
 
+
     .project-container {
     }
 		.content-wrapper {
@@ -157,6 +159,11 @@ if (project.data.product_page)
 @media (max-width: 900px) {
 	.project {
 
+    .banner {
+      h1 {
+        font-size: 7vw;
+      }
+    }
     .project-container {
     }
 		.content-wrapper {
@@ -166,6 +173,38 @@ if (project.data.product_page)
 			}
 		}
 	}
+}
+@media (max-width: 600px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 10vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 12vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 15vw;
+      }
+    }
+  }
 }
 
 </style>
