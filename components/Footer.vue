@@ -18,9 +18,9 @@
 						</div>
 					</div>
 					<div class="footer-socials">
-            <a href="mailto:ferri@ferri.dev" target="_blank">
-              <font-awesome-icon icon="envelope"/>
-            </a>
+						<a href="delange.fjm@gmail.com" target="_blank">
+							<font-awesome-icon icon="envelope"/>
+						</a>
 						<a href="https://www.linkedin.com/in/ferri-de-lange/" target="_blank">
 							<font-awesome-icon :icon="['fab', 'linkedin']"/>
 						</a>

@@ -38,9 +38,9 @@
 				<h2>Reach out</h2>
 				<span>
 					<p>
-						<a href="mailto:ferri@ferri.dev" target="_blank" class="link-no-style">
+						<a href="delange.fjm@gmail.com" target="_blank" class="link-no-style">
 						<font-awesome-icon icon="envelope"/>
-						Email me at <span class="url">ferri@ferri.dev</span>
+						Email me at <span class="url">delange.fjm@gmail.com</span>
 							</a>
 					</p>
 				</span>
