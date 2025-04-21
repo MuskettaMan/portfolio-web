@@ -1,14 +1,15 @@
 <template>
 	<div class="project">
-		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`"/>
+		<div class="banner" :style="`--banner-url: url(../../${project.data.banner_path});`">
+      <h1>{{ projectMarkdown.title }}</h1>
+    </div>
+    <ProjectTable :title="project.data.title" :details="details"/>
 		<div class="content-wrapper">
 			<div class="content">
 				<div class="article-body">
-					<h1>{{ projectMarkdown.title }}</h1>
 					<ContentRenderer :value="projectMarkdown"/>
 				</div>
 			</div>
-			<ProjectTable :title="project.data.title" :details="details"/>
 		</div>
 	</div>
 </template>
@@ -47,8 +48,8 @@ const timeFrame = () => {
 
 	// Array of month names for formatting
 	const monthNames = [
-		'January', 'February', 'March', 'April', 'May', 'June',
-		'July', 'August', 'September', 'October', 'November', 'December'
+		'Jan. ', 'Feb. ', 'Mar. ', 'Apr. ', 'May ', 'Jun. ',
+		'Jul. ', 'Aug. ', 'Sep. ', 'Oct. ', 'Nov. ', 'Dec. '
 	];
 
 	// Extract the year and month
@@ -59,27 +60,27 @@ const timeFrame = () => {
 	const endMonth = monthNames[end.getMonth()];
 
 	// Return the formatted time frame
-	return `${startYear} ${startMonth} - ${endYear} ${endMonth}`;
+	return `${startMonth} ${startYear} – ${endMonth} ${endYear}`;
 }
 
-const details = {};
-details['timeFrame'] = timeFrame();
-if (project.data.project_type)
-	details['projectType'] = project.data.project_type;
+const details = { general: {}, technical: {}, product: {}, team: {} };
+details.general['timeFrame'] = timeFrame();
 if (project.data.school_year)
-	details['schoolYear'] = project.data.school_year;
-if (project.data.repository_url)
-	details['githubLink'] = project.data.repository_url;
-if (project.data.programming_language)
-	details['programmingLanguage'] = project.data.programming_language;
-if (project.data.graphics_backend)
-	details['graphicsBackend'] = project.data.graphics_backend;
-if (project.data.team_size)
-	details['teamSize'] = project.data.team_size;
+  details.general['schoolYear'] = project.data.school_year;
+if (project.data.project_type)
+	details.team['projectType'] = project.data.project_type;
+if (project.data.team_size && project.data.team_size > 1)
+  details.team['teamSize'] = project.data.team_size;
 if (project.data.role)
-	details['role'] = project.data.role;
+  details.team['role'] = project.data.role;
+if (project.data.programming_language)
+	details.technical['programmingLanguage'] = project.data.programming_language;
+if (project.data.graphics_backend)
+	details.technical['graphicsBackend'] = project.data.graphics_backend;
+if (project.data.repository_url)
+  details.product['githubLink'] = project.data.repository_url;
 if (project.data.product_page)
-	details['productPage'] = project.data.product_page;
+	details.product['productPage'] = project.data.product_page;
 
 </script>
 
@@ -89,6 +90,8 @@ if (project.data.product_page)
 	position: relative;
 
 	.banner {
+    position: relative;
+
 		width: 100%;
 		margin-top: -4.6rem;
 		margin-bottom: 2rem;
@@ -98,12 +101,31 @@ if (project.data.product_page)
 		background-position: center;
 		box-shadow: 0px 0px 30px -10px rgba(33, 17, 0, 1);
 		border-bottom: 3px solid $flame;
+
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+
+    h1 {
+      font-weight: 600;
+      font-size: 5vw;
+      color: white;
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      text-shadow: 3px 3px 8px #593507;
+    }
 	}
+
+  .project-container {
+    height: fit-content;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
 
 	.content-wrapper {
 		display: flex;
 		justify-content: center;
-		gap: 2rem;
 
 		.content {
 			width: 60vw;
@@ -113,18 +135,15 @@ if (project.data.product_page)
 				margin-bottom: 5rem;
 			}
 		}
-
-		.project-container {
-			height: fit-content;
-			max-width: 30vw;
-			width: auto;
-			margin-right: 2rem;
-		}
 	}
 }
 
 @media (max-width: 1200px) {
 	.project {
+
+
+    .project-container {
+    }
 		.content-wrapper {
 			flex-direction: column-reverse;
 
@@ -133,29 +152,59 @@ if (project.data.product_page)
 				margin: 0 auto;
 			}
 
-			.project-container {
-				margin: 0 auto;
-				max-width: initial;
-				width: 80vw;
-			}
 		}
 	}
 }
 
 @media (max-width: 900px) {
 	.project {
+
+    .banner {
+      h1 {
+        font-size: 7vw;
+      }
+    }
+    .project-container {
+    }
 		.content-wrapper {
 
 			.content {
 				width: 90vw;
 			}
-
-			.project-container {
-				margin: 0 auto;
-				width: 90vw;
-			}
 		}
 	}
+}
+@media (max-width: 600px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 10vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 12vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .project {
+
+    .banner {
+      h1 {
+        font-size: 15vw;
+      }
+    }
+  }
 }
 
 </style>

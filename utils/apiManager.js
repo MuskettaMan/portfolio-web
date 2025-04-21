@@ -104,62 +104,6 @@ const apiManager = {
             throw error;
         }
     },
-    async createProject(projectData) {
-        try {
-            const response = await instance.post('/projects/create', projectData);
-            return response.data;
-        } catch (error) {
-            console.error('Error creating project:', error.message);
-            throw error;
-        }
-    },
-    async editProject(projectData) {
-        try {
-            const response = await instance.put('/projects/edit', projectData);
-            return response.data;
-        } catch (error) {
-            console.error('Error editing project:', error.message);
-            throw error;
-        }
-    },
-    async deleteProject(projectId) {
-        try {
-            const response = await instance.delete('/projects/delete', {data: {id: projectId}});
-            return response.data;
-        } catch (error) {
-            console.error('Error deleting project:', error.message);
-            throw error;
-        }
-    },
-    async editArticle(articleData) {
-        try {
-            const response = await instance.put('/articles/edit', articleData);
-            return response.data;
-        } catch (error) {
-            console.error('Error editing article:', error.message);
-            throw error;
-        }
-    },
-    async createArticle(articleData) {
-        try {
-            const response = await instance.post('/articles/create', articleData);
-            return response.data;
-        } catch (error) {
-            console.error('Error creating article:', error.message);
-            throw error;
-        }
-    },
-    async deleteArticle(articleId) {
-        try {
-            const response = await instance.delete('/articles/delete', {data: {id: articleId}});
-            return response.data;
-        } catch (error) {
-            console.error('Error deleting article:', error.message);
-            throw error;
-        }
-    }
-
-    // Add more methods as needed for your specific API calls
 };
 
 export default apiManager;

@@ -7,10 +7,9 @@
 				<p class="subtext">Low-level graphics and game development</p>
 				<p class="highlight">
 					Open for <b>6-12 month internship</b> starting September.
-          &nbsp;
-          <a href="ferri-de-lange-resume.pdf" target="_blank" class="link-no-style">
+          <a href="ferri-de-lange-resume.pdf" target="_blank" style="padding-left: 7px;" class="link-no-style">
           <font-awesome-icon icon="file-lines"/>
-          My resume
+            <span style="text-decoration: underline; padding-left: 5px;">My resume</span>
           </a>
 				</p>
         <p>
@@ -48,6 +47,7 @@ export default {
 
   .link-no-style {
     color: inherit;
+    text-decoration: none;
   }
 
   .url {

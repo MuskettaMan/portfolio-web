@@ -49,6 +49,7 @@ const currentYear = computed(() => new Date().getFullYear());
 <style scoped lang="scss">
 .footer {
 	background-color: #333;
+  background: radial-gradient(circle at top left, rgb(44, 30, 23) 0%, rgba(37, 36, 34, 1) 100%);
 	color: white;
 	padding: 4rem 0;
 	border-top: 1px solid #8d7c7c;

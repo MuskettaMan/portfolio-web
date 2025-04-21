@@ -68,7 +68,7 @@ a {
 }
 
 a:visited {
-  color: #9f380f;
+  //color: #9f380f;
 }
 
 button {
@@ -81,7 +81,7 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-  p, li, td {
+  p, li, td, pre {
     font-size: .9rem;
   }
 
@@ -167,14 +167,23 @@ pre {
   color: white;
   border-radius: 3px;
   padding: 7px;
+  font-size: 1rem;
+  font-family: "JetBrains Mono";
+}
+
+@media only screen and (max-width: 600px) {
+  pre {
+    font-size: 0.8rem;
+  }
 }
 
 code:not(pre code) {
   //background-color: rgba(63, 54, 49, 0.89);
-  color: #9f5111;
+  color: #d93300;
   border-radius: 3px;
   padding: 0 2px;
   width: fit-content;
+  font-family: "JetBrains Mono";
 }
 
 .bg-dark {

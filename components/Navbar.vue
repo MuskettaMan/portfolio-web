@@ -83,6 +83,7 @@ nav {
 
 .bar {
 	background-color: #333;
+  background: radial-gradient(circle at top left, rgb(44, 30, 23) 0%, rgba(37, 36, 34, 1) 100%);
 	height: 3.5rem;
 	pointer-events: auto;
 }
